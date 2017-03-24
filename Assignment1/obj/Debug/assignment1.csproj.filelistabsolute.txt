@@ -1,0 +1,24 @@
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\bin\Debug\Assignment1.exe.config
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\bin\Debug\Assignment1.exe
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\bin\Debug\Assignment1.pdb
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\obj\Debug\Assignment1.exe
+c:\users\skorpi\documents\visual studio 2015\Projects\Assignment1\Assignment1\obj\Debug\Assignment1.pdb
+P:\SecondSemester\CSharp\Assignment1\Assignment1\bin\Debug\Assignment1.exe.config
+P:\SecondSemester\CSharp\Assignment1\Assignment1\obj\Debug\Assignment1.exe
+P:\SecondSemester\CSharp\Assignment1\Assignment1\obj\Debug\Assignment1.pdb
+P:\SecondSemester\CSharp\Assignment1\Assignment1\bin\Debug\Assignment1.exe
+P:\SecondSemester\CSharp\Assignment1\Assignment1\bin\Debug\Assignment1.pdb
+P:\SecondSemester\CSharp\Assignment1\Assignment1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\bin\Debug\Assignment1.exe.config
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\obj\Debug\Assignment1.exe
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\obj\Debug\Assignment1.pdb
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\bin\Debug\Assignment1.exe
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\bin\Debug\Assignment1.pdb
+C:\Users\Skorpi76\Desktop\Assignment1\Assignment1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\bin\Debug\Assignment1.exe.config
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\bin\Debug\Assignment1.exe
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\bin\Debug\Assignment1.pdb
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\obj\Debug\Assignment1.csprojResolveAssemblyReference.cache
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\obj\Debug\Assignment1.exe
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\Assignment1\obj\Debug\Assignment1.pdb

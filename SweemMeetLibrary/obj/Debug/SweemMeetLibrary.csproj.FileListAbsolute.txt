@@ -1,0 +1,4 @@
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+P:\SecondSemester\CSharp\EMemetov_300805013_A2\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb

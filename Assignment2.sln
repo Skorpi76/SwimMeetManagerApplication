@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assignment2", "Assignment1\Assignment2.csproj", "{62AB8F0C-B399-4224-9CC4-07E287C0B351}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SwimMeetLibrary", "SweemMeetLibrary\SwimMeetLibrary.csproj", "{F1D9F4E5-4A7A-47D2-A44B-F1FD55CFCFA8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{23B520C0-3983-44B2-9675-AF75CE3C9353}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{62AB8F0C-B399-4224-9CC4-07E287C0B351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{62AB8F0C-B399-4224-9CC4-07E287C0B351}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{62AB8F0C-B399-4224-9CC4-07E287C0B351}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{62AB8F0C-B399-4224-9CC4-07E287C0B351}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F1D9F4E5-4A7A-47D2-A44B-F1FD55CFCFA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1D9F4E5-4A7A-47D2-A44B-F1FD55CFCFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1D9F4E5-4A7A-47D2-A44B-F1FD55CFCFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1D9F4E5-4A7A-47D2-A44B-F1FD55CFCFA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23B520C0-3983-44B2-9675-AF75CE3C9353}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23B520C0-3983-44B2-9675-AF75CE3C9353}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23B520C0-3983-44B2-9675-AF75CE3C9353}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23B520C0-3983-44B2-9675-AF75CE3C9353}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,10 @@
+C:\Users\Skorpi\Desktop\EMemetov_300805013_A2\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Desktop\EMemetov_300805013_A2\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi\Desktop\EMemetov_300805013_A2\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Skorpi\Desktop\EMemetov_300805013_A2\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Desktop\EMemetov_300805013_A2\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb

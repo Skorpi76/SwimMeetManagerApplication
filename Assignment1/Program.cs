@@ -34,7 +34,7 @@ namespace Assignment2
             {
                 DisplayInfo(i.ToString(), clbMngr.Clubs[i].GetInfo());
             }
-
+        
 
             swmMngr.LoadSwimmers(@"C:\A2\Swimmers.txt", ",");
 
@@ -42,7 +42,7 @@ namespace Assignment2
             {
                 DisplayInfo(i.ToString(), swmMngr.Swimmers[i].GetInfo());
             }
-
+           
             // Create 3 swimmers
             Registrant swimmer1;
             Registrant swimmer2;

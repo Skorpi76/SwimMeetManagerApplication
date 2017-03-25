@@ -49,10 +49,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AdressStructTest.cs" />
+    <Compile Include="EventClassTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ClubClassTest.cs" />
     <Compile Include="RegistrantClassTest.cs" />
     <Compile Include="SwimMeetClassTest.cs" />
+    <Compile Include="SwimmersManagerTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

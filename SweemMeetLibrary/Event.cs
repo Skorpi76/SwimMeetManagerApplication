@@ -164,7 +164,7 @@ namespace SwimMeetLibrary
             }
             else
             {
-               // Console.WriteLine("Swimmer {0} already entered", swimmer.RegistrantName);
+            
                 throw new Exception(string.Format("Swimmer {0}, {1} already entered", swimmer.RegistrantName, swimmer.RegistrantID));
             }
         }

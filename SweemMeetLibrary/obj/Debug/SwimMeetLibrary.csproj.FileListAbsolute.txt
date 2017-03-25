@@ -8,3 +8,13 @@ C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.
 C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
 C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
 C:\Users\Skorpi\Desktop\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb
+P:\SecondSemester\CSharp\Assignment3\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+P:\SecondSemester\CSharp\Assignment3\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+P:\SecondSemester\CSharp\Assignment3\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
+P:\SecondSemester\CSharp\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+P:\SecondSemester\CSharp\Assignment3\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb

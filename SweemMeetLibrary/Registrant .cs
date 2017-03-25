@@ -121,7 +121,7 @@ namespace SwimMeetLibrary
             }
         }
 
-        internal Event NEvent
+        public Event NEvent
         {
             get
             {

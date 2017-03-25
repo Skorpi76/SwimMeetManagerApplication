@@ -30,7 +30,16 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, swimmer1.RegistrantName);
         }
         [TestMethod]
-        public void Test_Registrant_PhoneNumberMethod() // Making sure there is acces to this method from Registrant Class
+        public void Test_Registrant_EmptyValues()
+        {
+            Registrant aSwimmer = new Registrant();
+            string expectedResult = string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",
+                aSwimmer.RegistrantID, "", aSwimmer.RegistrantDateOFBirth, aSwimmer.RegistrantAdress.GetInfo(), Club.PhoneNumber(aSwimmer.RegistrantPhoneNo), "not assigned");
+
+            Assert.AreEqual(expectedResult, aSwimmer.GetInfo());
+        }
+        [TestMethod]
+        public void Test_Registrant_PhoneNumberMethod() 
         {
             Registrant swimmer1;
             swimmer1 = new Registrant();
@@ -53,7 +62,53 @@ namespace UnitTests
             Assert.AreEqual(expectedResult, swimmer1.GetInfo());
         }
 
-        
+
+
+
+
+
+
+
+        [TestMethod]
+        public void Test_Registrant_ChangeClubUsingProperty()
+        {
+            Club club1 = new Club();
+            Registrant swimmer1 = new Registrant();
+            Club club2 = new Club();
+            try
+            {
+                swimmer1.NClub = club1;
+                swimmer1.NClub = club2;
+                Assert.Fail("no exception thrown");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is System.Exception);
+            }
+
+        }
+
+
+
+        [TestMethod]
+        public void Test_Registrant_GetEvent()
+        {
+            Event _200medley = new Event();
+            _200medley.Distance1 = Event.Distance._200;
+            _200medley.Value = Event.Stroke.IndividualMedley;
+
+            Registrant aSwimmer = new Registrant();
+            _200medley.AddSwimmer(aSwimmer);
+
+            Assert.AreEqual(_200medley, aSwimmer.NEvent);
+        }
+
+
+
+
+ 
+
 
     }
 }
+

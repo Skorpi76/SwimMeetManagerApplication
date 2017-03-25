@@ -21,6 +21,30 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void Test_SwimMeet_AddEventsMethod()
+        {
+            string expectedResult = "Winnter Splash";
+            SwimMeet meet1 = new SwimMeet();
+            meet1.NameOfMeet = "Winnter Splash";
+            meet1.StartDate = new DateTime(2017, 1, 10);
+            meet1.EndDate = new DateTime(2017, 1, 12);
+            meet1.NoOfLanes = 8;
+            SwimMeet meet2 = new SwimMeet();
+
+            Event event1 = new Event();
+            meet1.AddEvent(event1);
+        
+            try
+            {
+                Assert.AreEqual(expectedResult, event1.SweeMeets.NameOfMeet);
+            }
+            catch
+            {
+                throw new Exception(string.Format("Event 1 {0}", event1.SweeMeets.NameOfMeet));
+            }
+        }
+
+        [TestMethod]
         public void Test_SwimMeet_Property()
         {
             string Name = "Winnter Splash";

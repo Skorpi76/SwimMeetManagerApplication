@@ -8,29 +8,37 @@ using System.Threading.Tasks;
 
 namespace SwimMeetLibrary
 {
-   public class Club
+    public class Club
     {
         private static int clubNumber;
-        private int clubID;
-        private string clubName;
-        private long clubPhoneNumber;
-        private int numberOfSwimmers = 0;
-        Adress address;
-        Registrant[] swimmers;
+        public int ClubID { set; get; }              
+        public long ClubPhoneNumber { get; set; }
+        public string ClubName { get; set; }
+        public int NumberOfCoaches { get; set; }
+        public Adress Address { get; set; }
+        public Registrant[] Swimmers { get; set; }
+        public Coach[] Coaches { get; set; }
+        public int NumberOfSwimmers { get; set; }
 
+        
+
+        
+     
         #region Constructor | Setting Default values
         public Club(string clubName, Adress PhysicalLocation, long clubPhoneNumber)
         {
             ClubName = clubName;
             ClubPhoneNumber = clubPhoneNumber;
-            clubID = clubNumber++;
-            swimmers = new Registrant[20];
+            ClubID = clubNumber++;
+            Swimmers = new Registrant[20];
             Address = PhysicalLocation;
+            Coaches = new Coach[20];
         }
         public Club()
         {
-            swimmers = new Registrant[20];
-            clubID = clubNumber++;
+            Swimmers = new Registrant[20];
+            Coaches = new Coach[20];
+            ClubID = clubNumber++;
         }
         static Club()
         {
@@ -38,96 +46,30 @@ namespace SwimMeetLibrary
         }
         #endregion
 
-        #region Properties
-        public int ClubID
-        {
-            get
-            {
-                return clubID;
-            }
-            set
-            {
-                clubID = value;
-            }
-        }
-        public string ClubName
-        {
-            get
-            {
-                return clubName;
-            }
-            set
-            {
-                clubName = value;
-            }
-        }
 
-        public long ClubPhoneNumber
-        {
-            get
-            {
-                return clubPhoneNumber;
-            }
-            set
-            {
-                clubPhoneNumber = value;
-            }
-        }
 
-        public Registrant[] Swimmers
-        {
-            get
-            {
-                return swimmers;
-            }
-
-            set
-            {
-                swimmers = value;
-            }
-        }
-
-        public int NumberOfSwimmers
-        {
-            get
-            {
-                return numberOfSwimmers;
-            }
-
-            set
-            {
-                numberOfSwimmers = value;
-            }
-        }
-
-        public Adress Address
-        {
-            get
-            {
-                return address;
-            }
-
-            set
-            {
-                address = value;
-            }
-        }
-        #endregion
-
-        #region GetInfo Method
-        public string GetInfo()
+        #region ToString Method
+        public override string ToString()
         {
             string info;
 
-            info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ClubID, ClubName, Address.GetInfo(), PhoneNumber(ClubPhoneNumber));
+          
+
+            info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ClubID, ClubName, Address.ToString(), PhoneNumber(ClubPhoneNumber));
 
             info += string.Format("\nSwimmers:");
-            int i = 0;
-            while (Swimmers[i] != null)
+     
+            
+            for (int i = 0; i < NumberOfSwimmers; i++)
             {
-                info += string.Format("\n\t{0}", Swimmers[i].RegistrantName);
-                i++;
+                info += string.Format("\n\t  {0}", Swimmers[i].RegistrantName);
             }
+            info += string.Format("\nCoaches: ");
+            for (int i = 0; i < NumberOfCoaches; i++)
+            {
+                info += string.Format("\n\t  {0}", Coaches[i].RegistrantName);
+            }
+          
 
             return info;
         }
@@ -164,20 +106,22 @@ namespace SwimMeetLibrary
                 if (swimmer.NClub == null || swimmer.NClub == this)
                 {
                     Swimmers[NumberOfSwimmers] = swimmer;
-                    NumberOfSwimmers++;
-                    if (swimmer.NClub == null)
-                    {
-                        swimmer.NClub = this;
-                    }
-                }              
+                    NumberOfSwimmers++;                  
+                        swimmer.NClub = this;                   
+                }
                 else
                 {
-                    Console.WriteLine("Swimmer already assigned to {0} club", swimmer.NClub.ClubName);
+                    //Console.WriteLine("Swimmer already assigned to {0} club", swimmer.NClub.ClubName);
+                   throw new Exception(string.Format("Swimmer already assigned to {0} club", swimmer.NClub.ClubName));
                 }
 
             }
         }
         #endregion
-
+        public void AddCoach(Coach coach)
+        {
+            Coaches[NumberOfCoaches++] = coach;
+                  coach.NClub = this;                
+        }
     }
 }

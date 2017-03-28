@@ -26,8 +26,8 @@ namespace SwimMeetLibrary
         }
         #endregion
 
-        #region GetInfo Method
-        public string GetInfo()
+        #region ToString Method
+        public override string ToString()
         {
             return string.Format("\n\t {0} \n\t {1} \n\t {2} \n\t {3} ", Street, City, Province, Zip);
         }

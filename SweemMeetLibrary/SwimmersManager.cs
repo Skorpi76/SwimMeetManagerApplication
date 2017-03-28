@@ -7,11 +7,12 @@ using System.IO;
 
 namespace SwimMeetLibrary
 {
-    public class SwimmersManager
+    public class SwimmersManager : ISwimmersRepository
     {
-        private int numberOfSwimmers;
-        private Registrant[] swimmers;
-        private ClubsManager clubManager;
+        
+        public int Number { get; set; }
+        public Registrant[] Swimmers { get; set; }
+        public ClubsManager ClubManager { get; set; }
 
         #region Constuctor 
         public SwimmersManager(ClubsManager clubManager)
@@ -21,49 +22,10 @@ namespace SwimMeetLibrary
         }
         #endregion
 
-        #region Properties
-        public int NumberOfSwimmers
-        {
-            get
-            {
-                return numberOfSwimmers;
-            }
-
-            set
-            {
-                numberOfSwimmers = value;
-            }
-        }
-
-        public Registrant[] Swimmers
-        {
-            get
-            {
-                return swimmers;
-            }
-
-            set
-            {
-                swimmers = value;
-            }
-        }
-
-        public ClubsManager ClubManager
-        {
-            get
-            {
-                return clubManager;
-            }
-
-            set
-            {
-                clubManager = value;
-            }
-        }
-        #endregion
+     
 
         #region LoadSwimmers Method + Validation
-        public void LoadSwimmers(string fileName, string delimeter)
+        public void Load(string fileName, string delimeter)
         {
             FileStream inFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);
             StreamReader reader = new StreamReader(inFile);
@@ -91,7 +53,7 @@ namespace SwimMeetLibrary
                     aSwimmer.RegistrantDateOFBirth = DateTime.Parse(fields[2]);
                     aSwimmer.RegistrantAdress = new Adress(fields[3], fields[4], fields[5], fields[6]);
                     aSwimmer.RegistrantPhoneNo = Convert.ToInt64(fields[7]);
-                    // Console.WriteLine("{0,-5}{1,-12}{2,8} {3} {4}", aSwimmer.RegistrantID, aSwimmer.RegistrantName, aSwimmer.RegistrantDateOFBirth, aSwimmer.RegistrantAdress.City, aSwimmer.RegistrantPhoneNo); // temp
+                   
 
 
 
@@ -101,7 +63,7 @@ namespace SwimMeetLibrary
 
                         if (clubNumber != 0)
                         {
-                            for (int i = 0; i < ClubManager.NumberOfClubs; i++)
+                            for (int i = 0; i < ClubManager.Number; i++)
                             {
                                 if (ClubManager.Clubs[i].ClubID == clubNumber)
                                 {
@@ -113,7 +75,7 @@ namespace SwimMeetLibrary
 
                     }
                   
-                AddSwimmer(aSwimmer);
+                Add(aSwimmer);
                 }
                 catch (Exception e)
                 {
@@ -146,7 +108,7 @@ namespace SwimMeetLibrary
                     throw new Exception(string.Format("Invalid swimmer record. Invalid registration number: "));
                 }
                 valID = Convert.ToInt32(validationNumber);
-                for (int i = 0; i < NumberOfSwimmers; i++)
+                for (int i = 0; i < Number; i++)
                 {
                     if (valID == Swimmers[i].RegistrantID)
                     {
@@ -212,7 +174,7 @@ namespace SwimMeetLibrary
         #endregion
 
         #region SaveSwimmers Method
-        public void SaveSwimmers(string fileName, string delimeter)
+        public void Save(string fileName, string delimeter)
         {
             FileStream outFile = null;
             StreamWriter writer = null;
@@ -220,7 +182,7 @@ namespace SwimMeetLibrary
             {
                 outFile = new FileStream(fileName, FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(outFile);
-                for (int i = 0; i < NumberOfSwimmers; i++)
+                for (int i = 0; i < Number; i++)
                 {
                     string clubId;
                     if (Swimmers[i].NClub == null)
@@ -252,9 +214,9 @@ namespace SwimMeetLibrary
         #endregion
 
         #region AddSwimmer Method
-        public void AddSwimmer(Registrant aSwimmer)
+        public void Add(Registrant aSwimmer)
         {
-            Swimmers[NumberOfSwimmers++] = aSwimmer;
+            Swimmers[Number++] = aSwimmer;
           
             int i = 0;
             bool trigger = false;
@@ -266,17 +228,17 @@ namespace SwimMeetLibrary
             }
             if (!trigger && aSwimmer.NClub != null)
             {
-                ClubManager.AddClub(aSwimmer.NClub);
+                ClubManager.Add(aSwimmer.NClub);
             }
         }
         #endregion
 
         #region GetSwimmer Method
-        public Registrant GetSwimmer(int regNumber)
+        public Registrant GetByRegNum(int regNumber)
         {
             Registrant returnValue = null;
 
-            for (int i = 0; i < numberOfSwimmers; i++)
+            for (int i = 0; i < Number; i++)
             {
                 if (Swimmers[i].RegistrantID == regNumber)
                     returnValue = Swimmers[i];

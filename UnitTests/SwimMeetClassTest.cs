@@ -79,11 +79,11 @@ namespace UnitTests
             expectedResult += "\t\nEvents: ";
             while (meet1.Events[i] != null)
             {
-                expectedResult += string.Format(meet1.Events[i].GetInfo());
+                expectedResult += string.Format(meet1.Events[i].ToString());
                 i++;
             }
 
-            Assert.AreEqual(expectedResult, meet1.GetInfo());
+            Assert.AreEqual(expectedResult, meet1.ToString());
         }
 
 
@@ -109,11 +109,11 @@ namespace UnitTests
             expectedResult += "\t\nEvents: ";
             while (meet1.Events[i] != null)
             {
-                expectedResult += string.Format(meet1.Events[i].GetInfo());
+                expectedResult += string.Format(meet1.Events[i].ToString());
                 i++;
             }
 
-            Assert.AreEqual(expectedResult, meet1.GetInfo());
+            Assert.AreEqual(expectedResult, meet1.ToString());
         }
 
 

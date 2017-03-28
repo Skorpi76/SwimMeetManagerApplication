@@ -7,7 +7,7 @@ using System.Threading.Tasks;
  * Student Number: 300805013 */
 namespace SwimMeetLibrary
 {
-  public  class Registrant
+    public class Registrant
     {
         private static int registrantNo;
         private int registrantID;
@@ -85,7 +85,7 @@ namespace SwimMeetLibrary
             }
         }
 
-        public Club NClub
+        public virtual Club NClub
         {
             get
             {
@@ -94,14 +94,14 @@ namespace SwimMeetLibrary
 
             set
             {
-              
-                    if (nClub == null)
-                    {
-                        nClub = value;
-                        NClub.AddSwimmer(this);                      
-                    }
+
+                if (nClub == null)
+                {
+                    nClub = value;
+                    NClub.AddSwimmer(this);
+                }
                 else
-                {                  
+                {
                     throw new Exception(string.Format("Swimmer is registered with a different club"));
                 }
             }
@@ -130,7 +130,7 @@ namespace SwimMeetLibrary
 
             set
             {
-              
+
                 nEvent = value;
             }
 
@@ -138,10 +138,10 @@ namespace SwimMeetLibrary
         #endregion
 
         #region GetInfo Method
-        public string GetInfo()
+        public override string ToString()
         {
             return string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",
-                RegistrantID, RegistrantName, RegistrantDateOFBirth, RegistrantAdress.GetInfo(), Club.PhoneNumber(RegistrantPhoneNo), NClub != null ? NClub.ClubName : "not assigned");
+                RegistrantID, RegistrantName, RegistrantDateOFBirth, RegistrantAdress.ToString(), Club.PhoneNumber(RegistrantPhoneNo), NClub != null ? NClub.ClubName : "not assigned");
 
         }
         #endregion

@@ -7,11 +7,12 @@ using System.IO;
 
 namespace SwimMeetLibrary
 {
-   public class ClubsManager
+   public class ClubsManager : IClubsRepository
     {
-        private Club[] clubs;
-        private int numberOfClubs;
-        private SwimmersManager swimmerManager;
+        
+        public int Number { set; get; }      
+        public Club[] Clubs { set; get; }
+        public SwimmersManager SwimmerManager { set; get; }
 
         #region Constructor 
         public ClubsManager()
@@ -21,49 +22,10 @@ namespace SwimMeetLibrary
         }
         #endregion
 
-        #region Properties
-        public int NumberOfClubs
-        {
-            get
-            {
-                return numberOfClubs;
-            }
-
-            set
-            {
-                numberOfClubs = value;
-            }
-        }
-
-        public Club[] Clubs
-        {
-            get
-            {
-                return clubs;
-            }
-
-            set
-            {
-                clubs = value;
-            }
-        }
-
-        public SwimmersManager SwimmerManager
-        {
-            get
-            {
-                return swimmerManager;
-            }
-
-            set
-            {
-                swimmerManager = value;
-            }
-        }
-        #endregion
-
+    
+       
         #region LoadClubs Method
-        public void LoadClubs(string fileName, string delimeter)
+        public void Load(string fileName, string delimeter)
         {
 
             FileStream inFile = new FileStream(fileName, FileMode.Open, FileAccess.Read);
@@ -95,7 +57,7 @@ namespace SwimMeetLibrary
 
                     int valID;
                     valID = Convert.ToInt32(fields[0]);
-                    for (int i = 0; i < NumberOfClubs; i++)
+                    for (int i = 0; i < Number; i++)
                     {
                         if (valID == Clubs[i].ClubID)
                         {
@@ -122,8 +84,8 @@ namespace SwimMeetLibrary
                     {
                         throw new Exception(string.Format("Invalid club record. Phone number wrong format:"));
                     }
-                    AddClub(aClub);
-                    // Console.WriteLine("{0,-5}{1,-12}{2,8} {3}", aClub.ClubID, aClub.ClubName, aClub.Address.City, aClub.ClubPhoneNumber); // temp
+                    Add(aClub);
+                   
                 }
                 catch (Exception e)
                 {
@@ -139,7 +101,7 @@ namespace SwimMeetLibrary
         #endregion
 
         #region SaveClubs Method
-        public void SaveClubs(string fileName, string delimeter)
+        public void Save(string fileName, string delimeter)
         {
             FileStream outFile = null;
             StreamWriter writer = null;
@@ -147,7 +109,7 @@ namespace SwimMeetLibrary
             {
                 outFile = new FileStream(fileName, FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(outFile);
-                for (int i = 0; i < numberOfClubs; i++)
+                for (int i = 0; i < Number; i++)
                 {
                     writer.WriteLine(Clubs[i].ClubID + delimeter + Clubs[i].ClubName + delimeter + Clubs[i].Address.Street + delimeter + Clubs[i].Address.City + delimeter + Clubs[i].Address.Province + delimeter + Clubs[i].Address.Zip + delimeter + Clubs[i].ClubPhoneNumber);
                 }
@@ -166,11 +128,11 @@ namespace SwimMeetLibrary
         #endregion
 
         #region GetClub Method
-        public Club GetClub(int regNumber)
+        public Club GetByRegNum(int regNumber)
         {
             Club returnValue = null;
 
-            for (int i = 0; i < numberOfClubs; i++)
+            for (int i = 0; i < Number; i++)
             {
                 if (Clubs[i].ClubID == regNumber)
                     returnValue = Clubs[i];
@@ -181,9 +143,9 @@ namespace SwimMeetLibrary
         #endregion
 
         #region AddClub Method
-        public void AddClub(Club aClub)
+        public void Add(Club aClub)
         {
-            Clubs[NumberOfClubs++] = aClub;
+            Clubs[Number++] = aClub;
         }
         #endregion
 

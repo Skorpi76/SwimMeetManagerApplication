@@ -34,9 +34,9 @@ namespace UnitTests
         {
             Registrant aSwimmer = new Registrant();
             string expectedResult = string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",
-                aSwimmer.RegistrantID, "", aSwimmer.RegistrantDateOFBirth, aSwimmer.RegistrantAdress.GetInfo(), Club.PhoneNumber(aSwimmer.RegistrantPhoneNo), "not assigned");
+                aSwimmer.RegistrantID, "", aSwimmer.RegistrantDateOFBirth, aSwimmer.RegistrantAdress.ToString(), Club.PhoneNumber(aSwimmer.RegistrantPhoneNo), "not assigned");
 
-            Assert.AreEqual(expectedResult, aSwimmer.GetInfo());
+            Assert.AreEqual(expectedResult, aSwimmer.ToString());
         }
         [TestMethod]
         public void Test_Registrant_PhoneNumberMethod() 
@@ -57,9 +57,9 @@ namespace UnitTests
             Registrant swimmer1 = new Registrant("Bob Smith", new DateTime(1970, 1, 1),
                                                     new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567);
             string expectedResult = string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",
-               swimmer1.RegistrantID, swimmer1.RegistrantName, swimmer1.RegistrantDateOFBirth, swimmer1.RegistrantAdress.GetInfo(), Club.PhoneNumber(swimmer1.RegistrantPhoneNo), swimmer1.NClub != null ? swimmer1.NClub.ClubName : "not assigned");
+               swimmer1.RegistrantID, swimmer1.RegistrantName, swimmer1.RegistrantDateOFBirth, swimmer1.RegistrantAdress.ToString(), Club.PhoneNumber(swimmer1.RegistrantPhoneNo), swimmer1.NClub != null ? swimmer1.NClub.ClubName : "not assigned");
 
-            Assert.AreEqual(expectedResult, swimmer1.GetInfo());
+            Assert.AreEqual(expectedResult, swimmer1.ToString());
         }
 
 

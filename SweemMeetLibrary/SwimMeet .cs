@@ -8,14 +8,14 @@ namespace SwimMeetLibrary
 {
    public class SwimMeet
     {
-        public enum PoolCourse { SCM, SCY, LCM };
-        private DateTime startDate;
-        private DateTime endDate;
-        private string nameOfMeet;
-        private int noOfLanes;
-        private int noOfEvents;
-        public readonly PoolCourse course;
-        private Event[] events;
+        public enum PoolCourse { SCM, SCY, LCM };      
+        public readonly PoolCourse course;    
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public Event[] Events { get; set; }
+        public string NameOfMeet { get; set; }
+        public int NoOfLanes { get; set; }
+        public int NoOfEvents { get; set; }
 
         #region Constructor | Setting Default values
         public SwimMeet(string nameOfMeet, DateTime startDate, DateTime endDate, PoolCourse course, int noOfLanes)
@@ -34,84 +34,10 @@ namespace SwimMeetLibrary
         }
         #endregion
 
-        #region SwimMeet Properties
-        public DateTime StartDate
-        {
-            get
-            {
-                return startDate;
-            }
-            set
-            {
-                startDate = value;
-            }
-        }
-        public DateTime EndDate
-        {
-            get
-            {
-                return endDate;
-            }
-            set
-            {
-                endDate = value;
-            }
-        }
-        public string NameOfMeet
-        {
-            get
-            {
-                return nameOfMeet;
-            }
-            set
-            {
-
-                nameOfMeet = value;
-            }
-        }
-
-        public int NoOfLanes
-        {
-            get
-            {
-                return noOfLanes;
-            }
-
-            set
-            {
-                noOfLanes = value;
-            }
-        }
-
-        public Event[] Events
-        {
-            get
-            {
-                return events;
-            }
-
-            set
-            {
-                events = value;
-            }
-        }
-
-        public int NoOfEvents
-        {
-            get
-            {
-                return noOfEvents;
-            }
-
-            set
-            {
-                noOfEvents = value;
-            }
-        }
-        #endregion
+      
 
         #region GetInfo Method
-        public string GetInfo()
+        public override string ToString()
         {
             string info;
             info = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
@@ -120,7 +46,7 @@ namespace SwimMeetLibrary
             info += "\t\nEvents: ";
             while (Events[i] != null)
             {
-                info += string.Format(Events[i].GetInfo());
+                info += string.Format(Events[i].ToString());
                 i++;
             }
             return info;
@@ -138,7 +64,7 @@ namespace SwimMeetLibrary
         #region Seed Method
         public void Seed()
         {
-            for (int i = 0; i < noOfEvents; i++)
+            for (int i = 0; i < NoOfEvents; i++)
             {
                 int j = 0;
                 int heat = 1;

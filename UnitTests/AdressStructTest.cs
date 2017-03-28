@@ -27,7 +27,7 @@ namespace UnitTests
             Adress adress = new Adress("35 River St", "Toronto", "ON", "M2M 5M5");
             string expectedResult = string.Format("\n\t {0} \n\t {1} \n\t {2} \n\t {3} ", adress.Street, adress.City, adress.Province, adress.Zip);
 
-            Assert.AreEqual(expectedResult, adress.GetInfo());
+            Assert.AreEqual(expectedResult, adress.ToString());
         }
     }
 }

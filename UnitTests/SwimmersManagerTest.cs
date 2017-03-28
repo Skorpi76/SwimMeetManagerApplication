@@ -13,7 +13,7 @@ namespace UnitTests
             ClubsManager clbMngr = new ClubsManager();
             SwimmersManager swmMngr = new SwimmersManager(clbMngr);
 
-            swmMngr.LoadSwimmers(@"C:\A2\Swimmers.txt", ",");
+            swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
            string actualResult =  swmMngr.Swimmers[0].RegistrantName;
             Assert.AreEqual(expectedResult, actualResult);
         }
@@ -26,8 +26,8 @@ namespace UnitTests
            
             try
             {
-                swmMngr.LoadSwimmers(@"C:\A2\Swimmers.txt", ",");
-                swmMngr.Swimmers[9].GetInfo();
+                swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
+                swmMngr.Swimmers[9].ToString();
                 Assert.Fail("no exception thrown");
             }
             catch (Exception ex)

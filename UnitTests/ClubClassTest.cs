@@ -126,7 +126,7 @@ namespace UnitTests
         public void Test_Club_GetInfoWithoutSwimmers()
         {
             Club club1 = new Club("CCAC", new Adress("35 River St", "Toronto", "ON", "M2M 5M5"), 4165555555);
-            string expectedResult = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", club1.ClubID, club1.ClubName, club1.Address.GetInfo(), Club.PhoneNumber(club1.ClubPhoneNumber));
+            string expectedResult = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", club1.ClubID, club1.ClubName, club1.Address.ToString(), Club.PhoneNumber(club1.ClubPhoneNumber));
             expectedResult += string.Format("\nSwimmers:");
             int i = 0;
             while (club1.Swimmers[i] != null)
@@ -135,7 +135,7 @@ namespace UnitTests
                 i++;
             }
 
-            Assert.AreEqual(expectedResult, club1.GetInfo());
+            Assert.AreEqual(expectedResult, club1.ToString());
         }
 
         [TestMethod]
@@ -147,7 +147,7 @@ namespace UnitTests
             Registrant swimmer2 = new Registrant();
             club1.AddSwimmer(swimmer1);
             club1.AddSwimmer(swimmer2);
-            string expectedResult = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", club1.ClubID, club1.ClubName, club1.Address.GetInfo(), Club.PhoneNumber(club1.ClubPhoneNumber));
+            string expectedResult = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", club1.ClubID, club1.ClubName, club1.Address.ToString(), Club.PhoneNumber(club1.ClubPhoneNumber));
             expectedResult += string.Format("\nSwimmers:");
             int i = 0;
             while (club1.Swimmers[i] != null)
@@ -156,7 +156,7 @@ namespace UnitTests
                 i++;
             }
 
-            Assert.AreEqual(expectedResult, club1.GetInfo());
+            Assert.AreEqual(expectedResult, club1.ToString());
         }
         }
 }

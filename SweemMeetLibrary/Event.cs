@@ -9,25 +9,25 @@ namespace SwimMeetLibrary
    public class Event
     {
         public enum Distance { _50 = 50, _100 = 100, _200 = 200, _400 = 400, _800 = 800, _1500 = 1500, None };
-        private Distance distance;
-        private SwimMeet sweeMeets;
-        private Registrant[] swimmers;
-        private int noOfSwimers;
-        private Stroke value;
+        public Distance Distance1 { get; set; }
+        public SwimMeet SweeMeets { get; set; }
+        public Registrant[] Swimmers { get; set; }
+        public int NoOfSwimers { get; set; }
+        public Stroke Value { get; set; }
         private int noOfSwims;
-        private Swim[] swims;    
+        public Swim[] Swims { get; set; }
         public enum Stroke
         {
             Butterfly, Backstroke, Breaststroke, Freestyle,
             IndividualMedley, None
         };
-
+   
 
         #region Constructor | Setting Default values
         public Event(Distance distance, Stroke value)
         {
-            swimmers = new Registrant[100];
-            swims = new Swim[20];
+            Swimmers = new Registrant[100];
+            Swims = new Swim[20];
             Distance1 = distance;
             Value = value;
           
@@ -35,97 +35,19 @@ namespace SwimMeetLibrary
 
         public Event() : this(Distance.None, Stroke.None)
         {
-            swimmers = new Registrant[100];
-            swims = new Swim[20];
+            Swimmers = new Registrant[100];
+            Swims = new Swim[20];
         }
 
         #endregion
 
-        #region Properties 
-        public SwimMeet SweeMeets
-        {
-            get
-            {
-                return sweeMeets;
-            }
-
-            set
-            {
-                sweeMeets = value;
-            }
-        }
-
-        public Stroke Value
-        {
-            get
-            {
-                return value;
-            }
-
-            set
-            {
-                this.value = value;
-            }
-        }
-
-        public Distance Distance1
-        {
-            get
-            {
-                return distance;
-            }
-
-            set
-            {
-                distance = value;
-            }
-        }
-
-        public Registrant[] Swimmers
-        {
-            get
-            {
-                return swimmers;
-            }
-
-            set
-            {
-                swimmers = value;
-            }
-        }
-
-        public int NoOfSwimers
-        {
-            get
-            {
-                return noOfSwimers;
-            }
-
-            set
-            {
-                noOfSwimers = value;
-            }
-        }
-
-        public Swim[] Swims
-        {
-            get
-            {
-                return swims;
-            }
-
-            set
-            {
-                swims = value;
-            }
-        }
-        #endregion
+        
 
         #region GetInfo Method
-        public string GetInfo()
+        public override string ToString()
         {
             string info;
-            info = string.Format("\n\t{0} {1}", distance, value);
+            info = string.Format("\n\t{0} {1}", Distance1, Value);
             int i = 0;
             info += string.Format("\n\tSwimmers: ");
             while (Swimmers[i] != null)         

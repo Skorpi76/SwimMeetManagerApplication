@@ -11,7 +11,6 @@ namespace SwimMeetLibrary
     {
         
         public int Number { get; set; }
-        //public Registrant[] Swimmers { get; set; }
         public List<Registrant> Swimmers { get; set; }
         public ClubsManager ClubManager { get; set; }
 
@@ -19,7 +18,6 @@ namespace SwimMeetLibrary
         public SwimmersManager(ClubsManager clubManager)
         {
             ClubManager = clubManager;
-           // Swimmers = new Registrant[100];
             Swimmers = new List<Registrant>(100);
         }
         #endregion
@@ -220,13 +218,12 @@ namespace SwimMeetLibrary
         {
             Swimmers.Add(aSwimmer);
             Number++;
-            int i = 0;
+           
             bool trigger = false;
-            while (ClubManager.Clubs[i] != null)
+            foreach (Club club in ClubManager.Clubs)
             {
-                if (aSwimmer.NClub == ClubManager.Clubs[i])
-                    trigger = true;
-                i++;
+                if (aSwimmer.NClub == club)
+                   trigger = true;
             }
             if (!trigger && aSwimmer.NClub != null)
             {

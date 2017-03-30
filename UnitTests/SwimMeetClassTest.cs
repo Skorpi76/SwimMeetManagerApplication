@@ -82,6 +82,7 @@ namespace UnitTests
                 expectedResult += string.Format(meet1.Events[i].ToString());
                 i++;
             }
+            
 
             Assert.AreEqual(expectedResult, meet1.ToString());
         }

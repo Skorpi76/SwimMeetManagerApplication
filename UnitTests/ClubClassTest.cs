@@ -104,21 +104,19 @@ namespace UnitTests
         [TestMethod]
         public void Test_Club_AddSwimmerMethodReAssignSwimmer()
         {
-            string expectedResult = "CCAC";
             Club club1 = new Club("CCAC", new Adress("35 River St", "Toronto", "ON", "M2M 5M5"), 4165555555);
             Club club2 = new Club();
             club2.ClubName = "Club2";
             Registrant swimmer1 = new Registrant();
-            club1.AddSwimmer(swimmer1);
-            club2.AddSwimmer(swimmer1);
-
             try
             {
-                Assert.AreEqual(expectedResult, swimmer1.NClub.ClubName);
+                club1.AddSwimmer(swimmer1);
+                club2.AddSwimmer(swimmer1);
+                Assert.Fail("no exception thrown");
             }
-            catch (Exception error)
+            catch(Exception ex)
             {
-                throw new Exception(string.Format("Swimmer: {0}, Clubname {1} \n {2}", swimmer1.RegistrantName, swimmer1.NClub.ClubName, error));
+                Assert.IsTrue(ex is System.Exception);
             }
         }
 

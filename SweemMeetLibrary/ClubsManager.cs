@@ -11,14 +11,14 @@ namespace SwimMeetLibrary
     {
         
         public int Number { set; get; }      
-        public Club[] Clubs { set; get; }
+        public List<Club> Clubs { set; get; }
         
         public SwimmersManager SwimmerManager { set; get; }
 
         #region Constructor 
         public ClubsManager()
         {
-            Clubs = new Club[100];
+            Clubs = new List<Club>(100);
             SwimmerManager = new SwimmersManager(this);
         }
         #endregion
@@ -146,7 +146,8 @@ namespace SwimMeetLibrary
         #region AddClub Method
         public void Add(Club aClub)
         {
-            Clubs[Number++] = aClub;
+            Clubs.Add(aClub);
+            Number++;
         }
         #endregion
 

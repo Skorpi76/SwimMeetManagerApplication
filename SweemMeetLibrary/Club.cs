@@ -15,7 +15,6 @@ namespace SwimMeetLibrary
         public long ClubPhoneNumber { get; set; }
         public string ClubName { get; set; }
         public Adress Address { get; set; }
-       // public Registrant[] Swimmers { get; set; }
         public List<Registrant> Swimmers { get; set; }
         public List<Coach> Coaches { get; set; }
         public int NumberOfSwimmers { get; set; }
@@ -27,15 +26,13 @@ namespace SwimMeetLibrary
         {
             ClubName = clubName;
             ClubPhoneNumber = clubPhoneNumber;
-            ClubID = clubNumber++;
-            //Swimmers = new Registrant[20];
+            ClubID = clubNumber++;           
             Address = PhysicalLocation;
             Swimmers = new List<Registrant>(20);
             Coaches = new List<Coach>(20);
         }
         public Club()
-        {
-           // Swimmers = new Registrant[20];      
+        {          
             Coaches = new List<Coach>(20);
             Swimmers = new List<Registrant>(20);
             ClubID = clubNumber++;
@@ -105,7 +102,11 @@ namespace SwimMeetLibrary
                 {
                     Swimmers.Add(swimmer);
                     NumberOfSwimmers++;
-                    swimmer.NClub = this;
+                    if (swimmer.NClub == null)
+                    {
+                        swimmer.NClub = this;
+                    }
+                                               
                 }
                 else
                 {

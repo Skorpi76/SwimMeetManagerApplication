@@ -17,8 +17,7 @@ namespace Assignment2
         {
 
 
-            //ClubsManager clbMngr = new ClubsManager();
-            //SwimmersManager swmMngr = new SwimmersManager(clbMngr);
+           
             IClubsRepository clbMngr = new ClubsManager();
             ISwimmersRepository swmMngr = new SwimmersManager((ClubsManager)clbMngr);
 
@@ -36,7 +35,7 @@ namespace Assignment2
             {
                 DisplayInfo(i.ToString(), ((ClubsManager)clbMngr).Clubs[i].ToString());
             }
-        
+
 
             swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
 
@@ -57,9 +56,9 @@ namespace Assignment2
             CreateClubs(out club1, out club2);
 
             //Assigne swimmers to club
-           
-                AssigneSwimmersToClubs(swimmer1, swimmer2, swimmer3, club1, club2);
-           
+
+            AssigneSwimmersToClubs(swimmer1, swimmer2, swimmer3, club1, club2);
+
 
 
             //New code
@@ -93,8 +92,8 @@ namespace Assignment2
             EnterTimesForSwims(swimmer1, swimmer2, swimmer3, meet1, meet2,
                                _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
 
-           // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer1.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
-           // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer3.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
+            // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer1.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
+            // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer3.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
 
             clbMngr.Add(club1);
 
@@ -108,7 +107,7 @@ namespace Assignment2
 
             swmMngr.Save("SwimmersOut.txt", "|");
 
-            
+
 
         }
         #endregion
@@ -155,16 +154,16 @@ namespace Assignment2
                 Console.WriteLine(ex.Message);
             }
 
-                coach1.AddSwimmer(swimmer1);
-                coach1.AddSwimmer(swimmer3);
+            coach1.AddSwimmer(swimmer1);
+            coach1.AddSwimmer(swimmer3);
 
-                swimmer2.NCoach = coach2;
-       
+            swimmer2.NCoach = coach2;
+
             DisplayInfo("coach 1", coach1.ToString());
             DisplayInfo("coach 2", coach2.ToString());
             DisplayInfo("club1", swimmer1.NClub.ToString());
             DisplayInfo("club2", swimmer2.NClub.ToString());
-            
+
 
         }
 
@@ -364,10 +363,13 @@ namespace Assignment2
             Console.WriteLine("********** Adding swim times for swimmers *********");
 
             _50free1.EnterSwimmersTime(swimmer1, "00:30.13");
+
+
+            _50free1.EnterSwimmersTime(swimmer1, "00:30.13");
             _50free1.EnterSwimmersTime(swimmer2, "00:28.87");
             _50free1.EnterSwimmersTime(swimmer3, "00:29.54");
-
-            _100fly.EnterSwimmersTime(swimmer1, "01:17.23");
+     
+            _100fly.EnterSwimmersTime(swimmer1, "01:17.23");      
             _100fly.EnterSwimmersTime(swimmer2, "01:05.16");
 
             _200breast.EnterSwimmersTime(swimmer1, "02:25.23");

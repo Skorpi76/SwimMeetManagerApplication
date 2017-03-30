@@ -11,33 +11,33 @@ namespace SwimMeetLibrary
     public class Club
     {
         private static int clubNumber;
-        public int ClubID { set; get; }              
+        public int ClubID { set; get; }
         public long ClubPhoneNumber { get; set; }
         public string ClubName { get; set; }
-        public int NumberOfCoaches { get; set; }
         public Adress Address { get; set; }
-        public Registrant[] Swimmers { get; set; }
-        public Coach[] Coaches { get; set; }
+       // public Registrant[] Swimmers { get; set; }
+        public List<Registrant> Swimmers { get; set; }
+        public List<Coach> Coaches { get; set; }
         public int NumberOfSwimmers { get; set; }
 
-        
 
-        
-     
+
         #region Constructor | Setting Default values
         public Club(string clubName, Adress PhysicalLocation, long clubPhoneNumber)
         {
             ClubName = clubName;
             ClubPhoneNumber = clubPhoneNumber;
             ClubID = clubNumber++;
-            Swimmers = new Registrant[20];
+            //Swimmers = new Registrant[20];
             Address = PhysicalLocation;
-            Coaches = new Coach[20];
+            Swimmers = new List<Registrant>(20);
+            Coaches = new List<Coach>(20);
         }
         public Club()
         {
-            Swimmers = new Registrant[20];
-            Coaches = new Coach[20];
+           // Swimmers = new Registrant[20];      
+            Coaches = new List<Coach>(20);
+            Swimmers = new List<Registrant>(20);
             ClubID = clubNumber++;
         }
         static Club()
@@ -53,23 +53,21 @@ namespace SwimMeetLibrary
         {
             string info;
 
-          
+
 
             info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ClubID, ClubName, Address.ToString(), PhoneNumber(ClubPhoneNumber));
 
             info += string.Format("\nSwimmers:");
-     
-            
-            for (int i = 0; i < NumberOfSwimmers; i++)
+            foreach (var swimmer in Swimmers)
             {
-                info += string.Format("\n\t  {0}", Swimmers[i].RegistrantName);
+                info += string.Format("\n\t  {0}", swimmer.RegistrantName);
             }
             info += string.Format("\nCoaches: ");
-            for (int i = 0; i < NumberOfCoaches; i++)
+            foreach (var coach in Coaches)
             {
-                info += string.Format("\n\t  {0}", Coaches[i].RegistrantName);
+                info += string.Format("\n\t  {0}", coach.RegistrantName);
             }
-          
+
 
             return info;
         }
@@ -105,14 +103,13 @@ namespace SwimMeetLibrary
             {
                 if (swimmer.NClub == null || swimmer.NClub == this)
                 {
-                    Swimmers[NumberOfSwimmers] = swimmer;
-                    NumberOfSwimmers++;                  
-                        swimmer.NClub = this;                   
+                    Swimmers.Add(swimmer);
+                    NumberOfSwimmers++;
+                    swimmer.NClub = this;
                 }
                 else
                 {
-                    //Console.WriteLine("Swimmer already assigned to {0} club", swimmer.NClub.ClubName);
-                   throw new Exception(string.Format("Swimmer already assigned to {0} club", swimmer.NClub.ClubName));
+                    throw new Exception(string.Format("Swimmer already assigned to {0} club", swimmer.NClub.ClubName));
                 }
 
             }
@@ -120,8 +117,8 @@ namespace SwimMeetLibrary
         #endregion
         public void AddCoach(Coach coach)
         {
-            Coaches[NumberOfCoaches++] = coach;
-                  coach.NClub = this;                
+            Coaches.Add(coach);
+            coach.NClub = this;
         }
     }
 }

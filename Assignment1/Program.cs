@@ -108,7 +108,7 @@ namespace Assignment2
 
             swmMngr.Save("SwimmersOut.txt", "|");
 
-
+            
 
         }
         #endregion

@@ -9,18 +9,17 @@ namespace SwimMeetLibrary
     public class Coach : Registrant
     {
       
-        public Swimmer[] Swimmers { get; set; }
-        public int NoOfSwimmers { get; set; }
+        public List<Swimmer> Swimmers { get; set; } 
         public string Credentials { get; set; }
         public override Club NClub { get; set; }
         
         public Coach(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo) : base(registrantName, registrantDateOFBirth, PhysicalLocation, registrantPhoneNo)
         {
-            Swimmers = new Swimmer[20];
+            Swimmers = new List<Swimmer>(20);
         }
         public Coach()
         {
-            Swimmers = new Swimmer[20];
+            Swimmers = new List<Swimmer>(20);
         }
 
      
@@ -36,8 +35,7 @@ namespace SwimMeetLibrary
             }
             if (swimmer.NClub == this.NClub)
             {
-                Swimmers[NoOfSwimmers] = swimmer;
-                NoOfSwimmers++;
+                Swimmers.Add(swimmer);
                 swimmer.NCoach = this;
             }
             else
@@ -49,15 +47,12 @@ namespace SwimMeetLibrary
         }
 
         public override string ToString()
-        {
-            string info;
-            info = base.ToString() + string.Format("\n Credentials: {0}\n Swimmers: ", Credentials);
-
-            for (int i = 0; i < NoOfSwimmers; i++)
+        {    
+           string info = base.ToString() + string.Format("\n Credentials: {0}\n Swimmers: ", Credentials);
+            foreach (var item in Swimmers)
             {
-                info += string.Format("\n\t  {0}", Swimmers[i].RegistrantName);
+                info += string.Format("\n\t  {0}", item.RegistrantName);
             }
-
             return info;
         }
     }

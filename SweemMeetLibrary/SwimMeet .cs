@@ -6,17 +6,17 @@ using System.Threading.Tasks;
 
 namespace SwimMeetLibrary
 {
-   public class SwimMeet
+    public class SwimMeet
     {
-        public enum PoolCourse { SCM, SCY, LCM };      
-        public readonly PoolCourse course;    
+        public enum PoolCourse { SCM, SCY, LCM };
+        public readonly PoolCourse course;
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public Event[] Events { get; set; }
+        // public Event[] Events { get; set; }
         public string NameOfMeet { get; set; }
         public int NoOfLanes { get; set; }
         public int NoOfEvents { get; set; }
-
+        public List<Event> Events { get; set; }
         #region Constructor | Setting Default values
         public SwimMeet(string nameOfMeet, DateTime startDate, DateTime endDate, PoolCourse course, int noOfLanes)
         {
@@ -25,16 +25,18 @@ namespace SwimMeetLibrary
             NameOfMeet = nameOfMeet;
             NoOfLanes = noOfLanes;
             this.course = course;
-            Events = new Event[50];
+            //Events = new Event[50];
+            Events = new List<Event>(50);
 
         }
         public SwimMeet()
         {
-            Events = new Event[50];
+            //Events = new Event[50];
+            Events = new List<Event>(50);
         }
         #endregion
 
-      
+
 
         #region GetInfo Method
         public override string ToString()
@@ -42,12 +44,17 @@ namespace SwimMeetLibrary
             string info;
             info = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
                 StartDate, EndDate, NameOfMeet, course, NoOfLanes);
-            int i = 0;
+            
             info += "\t\nEvents: ";
-            while (Events[i] != null)
+            //int i = 0;
+            //while (Events[i] != null)
+            //{
+            //    info += string.Format(Events[i].ToString());
+            //    i++;
+            //}
+            foreach (var item in Events)
             {
-                info += string.Format(Events[i].ToString());
-                i++;
+                info += string.Format(item.ToString());
             }
             return info;
         }
@@ -56,7 +63,8 @@ namespace SwimMeetLibrary
         #region AddEvent Method
         public void AddEvent(Event eventN)
         {
-            Events[NoOfEvents++] = eventN;
+            Events.Add(eventN);
+            NoOfEvents++;
             eventN.SweeMeets = this;
         }
         #endregion

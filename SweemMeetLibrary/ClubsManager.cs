@@ -12,6 +12,7 @@ namespace SwimMeetLibrary
         
         public int Number { set; get; }      
         public Club[] Clubs { set; get; }
+        
         public SwimmersManager SwimmerManager { set; get; }
 
         #region Constructor 

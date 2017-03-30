@@ -10,15 +10,15 @@ namespace SwimMeetLibrary
     public class Registrant
     {
         private static int registrantNo;
-        private int registrantID;
-        private string registrantName;
-        private DateTime registrantDateOFBirth;
-        private Adress registrantAdress;
-        private long registrantPhoneNo;
+        public int RegistrantID { set; get; }
+        public string RegistrantName { set; get; }
+        public DateTime RegistrantDateOFBirth { set; get; }
+        public Adress RegistrantAdress { set; get; }
+        public long RegistrantPhoneNo { set; get; }
         private Club nClub;
-        private Event nEvent;
+        public Event NEvent { set; get; }
 
-        #region Constructor | Setting Default values
+        
         public Registrant(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo)
         {
             RegistrantName = registrantName;
@@ -35,55 +35,7 @@ namespace SwimMeetLibrary
         {
             registrantNo = 1;
         }
-        #endregion
 
-        #region Registrant Properties
-        public int RegistrantID
-        {
-            get
-            {
-                return registrantID;
-            }
-            set
-            {
-                registrantID = value;
-            }
-
-        }
-        public string RegistrantName
-        {
-            get
-            {
-                return registrantName;
-            }
-            set
-            {
-                registrantName = value;
-            }
-        }
-        public DateTime RegistrantDateOFBirth
-        {
-            get
-            {
-                return registrantDateOFBirth;
-            }
-            set
-            {
-                registrantDateOFBirth = value;
-            }
-        }
-        public long RegistrantPhoneNo
-        {
-            get
-            {
-                return registrantPhoneNo;
-            }
-            set
-            {
-
-                registrantPhoneNo = value;
-            }
-        }
 
         public virtual Club NClub
         {
@@ -107,37 +59,10 @@ namespace SwimMeetLibrary
             }
         }
 
-        public Adress RegistrantAdress
-        {
-            get
-            {
-                return registrantAdress;
-            }
+     
+      
 
-            set
-            {
-
-                registrantAdress = value;
-            }
-        }
-
-        public Event NEvent
-        {
-            get
-            {
-                return nEvent;
-            }
-
-            set
-            {
-
-                nEvent = value;
-            }
-
-        }
-        #endregion
-
-        #region GetInfo Method
+        #region ToSting Method
         public override string ToString()
         {
             return string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",

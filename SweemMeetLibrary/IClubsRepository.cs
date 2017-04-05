@@ -13,6 +13,6 @@ namespace SwimMeetLibrary
         void Load(string fileName, string delimeter);
         void Save(string fileName, string delimeter);
         Club GetByRegNum(int regNumber);
-        
+
     }
 }

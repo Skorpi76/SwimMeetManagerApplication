@@ -8,34 +8,44 @@ namespace SwimMeetLibrary
 {
     public class Swimmer : Registrant
     {
+        private Coach itsCoach;
+        public List<TimeSpan> BestTimeTimeSpan { set; get; }
+        public List<Event> BestTimeEvent { set; get; }
 
-        public List<String> BestTimes { get; set;}
-        private Coach coach;
+        public Swimmer(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo) : base(registrantName, registrantDateOFBirth, PhysicalLocation, registrantPhoneNo)
+        {
+            BestTimeTimeSpan = new List<TimeSpan>();
+            BestTimeEvent = new List<Event>();
+        }
+        public Swimmer()
+        {
+            BestTimeTimeSpan = new List<TimeSpan>();
+            BestTimeEvent = new List<Event>();
+        }
 
-
-        public Coach NCoach
+        public Coach ItsCoach
         {
             get
             {
-                return coach;
+                return itsCoach;
             }
             set
             {
 
-                if (value.NClub == null)
+                if (value.ItsClub == null)
                 {
                     throw new Exception(string.Format("Coach is not assigned to the club"));
 
                 }
-                if (value.NClub != NClub && value.NClub != null)
+                if (value.ItsClub != ItsClub && value.ItsClub != null)
                 {
                     throw new Exception("Coach and swimmer are not in the same club");
 
                 }
-                if (NClub == value.NClub && !value.Swimmers.Contains(this))
+                if (ItsClub == value.ItsClub && !value.Swimmers.Contains(this))
                 {
 
-                    coach = value;
+                    itsCoach = value;
                     value.AddSwimmer(this);
                 }
 
@@ -43,80 +53,37 @@ namespace SwimMeetLibrary
             }
         }
 
-        public Swimmer(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo) : base(registrantName, registrantDateOFBirth, PhysicalLocation, registrantPhoneNo)
-        {
-            BestTimes = new List<String>();
-        }
-        public Swimmer()
-        {
-            BestTimes = new List<String>();
-        }
-
         public TimeSpan GetBestTime(SwimMeet.PoolCourse course, Event.Stroke stroke, Event.Distance distance)
         {
             TimeSpan time = TimeSpan.Zero;
-            foreach (string item in BestTimes)
+            for (int i = 0; i < BestTimeEvent.Count; i++)
             {
-                
-                if (item.Contains(course.ToString()) && item.Contains(stroke.ToString()) && item.Contains(distance.ToString()))
+                if (BestTimeEvent[i].StrokeValue == stroke && BestTimeEvent[i].DistanceValue == distance && BestTimeEvent[i].SweeMeets.Course == course)
                 {
-                    string stringTime = item.Substring(item.LastIndexOf('|') + 1, 8);
-                    time = Event.StringToTimeSpan(stringTime);
+                    time = BestTimeTimeSpan[i];
                 }
             }
-            return time;       
+            return time;
         }
 
-        //public void AddAsBestTime(SwimMeet.PoolCourse course, Event.Stroke stroke, Event.Distance distance, TimeSpan givenTime)
-        //{
-        //    foreach (string item in BestTimes)
-        //    {
-        //        if (item.Contains(course.ToString()) && item.Contains(stroke.ToString()) && item.Contains(distance.ToString()))
-        //        {
-        //            string stringTime = item.Substring(item.LastIndexOf('|') + 1, 8);
-        //            TimeSpan thisTime = Event.StringToTimeSpan(stringTime);
-
-        //            if (TimeSpan.Compare(thisTime, givenTime) == 1)
-        //            {
-
-        //                item.Replace(thisTime.ToString(), givenTime.ToString());
-        //                Console.WriteLine(thisTime);
-        //                Console.WriteLine(givenTime);
-        //                Console.WriteLine(item);
-        //            }
-        //        }
-        //    }
-        //}
-
-        public void AddAsBestTime(SwimMeet.PoolCourse course, Event.Stroke stroke, Event.Distance distance, TimeSpan givenTime)
+        public void AddAsBestTime(SwimMeet.PoolCourse course, Event.Stroke stroke, Event.Distance distance, TimeSpan time)
         {
-            string newItem = "";
-            string thisItem = "";
-            foreach (string item in BestTimes)
+            for (int i = 0; i < BestTimeEvent.Count; i++)
             {
-                if (item.Contains(course.ToString()) && item.Contains(stroke.ToString()) && item.Contains(distance.ToString()))
+                if (BestTimeEvent[i].StrokeValue == stroke && BestTimeEvent[i].DistanceValue == distance && BestTimeEvent[i].SweeMeets.Course == course)
                 {
-
-                    string stringTime = item.Substring(item.LastIndexOf('|') + 1, 8);
-                    TimeSpan thisTime = Event.StringToTimeSpan(stringTime);
-                    if (TimeSpan.Compare(thisTime, givenTime) == 1)
+                    if (TimeSpan.Compare(BestTimeTimeSpan[i], time) == 1)
                     {
-                        newItem = item.Replace(thisTime.ToString().Substring(3, 8), givenTime.ToString().Substring(3, 8));                    
-                        thisItem = item;
-                        break;
+                        BestTimeTimeSpan[i] = time;
                     }
                 }
             }
-            if (newItem != "")
-                BestTimes[BestTimes.IndexOf(thisItem)] = newItem;
-
-
         }
 
         public override string ToString()
         {
             string info;
-            info = base.ToString() + string.Format("\n Coached By {0} ", NCoach != null ? NCoach.RegistrantName : "not assigned");
+            info = base.ToString() + string.Format("\n Coached By {0} ", ItsCoach != null ? ItsCoach.Name : "not assigned");
             return info;
         }
 

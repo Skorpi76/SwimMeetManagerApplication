@@ -9,10 +9,10 @@ namespace SwimMeetLibrary
     public class SwimMeet
     {
         public enum PoolCourse { SCM, SCY, LCM };
-        public PoolCourse course { get; private set;}
+        public PoolCourse Course { get; private set;}
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
-        public string NameOfMeet { get; set; }
+        public string Name { get; set; }
         public int NoOfLanes { get; set; }
         public int NoOfEvents { get; set; }
         public List<Event> Events { get; set; }
@@ -21,9 +21,9 @@ namespace SwimMeetLibrary
         {
             StartDate = startDate;
             EndDate = endDate;
-            NameOfMeet = nameOfMeet;
+            Name = nameOfMeet;
             NoOfLanes = noOfLanes;
-            this.course = course;
+            this.Course = course;
 
             Events = new List<Event>(50);
 
@@ -38,7 +38,7 @@ namespace SwimMeetLibrary
         {
             string info;
             info = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
-                StartDate, EndDate, NameOfMeet, course, NoOfLanes);
+                StartDate, EndDate, Name, Course, NoOfLanes);
 
             info += "\t\nEvents: ";
 

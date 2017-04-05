@@ -11,7 +11,7 @@ namespace SwimMeetLibrary
       
         public List<Swimmer> Swimmers { get; set; } 
         public string Credentials { get; set; }
-        public override Club NClub { get; set; }
+        public override Club ItsClub { get; set; }
         
         public Coach(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo) : base(registrantName, registrantDateOFBirth, PhysicalLocation, registrantPhoneNo)
         {
@@ -28,15 +28,15 @@ namespace SwimMeetLibrary
         {
 
 
-            if (NClub == null)
+            if (ItsClub == null)
             {
                 throw new Exception("Coach is not assigned to a club");
 
             }
-            if (swimmer.NClub == this.NClub)
+            if (swimmer.ItsClub == this.ItsClub)
             {
                 Swimmers.Add(swimmer);
-                swimmer.NCoach = this;
+                swimmer.ItsCoach = this;
             }
             else
             {
@@ -51,7 +51,7 @@ namespace SwimMeetLibrary
            string info = base.ToString() + string.Format("\n Credentials: {0}\n Swimmers: ", Credentials);
             foreach (var item in Swimmers)
             {
-                info += string.Format("\n\t  {0}", item.RegistrantName);
+                info += string.Format("\n\t  {0}", item.Name);
             }
             return info;
         }

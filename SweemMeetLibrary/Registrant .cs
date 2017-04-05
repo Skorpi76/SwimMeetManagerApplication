@@ -10,26 +10,26 @@ namespace SwimMeetLibrary
     public class Registrant
     {
         private static int registrantNo;
-        public int RegistrantID { set; get; }
-        public string RegistrantName { set; get; }
-        public DateTime RegistrantDateOFBirth { set; get; }
-        public Adress RegistrantAdress { set; get; }
-        public long RegistrantPhoneNo { set; get; }
-        private Club nClub;
-        public Event NEvent { set; get; }
+        public int ID { set; get; }
+        public string Name { set; get; }
+        public DateTime DOB { set; get; }
+        public Adress Address { set; get; }
+        public long PhoneNumber { set; get; }
+        private Club itsClub;
+        public Event ItsEvent { set; get; }
 
         
         public Registrant(string registrantName, DateTime registrantDateOFBirth, Adress PhysicalLocation, long registrantPhoneNo)
         {
-            RegistrantName = registrantName;
-            RegistrantDateOFBirth = registrantDateOFBirth;
-            RegistrantAdress = PhysicalLocation;
-            RegistrantPhoneNo = registrantPhoneNo;
-            RegistrantID = registrantNo++;
+            Name = registrantName;
+            DOB = registrantDateOFBirth;
+            Address = PhysicalLocation;
+            PhoneNumber = registrantPhoneNo;
+            ID = registrantNo++;
         }
         public Registrant()
         {
-            RegistrantID = registrantNo++;
+            ID = registrantNo++;
         }
         static Registrant()
         {
@@ -37,20 +37,20 @@ namespace SwimMeetLibrary
         }
 
 
-        public virtual Club NClub
+        public virtual Club ItsClub
         {
             get
             {
-                return nClub;
+                return itsClub;
             }
 
             set
             {
 
-                if (nClub == null)
+                if (itsClub == null)
                 {
-                    nClub = value;
-                    NClub.AddSwimmer(this);
+                    itsClub = value;
+                    ItsClub.AddSwimmer(this);
                 }
                 else
                 {
@@ -66,7 +66,7 @@ namespace SwimMeetLibrary
         public override string ToString()
         {
             return string.Format("Name: {1} \nAdress: {3} \nPhone: {4} \nDOB: {2} \nReg number: {0} \nClub: {5}",
-                RegistrantID, RegistrantName, RegistrantDateOFBirth, RegistrantAdress.ToString(), Club.PhoneNumber(RegistrantPhoneNo), NClub != null ? NClub.ClubName : "not assigned");
+                ID, Name, DOB, Address.ToString(), Club.ConvertPhoneNumber(PhoneNumber), ItsClub != null ? ItsClub.Name : "not assigned");
 
         }
         #endregion

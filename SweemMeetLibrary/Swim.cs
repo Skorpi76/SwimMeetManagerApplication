@@ -12,7 +12,7 @@ namespace SwimMeetLibrary
         public int Heat { get; set; }
         public int Lane { get; set; }
         public string TimeSwam { get; set; }
-        public Event Events { get; set; }
+        public Event ItsEvent { get; set; }
     
 
         #region Constructor | Setting Default values
@@ -23,17 +23,14 @@ namespace SwimMeetLibrary
             TimeSwam = timeSwam;
 
         }
-        public Swim()
-        {
-
-        }
+        public Swim() { }
         #endregion
 
 
         #region ToString Method
         public override string ToString()
         {
-            return string.Format("#Lane#: {0} \n#Heat: {1} \n#TimeSwam: {2}\n/---------------------", Lane, Heat, TimeSwam);
+            return string.Format("\n\tLane: {0}\n\tHeat: {1}\n\tTime {2}\n", Lane, Heat, TimeSwam);
         }
         #endregion
     }

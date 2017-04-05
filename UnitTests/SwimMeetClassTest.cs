@@ -21,11 +21,41 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void Test_SwimMeet_SeedMethod()
+        {
+            Event aEvent = new Event();
+            SwimMeet aMeet = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.SCM, 2);
+            Swimmer aRegistrant = new Swimmer();
+            aMeet.AddEvent(aEvent);
+
+            aEvent.AddSwimmer(aRegistrant);
+            aMeet.Seed();
+            Assert.AreEqual("1" + "1", aMeet.Events[0].Swims[0].Heat.ToString() + aMeet.Events[0].Swims[0].Lane.ToString());
+        }
+
+        [TestMethod]
+        public void Test_SwimMeet_SeedMethodNewHeat()
+        {
+            Event aEvent = new Event();
+            SwimMeet aMeet = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.SCM, 2);
+            Swimmer aRegistrant = new Swimmer();
+            Swimmer bRegistrant = new Swimmer();
+            Swimmer cRegistrant = new Swimmer();
+            aMeet.AddEvent(aEvent);
+
+            aEvent.AddSwimmer(aRegistrant);
+            aEvent.AddSwimmer(bRegistrant);
+            aEvent.AddSwimmer(cRegistrant);
+            aMeet.Seed();
+            Assert.AreEqual("11" + "12" + "21", aMeet.Events[0].Swims[0].Heat.ToString() + aMeet.Events[0].Swims[0].Lane.ToString() + aMeet.Events[0].Swims[1].Heat.ToString() + aMeet.Events[0].Swims[1].Lane.ToString() + aMeet.Events[0].Swims[2].Heat.ToString() + aMeet.Events[0].Swims[2].Lane.ToString());
+        }
+
+        [TestMethod]
         public void Test_SwimMeet_AddEventsMethod()
         {
             string expectedResult = "Winnter Splash";
             SwimMeet meet1 = new SwimMeet();
-            meet1.NameOfMeet = "Winnter Splash";
+            meet1.Name = "Winnter Splash";
             meet1.StartDate = new DateTime(2017, 1, 10);
             meet1.EndDate = new DateTime(2017, 1, 12);
             meet1.NoOfLanes = 8;
@@ -36,11 +66,11 @@ namespace UnitTests
         
             try
             {
-                Assert.AreEqual(expectedResult, event1.SweeMeets.NameOfMeet);
+                Assert.AreEqual(expectedResult, event1.SweeMeets.Name);
             }
             catch
             {
-                throw new Exception(string.Format("Event 1 {0}", event1.SweeMeets.NameOfMeet));
+                throw new Exception(string.Format("Event 1 {0}", event1.SweeMeets.Name));
             }
         }
 
@@ -53,70 +83,21 @@ namespace UnitTests
             int noOfLanes = 8;
 
             SwimMeet meet1 = new SwimMeet();
-            meet1.NameOfMeet = "Winnter Splash";
+            meet1.Name = "Winnter Splash";
             meet1.StartDate = new DateTime(2017, 1, 10);
             meet1.EndDate = new DateTime(2017, 1, 12);
             meet1.NoOfLanes = 8;
 
-            Assert.AreEqual(Name, meet1.NameOfMeet);
+            Assert.AreEqual(Name, meet1.Name);
             Assert.AreEqual(startDate, meet1.StartDate);
             Assert.AreEqual(endDate, meet1.EndDate);
             Assert.AreEqual(noOfLanes, meet1.NoOfLanes);
 
         }
-        [TestMethod]
-        public void Test_SwimMeet_GetInfoWithoutEvents()
-        {
-            SwimMeet meet1 = new SwimMeet();
-            meet1.NameOfMeet = "Winnter Splash";
-            meet1.StartDate = new DateTime(2017, 1, 10);
-            meet1.EndDate = new DateTime(2017, 1, 12);
-            meet1.NoOfLanes = 8;
-            string expectedResult;
-            expectedResult = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
-                meet1.StartDate, meet1.EndDate, meet1.NameOfMeet, meet1.course, meet1.NoOfLanes);
-            int i = 0;
-            expectedResult += "\t\nEvents: ";
-            while (meet1.Events[i] != null)
-            {
-                expectedResult += string.Format(meet1.Events[i].ToString());
-                i++;
-            }
-            
-
-            Assert.AreEqual(expectedResult, meet1.ToString());
-        }
+     
 
 
-        [TestMethod]
-        public void Test_SwimMeet_GetInfoWithEvents()
-        {
-            SwimMeet meet1 = new SwimMeet();
-            meet1.NameOfMeet = "Winnter Splash";
-            meet1.StartDate = new DateTime(2017, 1, 10);
-            meet1.EndDate = new DateTime(2017, 1, 12);
-            meet1.NoOfLanes = 8;
-
-            Event _100fly = new Event(Event.Distance._100, Event.Stroke.Butterfly);
-            Event _200breast = new Event(Event.Distance._200, Event.Stroke.Breaststroke);
-
-            meet1.AddEvent(_100fly);
-            meet1.AddEvent(_200breast);
-
-            string expectedResult;
-            expectedResult = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
-                meet1.StartDate, meet1.EndDate, meet1.NameOfMeet, meet1.course, meet1.NoOfLanes);
-            int i = 0;
-            expectedResult += "\t\nEvents: ";
-            while (meet1.Events[i] != null)
-            {
-                expectedResult += string.Format(meet1.Events[i].ToString());
-                i++;
-            }
-
-            Assert.AreEqual(expectedResult, meet1.ToString());
-        }
-
+        
 
 
     }

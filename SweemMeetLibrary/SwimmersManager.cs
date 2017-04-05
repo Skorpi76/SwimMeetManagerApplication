@@ -9,7 +9,7 @@ namespace SwimMeetLibrary
 {
     public class SwimmersManager : ISwimmersRepository
     {
-        
+
         public int Number { get; set; }
         public List<Registrant> Swimmers { get; set; }
         public ClubsManager ClubManager { get; set; }
@@ -21,8 +21,6 @@ namespace SwimMeetLibrary
             Swimmers = new List<Registrant>(100);
         }
         #endregion
-
-     
 
         #region LoadSwimmers Method + Validation
         public void Load(string fileName, string delimeter)
@@ -39,21 +37,21 @@ namespace SwimMeetLibrary
                     fields = recordIn.Split(delimeter[0]);
                     Registrant aSwimmer = new Registrant();
 
-                    ValidationRegistrantID(fields[0]);
-                    ValidationRegistrantPhoneNo(fields[7]);
-                    ValidationRegistrantBirthDate(fields[2]);
+                    TestID(fields[0]);
+                    TestPhoneNumber(fields[7]);
+                    TestDOB(fields[2]);
 
 
-                    if (fields[1] == "") // Fields[1] = RegistrantName
+                    if (fields[1] == "") // Fields[1] = Name
                         throw new Exception(string.Format("Invalid swimmer record. Invalid swimmer name:   "));
 
 
-                    aSwimmer.RegistrantID = Convert.ToInt32(fields[0]);
-                    aSwimmer.RegistrantName = fields[1];
-                    aSwimmer.RegistrantDateOFBirth = DateTime.Parse(fields[2]);
-                    aSwimmer.RegistrantAdress = new Adress(fields[3], fields[4], fields[5], fields[6]);
-                    aSwimmer.RegistrantPhoneNo = Convert.ToInt64(fields[7]);
-                   
+                    aSwimmer.ID = Convert.ToInt32(fields[0]);
+                    aSwimmer.Name = fields[1];
+                    aSwimmer.DOB = DateTime.Parse(fields[2]);
+                    aSwimmer.Address = new Adress(fields[3], fields[4], fields[5], fields[6]);
+                    aSwimmer.PhoneNumber = Convert.ToInt64(fields[7]);
+
 
 
 
@@ -65,7 +63,7 @@ namespace SwimMeetLibrary
                         {
                             for (int i = 0; i < ClubManager.Number; i++)
                             {
-                                if (ClubManager.Clubs[i].ClubID == clubNumber)
+                                if (ClubManager.Clubs[i].ID == clubNumber)
                                 {
                                     ClubManager.Clubs[i].AddSwimmer(aSwimmer);
                                     break;
@@ -74,14 +72,14 @@ namespace SwimMeetLibrary
                         }
 
                     }
-                  
-                Add(aSwimmer);
+
+                    Add(aSwimmer);
                 }
                 catch (Exception e)
                 {
                     //throw new Exception(string.Format("{1} \n\t{0}", recordIn, e.Message))
                     Console.WriteLine("{1} \n\t{0}", recordIn, e.Message);
-                    
+
                 }
                 recordIn = reader.ReadLine();
             }
@@ -90,7 +88,7 @@ namespace SwimMeetLibrary
         }
 
         #region Validation methods
-        private void ValidationRegistrantID(string validationNumber)
+        private void TestID(string validationNumber)
         {
             int valID;
             try
@@ -99,10 +97,7 @@ namespace SwimMeetLibrary
                     throw new Exception(string.Format("Invalid swimmer record. Registration number is missing: "));
                 try
                 {
-
-
                     valID = Convert.ToInt32(validationNumber);
-
                 }
                 catch (Exception)
                 {
@@ -111,7 +106,7 @@ namespace SwimMeetLibrary
                 valID = Convert.ToInt32(validationNumber);
                 for (int i = 0; i < Number; i++)
                 {
-                    if (valID == Swimmers[i].RegistrantID)
+                    if (valID == Swimmers[i].ID)
                     {
                         throw new Exception(string.Format("Invalid swimmer record. Swimmer with the registration number already exists: "));
                     }
@@ -122,7 +117,7 @@ namespace SwimMeetLibrary
                 throw;
             }
         }
-        private void ValidationRegistrantPhoneNo(string validationNumber)
+        private void TestPhoneNumber(string validationNumber)
         {
             long valID;
             try
@@ -145,7 +140,7 @@ namespace SwimMeetLibrary
             }
         }
 
-        private void ValidationRegistrantBirthDate(string validationNumber)
+        private void TestDOB(string validationNumber)
         {
             DateTime dateBirth;
             try
@@ -155,14 +150,11 @@ namespace SwimMeetLibrary
 
                 try
                 {
-
-
                     dateBirth = DateTime.Parse(validationNumber);
                 }
                 catch
                 {
                     throw new Exception(string.Format("Invalid swimmer record. Birth date is invalid:  "));
-
                 }
             }
             catch
@@ -186,20 +178,20 @@ namespace SwimMeetLibrary
                 for (int i = 0; i < Number; i++)
                 {
                     string clubId;
-                    if (Swimmers[i].NClub == null)
+                    if (Swimmers[i].ItsClub == null)
                     {
                         clubId = "";
                     }
                     else
                     {
-                        clubId = Swimmers[i].NClub.ClubID.ToString();
+                        clubId = Swimmers[i].ItsClub.ID.ToString();
                     }
-                        writer.WriteLine(Swimmers[i].RegistrantID + delimeter + Swimmers[i].RegistrantName + delimeter + 
-                            Swimmers[i].RegistrantDateOFBirth + delimeter + Swimmers[i].RegistrantAdress.Street + delimeter + 
-                            Swimmers[i].RegistrantAdress.City + delimeter + Swimmers[i].RegistrantAdress.Province + delimeter + 
-                            Swimmers[i].RegistrantAdress.Zip + delimeter + Swimmers[i].RegistrantPhoneNo + delimeter + clubId);
-                    
-                    }
+                    writer.WriteLine(Swimmers[i].ID + delimeter + Swimmers[i].Name + delimeter +
+                        Swimmers[i].DOB + delimeter + Swimmers[i].Address.Street + delimeter +
+                        Swimmers[i].Address.City + delimeter + Swimmers[i].Address.Province + delimeter +
+                        Swimmers[i].Address.Zip + delimeter + Swimmers[i].PhoneNumber + delimeter + clubId);
+
+                }
 
             }
             catch
@@ -219,16 +211,16 @@ namespace SwimMeetLibrary
         {
             Swimmers.Add(aSwimmer);
             Number++;
-           
+
             bool trigger = false;
             foreach (Club club in ClubManager.Clubs)
             {
-                if (aSwimmer.NClub == club)
-                   trigger = true;
+                if (aSwimmer.ItsClub == club)
+                    trigger = true;
             }
-            if (!trigger && aSwimmer.NClub != null)
+            if (!trigger && aSwimmer.ItsClub != null)
             {
-                ClubManager.Add(aSwimmer.NClub);
+                ClubManager.Add(aSwimmer.ItsClub);
             }
         }
         #endregion
@@ -240,7 +232,7 @@ namespace SwimMeetLibrary
 
             for (int i = 0; i < Number; i++)
             {
-                if (Swimmers[i].RegistrantID == regNumber)
+                if (Swimmers[i].ID == regNumber)
                     returnValue = Swimmers[i];
             }
 

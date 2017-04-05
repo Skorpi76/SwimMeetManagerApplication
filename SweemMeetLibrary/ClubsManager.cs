@@ -60,7 +60,7 @@ namespace SwimMeetLibrary
                     valID = Convert.ToInt32(fields[0]);
                     for (int i = 0; i < Number; i++)
                     {
-                        if (valID == Clubs[i].ClubID)
+                        if (valID == Clubs[i].ID)
                         {
                            
                             throw new Exception("Invalid club record. Club with the registration number already exists: ");
@@ -69,17 +69,17 @@ namespace SwimMeetLibrary
                     }
                     try
                     {
-                        aClub.ClubID = Convert.ToInt32(fields[0]);
+                        aClub.ID = Convert.ToInt32(fields[0]);
                     }
                     catch(Exception)
                     {
                         throw new Exception(string.Format("Invalid club record Club number is not valid:"));
                     }
-                    aClub.ClubName = fields[1];
+                    aClub.Name = fields[1];
                     aClub.Address = new Adress(fields[2], fields[3], fields[4], fields[5]);
                     try
                     {
-                        aClub.ClubPhoneNumber = Convert.ToInt64(fields[6]);
+                        aClub.PhoneNumber = Convert.ToInt64(fields[6]);
                     }
                     catch (Exception)
                     {
@@ -112,7 +112,7 @@ namespace SwimMeetLibrary
                 writer = new StreamWriter(outFile);
                 for (int i = 0; i < Number; i++)
                 {
-                    writer.WriteLine(Clubs[i].ClubID + delimeter + Clubs[i].ClubName + delimeter + Clubs[i].Address.Street + delimeter + Clubs[i].Address.City + delimeter + Clubs[i].Address.Province + delimeter + Clubs[i].Address.Zip + delimeter + Clubs[i].ClubPhoneNumber);
+                    writer.WriteLine(Clubs[i].ID + delimeter + Clubs[i].Name + delimeter + Clubs[i].Address.Street + delimeter + Clubs[i].Address.City + delimeter + Clubs[i].Address.Province + delimeter + Clubs[i].Address.Zip + delimeter + Clubs[i].PhoneNumber);
                 }
             }
             catch
@@ -135,7 +135,7 @@ namespace SwimMeetLibrary
 
             for (int i = 0; i < Number; i++)
             {
-                if (Clubs[i].ClubID == regNumber)
+                if (Clubs[i].ID == regNumber)
                     returnValue = Clubs[i];
             }
 

@@ -11,9 +11,9 @@ namespace SwimMeetLibrary
     public class Club
     {
         private static int clubNumber;
-        public int ClubID { set; get; }
-        public long ClubPhoneNumber { get; set; }
-        public string ClubName { get; set; }
+        public int ID { set; get; }
+        public long PhoneNumber { get; set; }
+        public string Name { get; set; }
         public Adress Address { get; set; }
         public List<Registrant> Swimmers { get; set; }
         public List<Coach> Coaches { get; set; }
@@ -24,9 +24,9 @@ namespace SwimMeetLibrary
         #region Constructor | Setting Default values
         public Club(string clubName, Adress PhysicalLocation, long clubPhoneNumber)
         {
-            ClubName = clubName;
-            ClubPhoneNumber = clubPhoneNumber;
-            ClubID = clubNumber++;           
+            Name = clubName;
+            PhoneNumber = clubPhoneNumber;
+            ID = clubNumber++;           
             Address = PhysicalLocation;
             Swimmers = new List<Registrant>(20);
             Coaches = new List<Coach>(20);
@@ -35,7 +35,7 @@ namespace SwimMeetLibrary
         {          
             Coaches = new List<Coach>(20);
             Swimmers = new List<Registrant>(20);
-            ClubID = clubNumber++;
+            ID = clubNumber++;
         }
         static Club()
         {
@@ -52,17 +52,17 @@ namespace SwimMeetLibrary
 
 
 
-            info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ClubID, ClubName, Address.ToString(), PhoneNumber(ClubPhoneNumber));
+            info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ID, Name, Address.ToString(), ConvertPhoneNumber(PhoneNumber));
 
             info += string.Format("\nSwimmers:");
             foreach (var swimmer in Swimmers)
             {
-                info += string.Format("\n\t  {0}", swimmer.RegistrantName);
+                info += string.Format("\n\t  {0}", swimmer.Name);
             }
             info += string.Format("\nCoaches: ");
             foreach (var coach in Coaches)
             {
-                info += string.Format("\n\t  {0}", coach.RegistrantName);
+                info += string.Format("\n\t  {0}", coach.Name);
             }
 
 
@@ -71,7 +71,7 @@ namespace SwimMeetLibrary
         #endregion
 
         #region PhoneNumber Method | Convering String 
-        public static string PhoneNumber(long rawValue)
+        public static string ConvertPhoneNumber(long rawValue)
         {
             string value = rawValue.ToString();
             if (value == "None")
@@ -98,19 +98,19 @@ namespace SwimMeetLibrary
         {
             if (NumberOfSwimmers == 0 || Swimmers[NumberOfSwimmers - 1] != swimmer)
             {
-                if (swimmer.NClub == null || swimmer.NClub == this)
+                if (swimmer.ItsClub == null || swimmer.ItsClub == this)
                 {
                     Swimmers.Add(swimmer);
                     NumberOfSwimmers++;
-                    if (swimmer.NClub == null)
+                    if (swimmer.ItsClub == null)
                     {
-                        swimmer.NClub = this;
+                        swimmer.ItsClub = this;
                     }
                                                
                 }
                 else
                 {
-                    throw new Exception(string.Format("Swimmer already assigned to {0} club", swimmer.NClub.ClubName));
+                    throw new Exception(string.Format("Swimmer already assigned to {0} club", swimmer.ItsClub.Name));
                 }
 
             }
@@ -119,7 +119,7 @@ namespace SwimMeetLibrary
         public void AddCoach(Coach coach)
         {
             Coaches.Add(coach);
-            coach.NClub = this;
+            coach.ItsClub = this;
         }
     }
 }

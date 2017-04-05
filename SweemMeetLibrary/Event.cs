@@ -9,13 +9,13 @@ namespace SwimMeetLibrary
     public class Event
     {
         public enum Distance { _50 = 50, _100 = 100, _200 = 200, _400 = 400, _800 = 800, _1500 = 1500, None };
-        public Distance Distance1 { get; set; }
+        public Distance DistanceValue { get; set; }
         public SwimMeet SweeMeets { get; set; }
         public List<Registrant> Swimmers { get; set; }
         public int NoOfSwimers { get; set; }
         public Stroke StrokeValue { get; set; }
         private int noOfSwims;
-        public List<Swim> Swims { get; set; }      
+        public List<Swim> Swims { get; set; }
         public enum Stroke
         {
             Butterfly, Backstroke, Breaststroke, Freestyle,
@@ -28,9 +28,9 @@ namespace SwimMeetLibrary
         {
             Swimmers = new List<Registrant>(100);
             Swims = new List<Swim>(20);
-            Distance1 = distance;
+            DistanceValue = distance;
             StrokeValue = value;
-         
+
 
         }
 
@@ -38,20 +38,20 @@ namespace SwimMeetLibrary
         {
 
             Swimmers = new List<Registrant>(100);
-      
+
             Swims = new List<Swim>(20);
         }
 
         public override string ToString()
         {
             string info;
-            info = string.Format("\n\t{0} {1}", Distance1, StrokeValue);
+            info = string.Format("\n\t{0} {1}", DistanceValue, StrokeValue);
             info += string.Format("\n\tSwimmers: ");
             int i = 0;
             foreach (var swimmers in Swimmers)
             {
 
-                info += string.Format("\n\t{0,-10}", swimmers.RegistrantName);
+                info += string.Format("\n\t{0,-10}", swimmers.Name);
 
                 if (noOfSwims > 0)
                 {
@@ -62,12 +62,7 @@ namespace SwimMeetLibrary
                     info += string.Format("\n\t\tNot seeded/no swim");
                 }
                 i++;
-
-
-
             }
-
-         
             return info;
         }
 
@@ -75,86 +70,79 @@ namespace SwimMeetLibrary
         {
             if (NoOfSwimers == 0 || Swimmers[NoOfSwimers - 1] != swimmer)
             {
-                if (swimmer.NEvent == null || swimmer.NEvent == this)
+                if (swimmer.ItsEvent == null || swimmer.ItsEvent == this)
                 {
                     Swimmers.Add(swimmer);
                     NoOfSwimers++;
-                    if (swimmer.NClub == null)
+                    if (swimmer.ItsClub == null)
                     {
-                        swimmer.NEvent = this;
+                        swimmer.ItsEvent = this;
                     }
                 }
             }
             else
             {
 
-                throw new Exception(string.Format("Swimmer {0}, {1} already entered", swimmer.RegistrantName, swimmer.RegistrantID));
+                throw new Exception(string.Format("Swimmer {0}, {1} already entered", swimmer.Name, swimmer.ID));
             }
         }
 
         public void AddSwim()
         {
             Swim swim = new Swim();
-
             Swims.Add(swim);
             noOfSwims++;
-            swim.Events = this;
+            swim.ItsEvent = this;
         }
 
-        public void EnterSwimmersTime(Registrant registrant, string time)
+        public void EnterSwimmersTime(Registrant registrant, string timeSwam)
         {
             try
             {
                 int index = Swimmers.IndexOf(registrant);
-                Swims[index].TimeSwam = time;
+                Swims[index].TimeSwam = timeSwam;
             }
             catch
             {
                 throw new Exception(string.Format("Swimmer has not entered event"));
             }
 
-            Swimmer swimmer = registrant as Swimmer;
-            if (swimmer != null)
+            Swimmer aswimmer = registrant as Swimmer;
+            if (aswimmer != null)
             {
-                TimeSpan newTime = StringToTimeSpan(time);
-
-                string thisTimeValue = SweeMeets.course + "|" + Distance1 + "|" + StrokeValue + "|" + time;
-               
-
-                if (swimmer.BestTimes.Count == 0)
-                    swimmer.BestTimes.Add(thisTimeValue);
-
-                int trigger = 0;
-                for (int i = 0; i < swimmer.BestTimes.Count; i++)
+                int min = Int32.Parse(timeSwam.Substring(0, 2));
+                int sec = Int32.Parse(timeSwam.Substring(3, 2));
+                int miliSec = Int32.Parse(timeSwam.Substring(6, 2)) * 10;         
+                TimeSpan currentTime = new TimeSpan(0, 0, min, sec, miliSec);
+                if (aswimmer.BestTimeEvent.Count == 0)
                 {
-                    if (swimmer.BestTimes[i].Contains(SweeMeets.course.ToString()) && swimmer.BestTimes[i].Contains(Distance1.ToString()) && swimmer.BestTimes[i].Contains(StrokeValue.ToString()))
+                    aswimmer.BestTimeEvent.Add(this);
+                    aswimmer.BestTimeTimeSpan.Add(currentTime);
+                }                
+                bool assigned = false;
+                for (int i = 0; i < aswimmer.BestTimeEvent.Count; i++)
+                {
+                    if (aswimmer.BestTimeEvent[i].StrokeValue == this.StrokeValue && aswimmer.BestTimeEvent[i].DistanceValue == this.DistanceValue && aswimmer.BestTimeEvent[i].SweeMeets.Course == this.SweeMeets.Course)
                     {
-                        string thisTime = swimmer.BestTimes[i].Substring(swimmer.BestTimes[i].LastIndexOf('|') + 1, 8);
-                        TimeSpan previousTime = StringToTimeSpan(thisTime);
-                        if (TimeSpan.Compare(previousTime, newTime) == 1)
+           
+                        if (TimeSpan.Compare(aswimmer.BestTimeTimeSpan[i], currentTime) == 1)
                         {
-                            swimmer.BestTimes[i] = thisTimeValue;
+                            aswimmer.BestTimeTimeSpan[i] = currentTime;
                         }
-                        trigger = 0;
+                        assigned = false;
                         break;
                     }
-                    else if (trigger == 0)
+                    else if (!assigned)
                     {
-                        trigger = -1;
+                        assigned = true;
                     }
                 }
-                if (trigger == -1)
-                    swimmer.BestTimes.Add(thisTimeValue);
+                if (assigned)
+                {
+                    aswimmer.BestTimeEvent.Add(this);
+                    aswimmer.BestTimeTimeSpan.Add(currentTime);
+                }
             }
-        }
-        public static TimeSpan StringToTimeSpan(string time)
-        {
-            int minutes = Int32.Parse(time.Substring(0, 2));
-            int seconds = Int32.Parse(time.Substring(3, 2));
-            int milliseconds = Int32.Parse(time.Substring(6, 2));
-            TimeSpan newTime = new TimeSpan(0, 0, minutes, seconds, milliseconds * 10);
-            return newTime;
-        }
+        }    
     }
 }
-

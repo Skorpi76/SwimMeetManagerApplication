@@ -122,7 +122,7 @@ namespace Assignment2
             //coach not registered with the club
             try
             {
-                swimmer1.NCoach = coach1;
+                swimmer1.ItsCoach = coach1;
             }
             catch (Exception ex)
             {
@@ -140,9 +140,9 @@ namespace Assignment2
                 Console.WriteLine(ex.Message);
             }
 
-            swimmer1.NClub.AddCoach(coach1);
+            swimmer1.ItsClub.AddCoach(coach1);
 
-            swimmer2.NClub.AddCoach(coach2);
+            swimmer2.ItsClub.AddCoach(coach2);
 
             //swimmer and the coach not in the same club
             try
@@ -157,12 +157,12 @@ namespace Assignment2
             coach1.AddSwimmer(swimmer1);
             coach1.AddSwimmer(swimmer3);
 
-            swimmer2.NCoach = coach2;
+            swimmer2.ItsCoach = coach2;
 
             DisplayInfo("coach 1", coach1.ToString());
             DisplayInfo("coach 2", coach2.ToString());
-            DisplayInfo("club1", swimmer1.NClub.ToString());
-            DisplayInfo("club2", swimmer2.NClub.ToString());
+            DisplayInfo("club1", swimmer1.ItsClub.ToString());
+            DisplayInfo("club2", swimmer2.ItsClub.ToString());
 
 
         }
@@ -184,8 +184,8 @@ namespace Assignment2
         private static void CreateClubs(out Club club1, out Club club2)
         {
             club1 = new Club();
-            club1.ClubPhoneNumber = 4164444444;
-            club1.ClubName = "NYAC";
+            club1.PhoneNumber = 4164444444;
+            club1.Name = "NYAC";
             DisplayInfo("club1", club1.ToString());
 
             club2 = new Club("CCAC", new Adress("35 River St", "Toronto", "ON", "M2M 5M5"), 4165555555);
@@ -202,10 +202,10 @@ namespace Assignment2
 
             swimmer2 = new Swimmer();
             DisplayInfo("swimmer2", swimmer2.ToString());
-            swimmer2.RegistrantAdress = new Adress("1 King St", "Toronto", "ON", "M2M 3M3");
-            swimmer2.RegistrantName = "John Lee";
-            swimmer2.RegistrantPhoneNo = 4162222222;
-            swimmer2.RegistrantDateOFBirth = new DateTime(1950, 12, 1);
+            swimmer2.Address = new Adress("1 King St", "Toronto", "ON", "M2M 3M3");
+            swimmer2.Name = "John Lee";
+            swimmer2.PhoneNumber = 4162222222;
+            swimmer2.DOB = new DateTime(1950, 12, 1);
             DisplayInfo("swimmer2", swimmer2.ToString());
 
             swimmer3 = new Swimmer("Ann Smith", new DateTime(1975, 1, 1),
@@ -229,7 +229,7 @@ namespace Assignment2
 
             try
             {
-                swimmer2.NClub = club1;
+                swimmer2.ItsClub = club1;
             }
             catch (Exception ex)
             {
@@ -239,7 +239,7 @@ namespace Assignment2
 
             try
             {
-                swimmer3.NClub = club1;
+                swimmer3.ItsClub = club1;
             }
             catch (Exception ex)
             {
@@ -257,7 +257,7 @@ namespace Assignment2
          
             Console.WriteLine("*******meets and events ******\n***********************************");
             meet1 = new SwimMeet();
-            meet1.NameOfMeet = "Winnter Splash";
+            meet1.Name = "Winnter Splash";
             meet1.StartDate = new DateTime(2017, 1, 10);
             meet1.EndDate = new DateTime(2017, 1, 12);
             DisplayInfo("meet1", meet1.ToString());
@@ -272,7 +272,7 @@ namespace Assignment2
         private static void CreateEvents(out Event _50free1, out Event _100fly, out Event _200breast, out Event _400free, out Event _1500free, out Event _1500free2)
         {
             _50free1 = new Event();
-            _50free1.Distance1 = Event.Distance._50;
+            _50free1.DistanceValue = Event.Distance._50;
             _50free1.StrokeValue = Event.Stroke.Freestyle;
 
             _100fly = new Event(Event.Distance._100, Event.Stroke.Butterfly);

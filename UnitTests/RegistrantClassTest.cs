@@ -95,7 +95,7 @@ namespace UnitTests
         {
             Event _200medley = new Event();
             _200medley.Distance1 = Event.Distance._200;
-            _200medley.Value = Event.Stroke.IndividualMedley;
+            _200medley.StrokeValue = Event.Stroke.Individualmedley;
 
             Registrant aSwimmer = new Registrant();
             _200medley.AddSwimmer(aSwimmer);

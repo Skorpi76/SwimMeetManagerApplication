@@ -9,7 +9,7 @@ namespace SwimMeetLibrary
     public class SwimMeet
     {
         public enum PoolCourse { SCM, SCY, LCM };
-        public readonly PoolCourse course;
+        public PoolCourse course { get; private set;}
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get; set; }
         public string NameOfMeet { get; set; }

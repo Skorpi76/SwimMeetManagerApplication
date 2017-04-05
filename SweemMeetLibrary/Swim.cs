@@ -13,6 +13,7 @@ namespace SwimMeetLibrary
         public int Lane { get; set; }
         public string TimeSwam { get; set; }
         public Event Events { get; set; }
+    
 
         #region Constructor | Setting Default values
         public Swim(int lane, int heat, string timeSwam)

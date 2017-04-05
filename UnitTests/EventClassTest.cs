@@ -34,10 +34,10 @@ namespace UnitTests
             string expectedValue = "Freestyle";
             Event _50free1 = new Event();
             _50free1.Distance1 = Event.Distance._50;
-            _50free1.Value = Event.Stroke.Freestyle;
+            _50free1.StrokeValue = Event.Stroke.Freestyle;
 
             Assert.AreEqual(expectedDistance, _50free1.Distance1.ToString());
-            Assert.AreEqual(expectedValue, _50free1.Value.ToString());
+            Assert.AreEqual(expectedValue, _50free1.StrokeValue.ToString());
         }
 
 
@@ -47,13 +47,13 @@ namespace UnitTests
             string expectedResult = "Freestyle";
             Event _50free1 = new Event();
             _50free1.Distance1 = Event.Distance._50;
-            _50free1.Value = Event.Stroke.Freestyle;
+            _50free1.StrokeValue = Event.Stroke.Freestyle;
 
             Registrant swimmer1 = new Registrant();
 
             _50free1.AddSwimmer(swimmer1);
 
-            Assert.AreEqual(expectedResult, swimmer1.NEvent.Value.ToString());
+            Assert.AreEqual(expectedResult, swimmer1.NEvent.StrokeValue.ToString());
         }
 
 
@@ -63,7 +63,7 @@ namespace UnitTests
             string expectedResult = "Freestyle";
             Event _50free1 = new Event();
             _50free1.Distance1 = Event.Distance._50;
-            _50free1.Value = Event.Stroke.Freestyle;
+            _50free1.StrokeValue = Event.Stroke.Freestyle;
             Event event2 = new Event();
 
             Registrant swimmer1 = new Registrant();
@@ -71,7 +71,7 @@ namespace UnitTests
             _50free1.AddSwimmer(swimmer1);
             event2.AddSwimmer(swimmer1);
 
-            Assert.AreEqual(expectedResult, swimmer1.NEvent.Value.ToString());
+            Assert.AreEqual(expectedResult, swimmer1.NEvent.StrokeValue.ToString());
         }
 
         [TestMethod]
@@ -80,7 +80,7 @@ namespace UnitTests
             SwimMeet meet1 = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.LCM, 2);
             Event _200medley = new Event();
             _200medley.Distance1 = Event.Distance._200;
-            _200medley.Value = Event.Stroke.IndividualMedley;
+            _200medley.StrokeValue = Event.Stroke.Individualmedley;
             meet1.AddEvent(_200medley);
 
             Registrant aSwimmer = new Registrant();
@@ -97,7 +97,7 @@ namespace UnitTests
             SwimMeet meet1 = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.LCM, 2);
             Event _200medley = new Event();
             _200medley.Distance1 = Event.Distance._200;
-            _200medley.Value = Event.Stroke.IndividualMedley;
+            _200medley.StrokeValue = Event.Stroke.Individualmedley;
             meet1.AddEvent(_200medley);
            
 

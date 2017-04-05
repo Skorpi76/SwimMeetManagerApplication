@@ -17,7 +17,7 @@ namespace Assignment2
         {
 
 
-           
+
             IClubsRepository clbMngr = new ClubsManager();
             ISwimmersRepository swmMngr = new SwimmersManager((ClubsManager)clbMngr);
 
@@ -91,9 +91,9 @@ namespace Assignment2
 
             EnterTimesForSwims(swimmer1, swimmer2, swimmer3, meet1, meet2,
                                _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
-
-            // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer1.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
-            // Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer3.GetBestTime(PoolType.SCM, Stroke.Freestyle, EventDistance._1500).ToString(@"mm\:ss\.ff"));
+            //swimmer1.AddAsBestTime(SwimMeet.PoolCourse.SCM, Event.Stroke.Freestyle, Event.Distance._1500, new TimeSpan(0, 0, 1, 1, 1 * 10));
+            Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer1.GetBestTime(SwimMeet.PoolCourse.SCM, Event.Stroke.Freestyle, Event.Distance._1500).ToString(@"mm\:ss\.ff"));
+            Console.WriteLine("Best time for SCM 1500  free for swimmer 1 is: {0}", swimmer3.GetBestTime(SwimMeet.PoolCourse.SCM, Event.Stroke.Freestyle, Event.Distance._1500).ToString(@"mm\:ss\.ff"));
 
             clbMngr.Add(club1);
 
@@ -254,16 +254,16 @@ namespace Assignment2
         #region CreateSwimMeets Method
         private static void CreateSwimMeets(out SwimMeet meet1, out SwimMeet meet2)
         {
+         
             Console.WriteLine("*******meets and events ******\n***********************************");
             meet1 = new SwimMeet();
             meet1.NameOfMeet = "Winnter Splash";
             meet1.StartDate = new DateTime(2017, 1, 10);
             meet1.EndDate = new DateTime(2017, 1, 12);
-            meet1.NoOfLanes = 8;
             DisplayInfo("meet1", meet1.ToString());
 
 
-            meet2 = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.LCM, 2);
+            meet2 = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.SCM, 2);
             DisplayInfo("meet2", meet2.ToString());
         }
         #endregion
@@ -273,7 +273,7 @@ namespace Assignment2
         {
             _50free1 = new Event();
             _50free1.Distance1 = Event.Distance._50;
-            _50free1.Value = Event.Stroke.Freestyle;
+            _50free1.StrokeValue = Event.Stroke.Freestyle;
 
             _100fly = new Event(Event.Distance._100, Event.Stroke.Butterfly);
             _200breast = new Event(Event.Distance._200, Event.Stroke.Breaststroke);
@@ -359,17 +359,14 @@ namespace Assignment2
 
         #region EnterTimesForSwims Method
         private static void EnterTimesForSwims(Registrant swimmer1, Registrant swimmer2, Registrant swimmer3, SwimMeet meet1, SwimMeet meet2, Event _50free1, Event _100fly, Event _200breast, Event _400free, Event _1500free, Event _1500free2)
-        {
+        {          
             Console.WriteLine("********** Adding swim times for swimmers *********");
-
-            _50free1.EnterSwimmersTime(swimmer1, "00:30.13");
-
 
             _50free1.EnterSwimmersTime(swimmer1, "00:30.13");
             _50free1.EnterSwimmersTime(swimmer2, "00:28.87");
             _50free1.EnterSwimmersTime(swimmer3, "00:29.54");
-     
-            _100fly.EnterSwimmersTime(swimmer1, "01:17.23");      
+
+            _100fly.EnterSwimmersTime(swimmer1, "01:17.23");
             _100fly.EnterSwimmersTime(swimmer2, "01:05.16");
 
             _200breast.EnterSwimmersTime(swimmer1, "02:25.23");
@@ -397,6 +394,8 @@ namespace Assignment2
             DisplayInfo("meet1", meet1.ToString());
             DisplayInfo("meet2", meet2.ToString());
         }
-        #endregion
     }
+    #endregion
 }
+
+

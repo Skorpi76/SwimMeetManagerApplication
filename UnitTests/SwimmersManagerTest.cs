@@ -9,12 +9,12 @@ namespace UnitTests
         [TestMethod]
         public void Test_SwimmersManager_LoadMethod()
         {
-            string expectedResult = string.Format("Swimmer 4");        
+            string expectedResult = string.Format("Swimmer 4");
             ClubsManager clbMngr = new ClubsManager();
             SwimmersManager swmMngr = new SwimmersManager(clbMngr);
 
             swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
-           string actualResult =  swmMngr.Swimmers[0].Name;
+            string actualResult = swmMngr.Swimmers[0].Name;
             Assert.AreEqual(expectedResult, actualResult);
         }
         [TestMethod]
@@ -44,7 +44,75 @@ namespace UnitTests
             Assert.AreEqual(aRegistrant, swmMngr.Swimmers[0]);
         }
 
-        
 
+        [TestMethod]
+        public void Test_SwimmerManager_LoadGetByRegNumberMethodFull()
+        {
+
+            IClubsRepository clbMngr = new ClubsManager();
+            ISwimmersRepository swmMngr = new SwimmersManager((ClubsManager)clbMngr);
+            try
+            {
+                swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+
+            Assert.AreEqual("Swimmer 4", swmMngr.GetByRegNum(3004).Name);
+
+        }
+        [TestMethod]
+        public void Test_SwimmerManager_LoadWrongDateException()
+        {
+
+            IClubsRepository clbMngr = new ClubsManager();
+            ISwimmersRepository swmMngr = new SwimmersManager((ClubsManager)clbMngr);
+            try
+            {
+                swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+
+                Assert.AreEqual("S wrong date", swmMngr.GetByRegNum(3014).Name); // will not create it
+                Assert.Fail("no exception thrown");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is System.NullReferenceException);
+            }
+        }
+        [TestMethod]
+        public void Test_SwimmerManager_LoadWrongPhoneException()
+        {
+
+            IClubsRepository clbMngr = new ClubsManager();
+            ISwimmersRepository swmMngr = new SwimmersManager((ClubsManager)clbMngr);
+            try
+            {
+                swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            try
+            {
+
+                Assert.AreEqual("S wrong phone", swmMngr.GetByRegNum(3015).Name); // will not create it
+                Assert.Fail("no exception thrown");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is System.NullReferenceException);
+            }
+        }
+        
     }
 }

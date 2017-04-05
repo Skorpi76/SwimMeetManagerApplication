@@ -29,5 +29,76 @@ namespace UnitTests
             clbMngr.Add(aClub);
             Assert.AreEqual(aClub, clbMngr.Clubs[0]);
         }
+        [TestMethod]
+        public void Test_ClubsManager_LoadMethodAndTestEmpty()
+        {
+            IClubsRepository clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Load(@"C:\A2\Clubs.txt", ",");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            Assert.AreEqual("Club 1", clbMngr.GetByRegNum(3004).Name); 
+        }
+        [TestMethod]
+        public void Test_ClubsManager_LoadMethodAndTestFull()
+        {
+            IClubsRepository clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Load(@"C:\A2\Clubs.txt", ",");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            Assert.AreEqual("Club 7", clbMngr.GetByRegNum(3007).Name);
+        }
+
+        [TestMethod]
+        public void Test_ClubsManager_LoadMethodDuplicateException ()
+        {
+            IClubsRepository clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Load(@"C:\A2\Clubs.txt", ",");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            Assert.AreNotEqual("Duplicate number", clbMngr.GetByRegNum(3006).Name);
+        }
+        [TestMethod]
+        public void Test_ClubsManager_LoadWrongPhoneNumberException()
+        {
+            IClubsRepository clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Load(@"C:\A2\Clubs.txt", ",");
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+            try
+            {
+                Assert.AreNotEqual(null, clbMngr.GetByRegNum(3008).Name);
+                Assert.Fail("no exception thrown");
+            }
+            catch (Exception ex)
+            {
+                Assert.IsTrue(ex is System.NullReferenceException);
+            }
+
+        }
+
     }
 }

@@ -77,9 +77,12 @@ namespace SwimMeetLibrary
                 }
                 catch (Exception e)
                 {
-                    //throw new Exception(string.Format("{1} \n\t{0}", recordIn, e.Message))
+                    //string exceptions = "";
+                    //exceptions += string.Format("{1} \n\t{0}", recordIn, e.Message);
+                    //Console.WriteLine(exceptions);
+                    //throw new Exception(string.Format("{1} \n\t{0}", recordIn, e.Message));
+                    //throw;
                     Console.WriteLine("{1} \n\t{0}", recordIn, e.Message);
-
                 }
                 recordIn = reader.ReadLine();
             }

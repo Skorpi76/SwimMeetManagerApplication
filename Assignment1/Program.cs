@@ -36,9 +36,15 @@ namespace Assignment2
                 DisplayInfo(i.ToString(), ((ClubsManager)clbMngr).Clubs[i].ToString());
             }
 
+            try
+            {
+                swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
+            }
+            catch (Exception ex)
+            {
 
-            swmMngr.Load(@"C:\A2\Swimmers.txt", ",");
-
+                Console.WriteLine(ex.Message);
+            }
             for (int i = 0; i < swmMngr.Number; i++)
             {
                 DisplayInfo(i.ToString(), ((SwimmersManager)swmMngr).Swimmers[i].ToString());
@@ -254,7 +260,7 @@ namespace Assignment2
         #region CreateSwimMeets Method
         private static void CreateSwimMeets(out SwimMeet meet1, out SwimMeet meet2)
         {
-         
+
             Console.WriteLine("*******meets and events ******\n***********************************");
             meet1 = new SwimMeet();
             meet1.Name = "Winnter Splash";
@@ -359,7 +365,7 @@ namespace Assignment2
 
         #region EnterTimesForSwims Method
         private static void EnterTimesForSwims(Registrant swimmer1, Registrant swimmer2, Registrant swimmer3, SwimMeet meet1, SwimMeet meet2, Event _50free1, Event _100fly, Event _200breast, Event _400free, Event _1500free, Event _1500free2)
-        {          
+        {
             Console.WriteLine("********** Adding swim times for swimmers *********");
 
             _50free1.EnterSwimmersTime(swimmer1, "00:30.13");

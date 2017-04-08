@@ -28,19 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.lblTextAddSwimmers = new System.Windows.Forms.Label();
             this.SuspendLayout();
+            // 
+            // lblTextAddSwimmers
+            // 
+            this.lblTextAddSwimmers.AutoSize = true;
+            this.lblTextAddSwimmers.Location = new System.Drawing.Point(13, 13);
+            this.lblTextAddSwimmers.Name = "lblTextAddSwimmers";
+            this.lblTextAddSwimmers.Size = new System.Drawing.Size(102, 17);
+            this.lblTextAddSwimmers.TabIndex = 0;
+            this.lblTextAddSwimmers.Text = "Add swimmers:";
             // 
             // FormSwimmers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(429, 339);
+            this.Controls.Add(this.lblTextAddSwimmers);
             this.Name = "FormSwimmers";
             this.Text = "Swimmers";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label lblTextAddSwimmers;
     }
 }

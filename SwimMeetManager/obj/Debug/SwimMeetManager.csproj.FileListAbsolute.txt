@@ -8,3 +8,14 @@ C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.exe
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.pdb
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormSwimmers.resources
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SwimMeetManager.exe.config
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SwimMeetManager.exe
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SwimMeetManager.pdb
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.csprojResolveAssemblyReference.cache
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.formMainMenu.resources
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormClubs.resources
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormSwimmers.resources
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.Properties.Resources.resources
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.csproj.GenerateResource.Cache
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.exe
+M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.pdb

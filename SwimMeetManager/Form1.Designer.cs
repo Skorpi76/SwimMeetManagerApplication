@@ -43,6 +43,7 @@
             this.btnGoToSwimmers.TabIndex = 0;
             this.btnGoToSwimmers.Text = "Swimmers";
             this.btnGoToSwimmers.UseVisualStyleBackColor = true;
+            this.btnGoToSwimmers.Click += new System.EventHandler(this.btnGoToSwimmers_Click);
             // 
             // btnGoToCoaches
             // 

@@ -7,3 +7,4 @@ C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.csproj.GenerateResource.Cache
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.exe
 C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.pdb
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormSwimmers.resources

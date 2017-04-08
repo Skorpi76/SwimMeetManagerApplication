@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace SwimMeetManager
 {
-    public partial class formMainMenu : Form
+    public partial class FormSwimmers : Form
     {
-        public formMainMenu()
+        public FormSwimmers()
         {
             InitializeComponent();
-        }
-
-        private void btnGoToSwimmers_Click(object sender, EventArgs e)
-        {
-            FormSwimmers formSwimmers = new FormSwimmers();
-            formSwimmers.ShowDialog(this);
         }
     }
 }

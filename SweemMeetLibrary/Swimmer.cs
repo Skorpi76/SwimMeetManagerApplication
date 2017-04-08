@@ -83,7 +83,7 @@ namespace SwimMeetLibrary
         public override string ToString()
         {
             string info;
-            info = base.ToString() + string.Format("\n Coached By {0} ", ItsCoach != null ? ItsCoach.Name : "not assigned");
+            info = base.ToString() + string.Format("\nCoache: {0} ", ItsCoach != null ? ItsCoach.Name : "not assigned");
             return info;
         }
 

@@ -57,6 +57,12 @@
     <Compile Include="FormClubs.Designer.cs">
       <DependentUpon>FormClubs.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormCoaches.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormCoaches.Designer.cs">
+      <DependentUpon>FormCoaches.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormSwimmers.cs">
       <SubType>Form</SubType>
     </Compile>

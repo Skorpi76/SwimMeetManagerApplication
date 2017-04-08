@@ -28,5 +28,11 @@ namespace SwimMeetManager
             FormClubs formClubs = new FormClubs();
             formClubs.ShowDialog(this);
         }
+
+        private void btnGoToCoaches_Click(object sender, EventArgs e)
+        {
+            FormCoaches formCoaches = new FormCoaches();
+            formCoaches.ShowDialog(this);
+        }
     }
 }

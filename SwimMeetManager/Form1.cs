@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using SwimMeetLibrary;
 namespace SwimMeetManager
 {
     public partial class formMainMenu : Form
     {
+        public List<Swimmer> Swimmers { set; get; }
         public formMainMenu()
         {
             InitializeComponent();
@@ -33,6 +34,11 @@ namespace SwimMeetManager
         {
             FormCoaches formCoaches = new FormCoaches();
             formCoaches.ShowDialog(this);
+        }
+
+        private void formMainMenu_Load(object sender, EventArgs e)
+        {
+            Swimmers = new List<Swimmer>();
         }
     }
 }

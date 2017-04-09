@@ -19,3 +19,6 @@ M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.P
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.csproj.GenerateResource.Cache
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.exe
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.pdb
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormClubs.resources
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SweemMeetLibrary.pdb

@@ -102,5 +102,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SweemMeetLibrary\SwimMeetLibrary.csproj">
+      <Project>{f1d9f4e5-4a7a-47d2-a44b-f1fd55cfcfa8}</Project>
+      <Name>SwimMeetLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

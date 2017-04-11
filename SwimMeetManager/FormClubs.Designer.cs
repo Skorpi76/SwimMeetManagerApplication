@@ -46,6 +46,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lsbClubs = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.lblClubInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAddClub
@@ -188,21 +189,31 @@
             this.lsbClubs.Name = "lsbClubs";
             this.lsbClubs.Size = new System.Drawing.Size(161, 160);
             this.lsbClubs.TabIndex = 16;
+            this.lsbClubs.SelectedIndexChanged += new System.EventHandler(this.lsbClubs_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(408, 13);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 17;
-            this.label2.Text = "label2";
+            this.label2.Text = "Club info:";
+            // 
+            // lblClubInfo
+            // 
+            this.lblClubInfo.AutoSize = true;
+            this.lblClubInfo.Location = new System.Drawing.Point(411, 45);
+            this.lblClubInfo.Name = "lblClubInfo";
+            this.lblClubInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblClubInfo.TabIndex = 18;
             // 
             // FormClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 478);
+            this.ClientSize = new System.Drawing.Size(613, 494);
+            this.Controls.Add(this.lblClubInfo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lsbClubs);
             this.Controls.Add(this.label1);
@@ -249,5 +260,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lsbClubs;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblClubInfo;
     }
 }

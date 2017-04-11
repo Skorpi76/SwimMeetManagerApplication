@@ -58,5 +58,17 @@ namespace SwimMeetManager
         {
             
         }
+
+        private void lsbClubs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var item in Clubs)
+            {
+                if (item.Name==lsbClubs.SelectedItem.ToString())
+                {
+                    lblClubInfo.Text = item.ToString();
+                    break;
+                }
+            }
+        }
     }
 }

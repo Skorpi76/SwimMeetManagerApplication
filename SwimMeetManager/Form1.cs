@@ -41,7 +41,7 @@ namespace SwimMeetManager
         private void formMainMenu_Load(object sender, EventArgs e)
         {
             Clubs = new List<Club>();
-            Club aClub = new Club("Canada Fitness", new Adress("21 Younge St","Toronto","ON","M6J 9O6"),1234567890);
+            Club aClub = new Club("Canada Fitness", new Adress("21 Younge St","Toronto","ON","M6J 9O6"),6478304065);
             Club bClub = new Club("CCAC", new Adress("35 River St", "Toronto", "ON", "M2M 5M5"), 4165555555);
             Clubs.Add(aClub);
             Clubs.Add(bClub);

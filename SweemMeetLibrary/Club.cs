@@ -52,7 +52,7 @@ namespace SwimMeetLibrary
 
 
 
-            info = string.Format("\nName: {1} \nAdress: {2} \n#hone number: {3} \nReg number: {0}", ID, Name, Address.ToString(), ConvertPhoneNumber(PhoneNumber));
+            info = string.Format("\nName: {1} \nAdress: {2} \nPhone number: {3} \nReg number: {0}", ID, Name, Address.ToString(), ConvertPhoneNumber(PhoneNumber));
 
             info += string.Format("\nSwimmers:");
             foreach (var swimmer in Swimmers)
@@ -73,23 +73,22 @@ namespace SwimMeetLibrary
         #region PhoneNumber Method | Convering String 
         public static string ConvertPhoneNumber(long rawValue)
         {
-            string value = rawValue.ToString();
-            if (value == "None")
+            string line = rawValue.ToString();
+
+            if (line == "0")
             {
-                value = "None";
+                line = "+1 (000) 000-0000";
+            }
+            else if (line.Length < 10)
+            {
+                line = "Invalid number";
             }
             else
             {
-                value = new System.Text.RegularExpressions.Regex(@"\D")
-                    .Replace(value, string.Empty);
-                value = value.TrimStart('1');
-                if (value.Length == 10)
-                    return Convert.ToInt64(value).ToString("+1(###)-###-####");
-                if (value.Length > 10)
-                    return Convert.ToInt64(value)
-                        .ToString("+1(###)-###-#### " + new String('#', (value.Length - 10)));
+                line = "+1 (" + line.Substring(0, 3) + ") " + line.Substring(3, 3) + "-" + line.Substring(6, 4);
             }
-            return value;
+
+            return line;
         }
         #endregion
 

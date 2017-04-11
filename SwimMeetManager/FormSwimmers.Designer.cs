@@ -43,15 +43,16 @@
             this.txtPostalCode = new System.Windows.Forms.TextBox();
             this.txtPhoneNumber = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gBoxDOB = new System.Windows.Forms.GroupBox();
+            this.lblYear = new System.Windows.Forms.Label();
+            this.lblMonth = new System.Windows.Forms.Label();
+            this.txtYear = new System.Windows.Forms.TextBox();
+            this.txtMonth = new System.Windows.Forms.TextBox();
             this.btnSubmitAddSwimmer = new System.Windows.Forms.Button();
             this.lsbAllSwimmers = new System.Windows.Forms.ListBox();
             this.lblAllSwimmers = new System.Windows.Forms.Label();
-            this.gBoxDOB = new System.Windows.Forms.GroupBox();
-            this.lblMonth = new System.Windows.Forms.Label();
-            this.txtMonth = new System.Windows.Forms.TextBox();
-            this.lblYear = new System.Windows.Forms.Label();
-            this.txtYear = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gBoxDOB.SuspendLayout();
             this.SuspendLayout();
@@ -191,6 +192,53 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Add swimmer";
             // 
+            // gBoxDOB
+            // 
+            this.gBoxDOB.Controls.Add(this.lblYear);
+            this.gBoxDOB.Controls.Add(this.lblMonth);
+            this.gBoxDOB.Controls.Add(this.txtYear);
+            this.gBoxDOB.Controls.Add(this.lblDay);
+            this.gBoxDOB.Controls.Add(this.txtMonth);
+            this.gBoxDOB.Controls.Add(this.txtDay);
+            this.gBoxDOB.Location = new System.Drawing.Point(9, 59);
+            this.gBoxDOB.Name = "gBoxDOB";
+            this.gBoxDOB.Size = new System.Drawing.Size(222, 127);
+            this.gBoxDOB.TabIndex = 18;
+            this.gBoxDOB.TabStop = false;
+            this.gBoxDOB.Text = "Date of birth";
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Location = new System.Drawing.Point(-1, 84);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(38, 17);
+            this.lblYear.TabIndex = 19;
+            this.lblYear.Text = "Year";
+            // 
+            // lblMonth
+            // 
+            this.lblMonth.AutoSize = true;
+            this.lblMonth.Location = new System.Drawing.Point(-1, 55);
+            this.lblMonth.Name = "lblMonth";
+            this.lblMonth.Size = new System.Drawing.Size(47, 17);
+            this.lblMonth.TabIndex = 19;
+            this.lblMonth.Text = "Month";
+            // 
+            // txtYear
+            // 
+            this.txtYear.Location = new System.Drawing.Point(116, 84);
+            this.txtYear.Name = "txtYear";
+            this.txtYear.Size = new System.Drawing.Size(100, 22);
+            this.txtYear.TabIndex = 20;
+            // 
+            // txtMonth
+            // 
+            this.txtMonth.Location = new System.Drawing.Point(116, 55);
+            this.txtMonth.Name = "txtMonth";
+            this.txtMonth.Size = new System.Drawing.Size(100, 22);
+            this.txtMonth.TabIndex = 20;
+            // 
             // btnSubmitAddSwimmer
             // 
             this.btnSubmitAddSwimmer.Location = new System.Drawing.Point(9, 345);
@@ -219,67 +267,30 @@
             this.lblAllSwimmers.TabIndex = 17;
             this.lblAllSwimmers.Text = "All Swimmers:";
             // 
-            // gBoxDOB
-            // 
-            this.gBoxDOB.Controls.Add(this.lblYear);
-            this.gBoxDOB.Controls.Add(this.lblMonth);
-            this.gBoxDOB.Controls.Add(this.txtYear);
-            this.gBoxDOB.Controls.Add(this.lblDay);
-            this.gBoxDOB.Controls.Add(this.txtMonth);
-            this.gBoxDOB.Controls.Add(this.txtDay);
-            this.gBoxDOB.Location = new System.Drawing.Point(9, 59);
-            this.gBoxDOB.Name = "gBoxDOB";
-            this.gBoxDOB.Size = new System.Drawing.Size(222, 127);
-            this.gBoxDOB.TabIndex = 18;
-            this.gBoxDOB.TabStop = false;
-            this.gBoxDOB.Text = "Date of birth";
-            // 
-            // lblMonth
-            // 
-            this.lblMonth.AutoSize = true;
-            this.lblMonth.Location = new System.Drawing.Point(-1, 55);
-            this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(47, 17);
-            this.lblMonth.TabIndex = 19;
-            this.lblMonth.Text = "Month";
-            // 
-            // txtMonth
-            // 
-            this.txtMonth.Location = new System.Drawing.Point(116, 55);
-            this.txtMonth.Name = "txtMonth";
-            this.txtMonth.Size = new System.Drawing.Size(100, 22);
-            this.txtMonth.TabIndex = 20;
-            // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Location = new System.Drawing.Point(-1, 84);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(38, 17);
-            this.lblYear.TabIndex = 19;
-            this.lblYear.Text = "Year";
-            // 
-            // txtYear
-            // 
-            this.txtYear.Location = new System.Drawing.Point(116, 84);
-            this.txtYear.Name = "txtYear";
-            this.txtYear.Size = new System.Drawing.Size(100, 22);
-            this.txtYear.TabIndex = 20;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(851, 154);
+            this.label1.Location = new System.Drawing.Point(554, 98);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 18;
             this.label1.Text = "label1";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(557, 138);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(46, 17);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "label2";
             // 
             // FormSwimmers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 615);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAllSwimmers);
             this.Controls.Add(this.lsbAllSwimmers);
@@ -321,5 +332,6 @@
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.TextBox txtMonth;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

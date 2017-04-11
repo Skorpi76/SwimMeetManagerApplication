@@ -47,6 +47,27 @@
             this.lsbClubs = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblClubInfo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.rbtnSwimmersAssign = new System.Windows.Forms.RadioButton();
+            this.rbtnCoachesAssign = new System.Windows.Forms.RadioButton();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.btnAssignRegistrant = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.rbtnCoachesShow = new System.Windows.Forms.RadioButton();
+            this.rbtnSwimmersShow = new System.Windows.Forms.RadioButton();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.lsbRegistrants = new System.Windows.Forms.ListBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.lblRegistrantInfo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtLoadClubs = new System.Windows.Forms.TextBox();
+            this.btnLoadClubs = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnSaveClubs = new System.Windows.Forms.Button();
+            this.txtSaveClubs = new System.Windows.Forms.TextBox();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblAddClub
@@ -185,16 +206,16 @@
             // lsbClubs
             // 
             this.lsbClubs.FormattingEnabled = true;
-            this.lsbClubs.Location = new System.Drawing.Point(213, 42);
+            this.lsbClubs.Location = new System.Drawing.Point(213, 43);
             this.lsbClubs.Name = "lsbClubs";
-            this.lsbClubs.Size = new System.Drawing.Size(161, 160);
+            this.lsbClubs.Size = new System.Drawing.Size(161, 199);
             this.lsbClubs.TabIndex = 16;
             this.lsbClubs.SelectedIndexChanged += new System.EventHandler(this.lsbClubs_SelectedIndexChanged);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(408, 13);
+            this.label2.Location = new System.Drawing.Point(16, 266);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(51, 13);
             this.label2.TabIndex = 17;
@@ -203,16 +224,207 @@
             // lblClubInfo
             // 
             this.lblClubInfo.AutoSize = true;
-            this.lblClubInfo.Location = new System.Drawing.Point(411, 45);
+            this.lblClubInfo.Location = new System.Drawing.Point(19, 298);
             this.lblClubInfo.Name = "lblClubInfo";
             this.lblClubInfo.Size = new System.Drawing.Size(0, 13);
             this.lblClubInfo.TabIndex = 18;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(211, 266);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(34, 13);
+            this.label4.TabIndex = 19;
+            this.label4.Text = "Show";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(425, 13);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "Assign";
+            // 
+            // rbtnSwimmersAssign
+            // 
+            this.rbtnSwimmersAssign.AutoSize = true;
+            this.rbtnSwimmersAssign.Location = new System.Drawing.Point(7, 5);
+            this.rbtnSwimmersAssign.Name = "rbtnSwimmersAssign";
+            this.rbtnSwimmersAssign.Size = new System.Drawing.Size(72, 17);
+            this.rbtnSwimmersAssign.TabIndex = 21;
+            this.rbtnSwimmersAssign.TabStop = true;
+            this.rbtnSwimmersAssign.Text = "Swimmers";
+            this.rbtnSwimmersAssign.UseVisualStyleBackColor = true;
+            // 
+            // rbtnCoachesAssign
+            // 
+            this.rbtnCoachesAssign.AutoSize = true;
+            this.rbtnCoachesAssign.Location = new System.Drawing.Point(85, 5);
+            this.rbtnCoachesAssign.Name = "rbtnCoachesAssign";
+            this.rbtnCoachesAssign.Size = new System.Drawing.Size(67, 17);
+            this.rbtnCoachesAssign.TabIndex = 22;
+            this.rbtnCoachesAssign.TabStop = true;
+            this.rbtnCoachesAssign.Text = "Coaches";
+            this.rbtnCoachesAssign.UseVisualStyleBackColor = true;
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.Location = new System.Drawing.Point(428, 72);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(146, 134);
+            this.listBox1.TabIndex = 23;
+            // 
+            // btnAssignRegistrant
+            // 
+            this.btnAssignRegistrant.Location = new System.Drawing.Point(428, 222);
+            this.btnAssignRegistrant.Name = "btnAssignRegistrant";
+            this.btnAssignRegistrant.Size = new System.Drawing.Size(146, 23);
+            this.btnAssignRegistrant.TabIndex = 24;
+            this.btnAssignRegistrant.Text = "Assign Registrant";
+            this.btnAssignRegistrant.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.rbtnSwimmersAssign);
+            this.panel1.Controls.Add(this.rbtnCoachesAssign);
+            this.panel1.Location = new System.Drawing.Point(428, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(154, 29);
+            this.panel1.TabIndex = 25;
+            // 
+            // rbtnCoachesShow
+            // 
+            this.rbtnCoachesShow.AutoSize = true;
+            this.rbtnCoachesShow.Location = new System.Drawing.Point(81, 3);
+            this.rbtnCoachesShow.Name = "rbtnCoachesShow";
+            this.rbtnCoachesShow.Size = new System.Drawing.Size(67, 17);
+            this.rbtnCoachesShow.TabIndex = 26;
+            this.rbtnCoachesShow.TabStop = true;
+            this.rbtnCoachesShow.Text = "Coaches";
+            this.rbtnCoachesShow.UseVisualStyleBackColor = true;
+            // 
+            // rbtnSwimmersShow
+            // 
+            this.rbtnSwimmersShow.AutoSize = true;
+            this.rbtnSwimmersShow.Location = new System.Drawing.Point(3, 3);
+            this.rbtnSwimmersShow.Name = "rbtnSwimmersShow";
+            this.rbtnSwimmersShow.Size = new System.Drawing.Size(72, 17);
+            this.rbtnSwimmersShow.TabIndex = 27;
+            this.rbtnSwimmersShow.TabStop = true;
+            this.rbtnSwimmersShow.Text = "Swimmers";
+            this.rbtnSwimmersShow.UseVisualStyleBackColor = true;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.rbtnSwimmersShow);
+            this.panel2.Controls.Add(this.rbtnCoachesShow);
+            this.panel2.Location = new System.Drawing.Point(214, 286);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(151, 25);
+            this.panel2.TabIndex = 28;
+            // 
+            // lsbRegistrants
+            // 
+            this.lsbRegistrants.FormattingEnabled = true;
+            this.lsbRegistrants.Location = new System.Drawing.Point(213, 317);
+            this.lsbRegistrants.Name = "lsbRegistrants";
+            this.lsbRegistrants.Size = new System.Drawing.Size(160, 134);
+            this.lsbRegistrants.TabIndex = 29;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(425, 266);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Registrant\'s info:";
+            // 
+            // lblRegistrantInfo
+            // 
+            this.lblRegistrantInfo.AutoSize = true;
+            this.lblRegistrantInfo.Location = new System.Drawing.Point(425, 317);
+            this.lblRegistrantInfo.Name = "lblRegistrantInfo";
+            this.lblRegistrantInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblRegistrantInfo.TabIndex = 31;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(19, 470);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(63, 13);
+            this.label6.TabIndex = 32;
+            this.label6.Text = "Load Clubs:";
+            // 
+            // txtLoadClubs
+            // 
+            this.txtLoadClubs.Location = new System.Drawing.Point(22, 495);
+            this.txtLoadClubs.Name = "txtLoadClubs";
+            this.txtLoadClubs.Size = new System.Drawing.Size(185, 20);
+            this.txtLoadClubs.TabIndex = 33;
+            this.txtLoadClubs.Text = "LoadFiles/Clubs.txt";
+            // 
+            // btnLoadClubs
+            // 
+            this.btnLoadClubs.Location = new System.Drawing.Point(213, 471);
+            this.btnLoadClubs.Name = "btnLoadClubs";
+            this.btnLoadClubs.Size = new System.Drawing.Size(80, 45);
+            this.btnLoadClubs.TabIndex = 34;
+            this.btnLoadClubs.Text = "Load Clubs";
+            this.btnLoadClubs.UseVisualStyleBackColor = true;
+            this.btnLoadClubs.Click += new System.EventHandler(this.btnLoadClubs_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(319, 470);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(64, 13);
+            this.label7.TabIndex = 35;
+            this.label7.Text = "Save Clubs:";
+            // 
+            // btnSaveClubs
+            // 
+            this.btnSaveClubs.Location = new System.Drawing.Point(513, 471);
+            this.btnSaveClubs.Name = "btnSaveClubs";
+            this.btnSaveClubs.Size = new System.Drawing.Size(80, 45);
+            this.btnSaveClubs.TabIndex = 37;
+            this.btnSaveClubs.Text = "Save Clubs";
+            this.btnSaveClubs.UseVisualStyleBackColor = true;
+            this.btnSaveClubs.Click += new System.EventHandler(this.btnSaveClubs_Click);
+            // 
+            // txtSaveClubs
+            // 
+            this.txtSaveClubs.Location = new System.Drawing.Point(322, 495);
+            this.txtSaveClubs.Name = "txtSaveClubs";
+            this.txtSaveClubs.Size = new System.Drawing.Size(185, 20);
+            this.txtSaveClubs.TabIndex = 38;
+            this.txtSaveClubs.Text = "SaveFiles/ClubsOut.txt";
             // 
             // FormClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(613, 494);
+            this.ClientSize = new System.Drawing.Size(605, 527);
+            this.Controls.Add(this.txtSaveClubs);
+            this.Controls.Add(this.btnSaveClubs);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnLoadClubs);
+            this.Controls.Add(this.txtLoadClubs);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.lblRegistrantInfo);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lsbRegistrants);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnAssignRegistrant);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.lblClubInfo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lsbClubs);
@@ -235,6 +447,10 @@
             this.Name = "FormClubs";
             this.Text = "Club Menu";
             this.Load += new System.EventHandler(this.FormClubs_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,5 +477,24 @@
         private System.Windows.Forms.ListBox lsbClubs;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblClubInfo;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.RadioButton rbtnSwimmersAssign;
+        private System.Windows.Forms.RadioButton rbtnCoachesAssign;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button btnAssignRegistrant;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.RadioButton rbtnCoachesShow;
+        private System.Windows.Forms.RadioButton rbtnSwimmersShow;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ListBox lsbRegistrants;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lblRegistrantInfo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtLoadClubs;
+        private System.Windows.Forms.Button btnLoadClubs;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSaveClubs;
+        private System.Windows.Forms.TextBox txtSaveClubs;
     }
 }

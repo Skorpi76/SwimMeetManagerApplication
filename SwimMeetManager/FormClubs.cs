@@ -15,6 +15,7 @@ namespace SwimMeetManager
     {
         formMainMenu formMain = new formMainMenu();
         public List<Club> Clubs { set; get; }
+        ClubsManager clbMngr = new ClubsManager();
 
 
         public FormClubs()
@@ -46,12 +47,10 @@ namespace SwimMeetManager
 
         private void FormClubs_Load(object sender, EventArgs e)
         {
-            
             foreach (var item in Clubs)
             {
                 lsbClubs.Items.Add(item.Name);
             }
-
         }
 
         public void ClubsName(ListBox lsb)
@@ -68,6 +67,41 @@ namespace SwimMeetManager
                     lblClubInfo.Text = item.ToString();
                     break;
                 }
+            }
+        }
+
+        private void btnLoadClubs_Click(object sender, EventArgs e)
+        {
+
+            //ClubsManager clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Load(txtLoadClubs.Text, ",");
+                Clubs.AddRange(clbMngr.Clubs);
+                foreach (var item in clbMngr.Clubs)
+                {
+                    lsbClubs.Items.Add(item.Name);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+
+            
+        }
+
+        private void btnSaveClubs_Click(object sender, EventArgs e)
+        {
+            //ClubsManager clbMngr = new ClubsManager();
+            try
+            {
+                clbMngr.Clubs = Clubs;
+                clbMngr.Save(txtSaveClubs.Text, "|");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
             }
         }
     }

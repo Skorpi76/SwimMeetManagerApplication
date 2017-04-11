@@ -110,9 +110,9 @@ namespace SwimMeetLibrary
             {
                 outFile = new FileStream(fileName, FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(outFile);
-                for (int i = 0; i < Number; i++)
+                foreach (var item in Clubs)
                 {
-                    writer.WriteLine(Clubs[i].ID + delimeter + Clubs[i].Name + delimeter + Clubs[i].Address.Street + delimeter + Clubs[i].Address.City + delimeter + Clubs[i].Address.Province + delimeter + Clubs[i].Address.Zip + delimeter + Clubs[i].PhoneNumber);
+                    writer.WriteLine(item.ID + delimeter + item.Name + delimeter + item.Address.Street + delimeter + item.Address.City + delimeter + item.Address.Province + delimeter + item.Address.Zip + delimeter + item.PhoneNumber);
                 }
             }
             catch

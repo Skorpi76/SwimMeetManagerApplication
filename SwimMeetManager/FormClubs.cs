@@ -13,7 +13,7 @@ namespace SwimMeetManager
 {
     public partial class FormClubs : Form
     {
-        formMainMenu formMain = new formMainMenu();
+        FormMainMenu formMain = new FormMainMenu();
         public List<Club> Clubs { set; get; }
         ClubsManager clbMngr = new ClubsManager();
 

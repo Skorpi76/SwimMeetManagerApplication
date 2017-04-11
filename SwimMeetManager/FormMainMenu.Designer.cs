@@ -1,6 +1,6 @@
 ﻿namespace SwimMeetManager
 {
-    partial class formMainMenu
+    partial class FormMainMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -38,7 +38,7 @@
             // btnGoToSwimmers
             // 
             this.btnGoToSwimmers.Location = new System.Drawing.Point(134, 52);
-            this.btnGoToSwimmers.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoToSwimmers.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToSwimmers.Name = "btnGoToSwimmers";
             this.btnGoToSwimmers.Size = new System.Drawing.Size(56, 19);
             this.btnGoToSwimmers.TabIndex = 0;
@@ -49,7 +49,7 @@
             // btnGoToCoaches
             // 
             this.btnGoToCoaches.Location = new System.Drawing.Point(134, 87);
-            this.btnGoToCoaches.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoToCoaches.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToCoaches.Name = "btnGoToCoaches";
             this.btnGoToCoaches.Size = new System.Drawing.Size(56, 19);
             this.btnGoToCoaches.TabIndex = 1;
@@ -60,7 +60,7 @@
             // btnGoToClubs
             // 
             this.btnGoToClubs.Location = new System.Drawing.Point(134, 128);
-            this.btnGoToClubs.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoToClubs.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToClubs.Name = "btnGoToClubs";
             this.btnGoToClubs.Size = new System.Drawing.Size(56, 19);
             this.btnGoToClubs.TabIndex = 2;
@@ -71,17 +71,18 @@
             // btnGoToEvents
             // 
             this.btnGoToEvents.Location = new System.Drawing.Point(134, 165);
-            this.btnGoToEvents.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGoToEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToEvents.Name = "btnGoToEvents";
             this.btnGoToEvents.Size = new System.Drawing.Size(56, 19);
             this.btnGoToEvents.TabIndex = 3;
             this.btnGoToEvents.Text = "Events";
             this.btnGoToEvents.UseVisualStyleBackColor = true;
+            this.btnGoToEvents.Click += new System.EventHandler(this.btnGoToEvents_Click);
             // 
             // gtnGoToSwimMeets
             // 
             this.gtnGoToSwimMeets.Location = new System.Drawing.Point(134, 197);
-            this.gtnGoToSwimMeets.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gtnGoToSwimMeets.Margin = new System.Windows.Forms.Padding(2);
             this.gtnGoToSwimMeets.Name = "gtnGoToSwimMeets";
             this.gtnGoToSwimMeets.Size = new System.Drawing.Size(56, 19);
             this.gtnGoToSwimMeets.TabIndex = 4;
@@ -98,7 +99,7 @@
             this.Controls.Add(this.btnGoToClubs);
             this.Controls.Add(this.btnGoToCoaches);
             this.Controls.Add(this.btnGoToSwimmers);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "formMainMenu";
             this.Text = "Swim Meet Manager";
             this.Load += new System.EventHandler(this.formMainMenu_Load);

@@ -51,13 +51,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.rbtnSwimmersAssign = new System.Windows.Forms.RadioButton();
             this.rbtnCoachesAssign = new System.Windows.Forms.RadioButton();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.lsbRegistrantsAssign = new System.Windows.Forms.ListBox();
             this.btnAssignRegistrant = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.rbtnCoachesShow = new System.Windows.Forms.RadioButton();
             this.rbtnSwimmersShow = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.lsbRegistrants = new System.Windows.Forms.ListBox();
+            this.lsbRegistrantsShow = new System.Windows.Forms.ListBox();
             this.label5 = new System.Windows.Forms.Label();
             this.lblRegistrantInfo = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -243,9 +243,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(425, 13);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(38, 13);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 20;
-            this.label3.Text = "Assign";
+            this.label3.Text = "Assign:";
             // 
             // rbtnSwimmersAssign
             // 
@@ -269,13 +269,13 @@
             this.rbtnCoachesAssign.Text = "Coaches";
             this.rbtnCoachesAssign.UseVisualStyleBackColor = true;
             // 
-            // listBox1
+            // lsbRegistrantsAssign
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(428, 72);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(146, 134);
-            this.listBox1.TabIndex = 23;
+            this.lsbRegistrantsAssign.FormattingEnabled = true;
+            this.lsbRegistrantsAssign.Location = new System.Drawing.Point(428, 72);
+            this.lsbRegistrantsAssign.Name = "lsbRegistrantsAssign";
+            this.lsbRegistrantsAssign.Size = new System.Drawing.Size(146, 134);
+            this.lsbRegistrantsAssign.TabIndex = 23;
             // 
             // btnAssignRegistrant
             // 
@@ -326,13 +326,13 @@
             this.panel2.Size = new System.Drawing.Size(151, 25);
             this.panel2.TabIndex = 28;
             // 
-            // lsbRegistrants
+            // lsbRegistrantsShow
             // 
-            this.lsbRegistrants.FormattingEnabled = true;
-            this.lsbRegistrants.Location = new System.Drawing.Point(213, 317);
-            this.lsbRegistrants.Name = "lsbRegistrants";
-            this.lsbRegistrants.Size = new System.Drawing.Size(160, 134);
-            this.lsbRegistrants.TabIndex = 29;
+            this.lsbRegistrantsShow.FormattingEnabled = true;
+            this.lsbRegistrantsShow.Location = new System.Drawing.Point(213, 317);
+            this.lsbRegistrantsShow.Name = "lsbRegistrantsShow";
+            this.lsbRegistrantsShow.Size = new System.Drawing.Size(160, 134);
+            this.lsbRegistrantsShow.TabIndex = 29;
             // 
             // label5
             // 
@@ -418,11 +418,11 @@
             this.Controls.Add(this.label6);
             this.Controls.Add(this.lblRegistrantInfo);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.lsbRegistrants);
+            this.Controls.Add(this.lsbRegistrantsShow);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnAssignRegistrant);
-            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.lsbRegistrantsAssign);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblClubInfo);
@@ -481,13 +481,13 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RadioButton rbtnSwimmersAssign;
         private System.Windows.Forms.RadioButton rbtnCoachesAssign;
-        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.ListBox lsbRegistrantsAssign;
         private System.Windows.Forms.Button btnAssignRegistrant;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.RadioButton rbtnCoachesShow;
         private System.Windows.Forms.RadioButton rbtnSwimmersShow;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.ListBox lsbRegistrants;
+        private System.Windows.Forms.ListBox lsbRegistrantsShow;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblRegistrantInfo;
         private System.Windows.Forms.Label label6;

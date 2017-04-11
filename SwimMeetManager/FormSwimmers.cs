@@ -12,7 +12,7 @@ namespace SwimMeetManager
 {
     public partial class FormSwimmers : Form
     {
-        public formMainMenu MainForm; 
+        public FormMainMenu MainForm; 
         public FormSwimmers()
         {
             InitializeComponent();

@@ -45,6 +45,7 @@
             this.lblAddClubError = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.lsbClubs = new System.Windows.Forms.ListBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblAddClub
@@ -188,11 +189,21 @@
             this.lsbClubs.Size = new System.Drawing.Size(161, 160);
             this.lsbClubs.TabIndex = 16;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(408, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 17;
+            this.label2.Text = "label2";
+            // 
             // FormClubs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(613, 478);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lsbClubs);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblAddClubError);
@@ -237,5 +248,6 @@
         private System.Windows.Forms.Label lblAddClubError;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ListBox lsbClubs;
+        private System.Windows.Forms.Label label2;
     }
 }

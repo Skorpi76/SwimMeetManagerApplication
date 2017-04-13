@@ -88,8 +88,9 @@
             this.gtnGoToSwimMeets.TabIndex = 4;
             this.gtnGoToSwimMeets.Text = "Swim Meets";
             this.gtnGoToSwimMeets.UseVisualStyleBackColor = true;
+            this.gtnGoToSwimMeets.Click += new System.EventHandler(this.gtnGoToSwimMeets_Click);
             // 
-            // formMainMenu
+            // FormMainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -100,7 +101,7 @@
             this.Controls.Add(this.btnGoToCoaches);
             this.Controls.Add(this.btnGoToSwimmers);
             this.Margin = new System.Windows.Forms.Padding(2);
-            this.Name = "formMainMenu";
+            this.Name = "FormMainMenu";
             this.Text = "Swim Meet Manager";
             this.Load += new System.EventHandler(this.formMainMenu_Load);
             this.ResumeLayout(false);

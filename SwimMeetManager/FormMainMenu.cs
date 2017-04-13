@@ -15,6 +15,7 @@ namespace SwimMeetManager
     {
         public List<Club> Clubs { set; get; }
         public List<Event> Events { set; get; }
+        public List<SwimMeet> SwimMeets { set; get; }
         public FormMainMenu()
         {
             InitializeComponent();
@@ -51,6 +52,11 @@ namespace SwimMeetManager
             Clubs.Add(aClub);
             Clubs.Add(bClub);
             Clubs.Add(cClub);
+            //SwimMeets
+            SwimMeet meet1;
+            SwimMeet meet2;
+            CreateSwimMeets(out meet1, out meet2);
+            SwimMeets.AddRange(new[] { meet1, meet2 });
             //Events
             Events = new List<Event>();
             Event _50free1;
@@ -61,6 +67,16 @@ namespace SwimMeetManager
             Event _1500free2;
             CreateEvents(out _50free1, out _100fly, out _200breast, out _400free, out _1500free, out _1500free2);
             Events.AddRange(new[] { _50free1, _100fly, _200breast, _400free, _1500free, _1500free2 });
+            AddEventsToSwimMeets(meet1, meet2, _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
+
+            //AddSwimmersToEvents(swimmer1, swimmer2, swimmer3, meet1, meet2,
+            //                    _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
+        }
+        private void gtnGoToSwimMeets_Click(object sender, EventArgs e)
+        {
+            FormSwimMeet formSwimMeet = new FormSwimMeet();
+            formSwimMeet.SwimMeets = SwimMeets;
+            formSwimMeet.ShowDialog(this);
         }
 
         private void btnGoToEvents_Click(object sender, EventArgs e)
@@ -68,6 +84,62 @@ namespace SwimMeetManager
             FormEvent formEvents = new FormEvent();
             formEvents.Events = Events;
             formEvents.ShowDialog(this);
+        }
+
+        private static void CreateSwimMeets(out SwimMeet meet1, out SwimMeet meet2)
+        {
+
+            Console.WriteLine("*******meets and events ******\n***********************************");
+            meet1 = new SwimMeet();
+            meet1.Name = "Winnter Splash";
+            meet1.StartDate = new DateTime(2017, 1, 10);
+            meet1.EndDate = new DateTime(2017, 1, 12);
+            meet2 = new SwimMeet("Spring Splash", new DateTime(2017, 5, 21), new DateTime(2017, 5, 21), SwimMeet.PoolCourse.SCM, 2);
+        }
+
+        private static void AddEventsToSwimMeets(SwimMeet meet1, SwimMeet meet2, Event _50free1, Event _100fly, Event _200breast, Event _400free, Event _1500free, Event _1500free2)
+        {
+            meet1.AddEvent(_50free1);
+            meet1.AddEvent(_100fly);
+            meet1.AddEvent(_200breast);
+            meet1.AddEvent(_1500free2);
+
+            meet2.AddEvent(_400free);
+            meet2.AddEvent(_1500free);
+        }
+
+
+        private static void AddSwimmersToEvents(Registrant swimmer1, Registrant swimmer2, Registrant swimmer3, SwimMeet meet1, SwimMeet meet2, Event _50free1, Event _100fly, Event _200breast, Event _400free, Event _1500free, Event _1500free2)
+        {
+            //Add swimmers to event
+            _50free1.AddSwimmer(swimmer1);
+            _50free1.AddSwimmer(swimmer2);
+            _50free1.AddSwimmer(swimmer3);
+            try
+            {
+                _50free1.AddSwimmer(swimmer3);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            _100fly.AddSwimmer(swimmer1);
+            _100fly.AddSwimmer(swimmer2);
+
+            _200breast.AddSwimmer(swimmer1);
+            _200breast.AddSwimmer(swimmer2);
+            _200breast.AddSwimmer(swimmer3);
+
+            _400free.AddSwimmer(swimmer2);
+
+            _1500free.AddSwimmer(swimmer1);
+            _1500free.AddSwimmer(swimmer2);
+            _1500free.AddSwimmer(swimmer3);
+
+            _1500free2.AddSwimmer(swimmer1);
+            _1500free2.AddSwimmer(swimmer3);
         }
 
 
@@ -93,5 +165,7 @@ namespace SwimMeetManager
             _1500free = new Event(Event.Distance._1500, Event.Stroke.Freestyle);
             _1500free2 = new Event(Event.Distance._1500, Event.Stroke.Freestyle);
         }
+
+
     }
 }

@@ -12,7 +12,8 @@ namespace SwimMeetManager
 {
     public partial class FormSwimmers : Form
     {
-        public FormMainMenu MainForm; 
+        private FormMainMenu formMain = new FormMainMenu();
+        public List<Swimmer> Swimmers { set; get; }
         public FormSwimmers()
         {
             InitializeComponent();
@@ -25,7 +26,7 @@ namespace SwimMeetManager
             int month = Convert.ToInt32(txtMonth.Text);
             long phoneNumber = Convert.ToInt64(txtPhoneNumber.Text);
             Swimmer aSwimmer = new Swimmer(txtName.Text, new DateTime(year, month, day), new Adress(txtStreet.Text, txtCity.Text,  txtProvince.Text, txtPostalCode.Text), phoneNumber);
-            //MainForm.Swimmers.Add(aSwimmer);
+            formMain.Swimmers = Swimmers;
             lsbAllSwimmers.Items.Add(aSwimmer);
             //  label1.Text = aSwimmer.ToString();
             //label1.Text = MainForm.Swimmers[0].ToString();

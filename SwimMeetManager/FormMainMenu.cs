@@ -15,6 +15,8 @@ namespace SwimMeetManager
     {
         public List<Club> Clubs { set; get; }
         public List<Event> Events { set; get; }
+        public List<Swimmer> Swimmers { set; get; }
+        public List<Coach> Coaches { set; get; }
         public FormMainMenu()
         {
             InitializeComponent();
@@ -23,6 +25,7 @@ namespace SwimMeetManager
         private void btnGoToSwimmers_Click(object sender, EventArgs e)
         {
             FormSwimmers formSwimmers = new FormSwimmers();
+            formSwimmers.Swimmers = this.Swimmers;
             formSwimmers.ShowDialog(this);
         }
 
@@ -36,11 +39,25 @@ namespace SwimMeetManager
         private void btnGoToCoaches_Click(object sender, EventArgs e)
         {
             FormCoaches formCoaches = new FormCoaches();
+   
             formCoaches.ShowDialog(this);
         }
 
         private void formMainMenu_Load(object sender, EventArgs e)
         {
+            //Swimmers 
+            Swimmers = new List<Swimmer>();
+            Swimmers.Add(new Swimmer("Bob Smith", new DateTime(1970, 1, 1),
+                                                   new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567));
+            Swimmers.Add(new Swimmer("Ann Smith", new DateTime(1980, 2, 5),
+                                              new Adress("40 bloor St", "Toronto", "ON", "M2M 2B2"), 4164166415));
+
+            // Coaches 
+            Coaches = new List<Coach>();
+            Coaches.Add(new Coach("John Wisemiler", new DateTime(1950, 1, 1),
+                                                    new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567));
+            Coaches.Add(new Coach("Micael Phelps", new DateTime(1975, 6, 30),
+                                                    new Adress("5 Queen St", "Boston", "ON", "234567"), 3123123333));
             //Clubs
             Clubs = new List<Club>();
             Club aClub = new Club("Canada Fitness", new Adress("21 Younge St","Toronto","ON","M6J 9O6"),6478304065);

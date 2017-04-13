@@ -250,6 +250,7 @@
             // rbtnSwimmersAssign
             // 
             this.rbtnSwimmersAssign.AutoSize = true;
+            this.rbtnSwimmersAssign.Checked = true;
             this.rbtnSwimmersAssign.Location = new System.Drawing.Point(7, 5);
             this.rbtnSwimmersAssign.Name = "rbtnSwimmersAssign";
             this.rbtnSwimmersAssign.Size = new System.Drawing.Size(72, 17);
@@ -257,6 +258,7 @@
             this.rbtnSwimmersAssign.TabStop = true;
             this.rbtnSwimmersAssign.Text = "Swimmers";
             this.rbtnSwimmersAssign.UseVisualStyleBackColor = true;
+            this.rbtnSwimmersAssign.CheckedChanged += new System.EventHandler(this.rbtnSwimmersAssign_CheckedChanged);
             // 
             // rbtnCoachesAssign
             // 
@@ -265,9 +267,9 @@
             this.rbtnCoachesAssign.Name = "rbtnCoachesAssign";
             this.rbtnCoachesAssign.Size = new System.Drawing.Size(67, 17);
             this.rbtnCoachesAssign.TabIndex = 22;
-            this.rbtnCoachesAssign.TabStop = true;
             this.rbtnCoachesAssign.Text = "Coaches";
             this.rbtnCoachesAssign.UseVisualStyleBackColor = true;
+            this.rbtnCoachesAssign.CheckedChanged += new System.EventHandler(this.rbtnSwimmersAssign_CheckedChanged);
             // 
             // lsbRegistrantsAssign
             // 
@@ -285,6 +287,7 @@
             this.btnAssignRegistrant.TabIndex = 24;
             this.btnAssignRegistrant.Text = "Assign Registrant";
             this.btnAssignRegistrant.UseVisualStyleBackColor = true;
+            this.btnAssignRegistrant.Click += new System.EventHandler(this.btnAssignRegistrant_Click);
             // 
             // panel1
             // 
@@ -309,6 +312,7 @@
             // rbtnSwimmersShow
             // 
             this.rbtnSwimmersShow.AutoSize = true;
+            this.rbtnSwimmersShow.Checked = true;
             this.rbtnSwimmersShow.Location = new System.Drawing.Point(3, 3);
             this.rbtnSwimmersShow.Name = "rbtnSwimmersShow";
             this.rbtnSwimmersShow.Size = new System.Drawing.Size(72, 17);
@@ -316,6 +320,7 @@
             this.rbtnSwimmersShow.TabStop = true;
             this.rbtnSwimmersShow.Text = "Swimmers";
             this.rbtnSwimmersShow.UseVisualStyleBackColor = true;
+            this.rbtnSwimmersShow.CheckedChanged += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
             // 
             // panel2
             // 

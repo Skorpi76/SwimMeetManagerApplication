@@ -33,13 +33,16 @@ namespace SwimMeetManager
         private void btnGoToClubs_Click(object sender, EventArgs e)
         {
             FormClubs formClubs = new FormClubs();
+            formClubs.Swimmers = Swimmers;
             formClubs.Clubs = Clubs;
+            formClubs.Coaches = Coaches;
             formClubs.ShowDialog(this);
         }
 
         private void btnGoToCoaches_Click(object sender, EventArgs e)
         {
             FormCoaches formCoaches = new FormCoaches();
+            
             formCoaches.ShowDialog(this);
         }
 
@@ -65,10 +68,9 @@ namespace SwimMeetManager
             Club cClub = new Club();
             cClub.PhoneNumber = 4164444444;
             cClub.Name = "NYAC";
-            Clubs.Add(aClub);
-            Clubs.Add(bClub);
-            Clubs.Add(cClub);
-            //SwimMeets
+            Clubs.AddRange(new[] { aClub, bClub, cClub });
+            //SwimMeet
+            SwimMeets = new List<SwimMeet>();
             SwimMeet meet1;
             SwimMeet meet2;
             CreateSwimMeets(out meet1, out meet2);
@@ -104,8 +106,6 @@ namespace SwimMeetManager
 
         private static void CreateSwimMeets(out SwimMeet meet1, out SwimMeet meet2)
         {
-
-            Console.WriteLine("*******meets and events ******\n***********************************");
             meet1 = new SwimMeet();
             meet1.Name = "Winnter Splash";
             meet1.StartDate = new DateTime(2017, 1, 10);

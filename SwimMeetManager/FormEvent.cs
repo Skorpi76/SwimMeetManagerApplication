@@ -15,6 +15,7 @@ namespace SwimMeetManager
     {
         FormMainMenu formMain = new FormMainMenu();
         public List<Event> Events { set; get; }
+        public List<Swimmer> Swimmers { set; get; }
         public FormEvent()
         {
             InitializeComponent();
@@ -82,6 +83,28 @@ namespace SwimMeetManager
             foreach (var item in Events)
             {
                 lsbEvents.Items.Add(item.DistanceValue.ToString()+" "+item.StrokeValue.ToString());
+            }
+            foreach (var item in Swimmers)
+            {
+                lsbSwimmers.Items.Add(item.Name);
+            }
+        }
+
+        private void btnAssignSwimmer_Click(object sender, EventArgs e)
+        {
+            foreach (var itemS in Swimmers)
+            {
+                if (lsbSwimmers.SelectedItem.ToString() == itemS.Name)
+                {
+                    foreach (var itemE in Events)
+                    {
+                        if ((itemE.StrokeValue.ToString() + " " + itemE.StrokeValue.ToString()) == lsbEvents.SelectedItem.ToString())
+                        {
+                            itemE.AddSwimmer(itemS);
+                            break;
+                        }
+                    }
+                }
             }
         }
     }

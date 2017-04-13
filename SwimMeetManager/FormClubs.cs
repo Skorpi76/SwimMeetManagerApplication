@@ -67,7 +67,7 @@ namespace SwimMeetManager
 
         private void lsbClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblClubInfo.Text = ReturnClubFromLsb(lsbClubs,Clubs).ToString();
+            lblClubInfo.Text = ReturnObjectClubFrom(lsbClubs,Clubs).ToString();
         }
 
         private void btnLoadClubs_Click(object sender, EventArgs e)
@@ -125,14 +125,13 @@ namespace SwimMeetManager
 
         private void btnAssignRegistrant_Click(object sender, EventArgs e)
         {
-            Registrant aSwimmer;
             if (rbtnSwimmersAssign.Checked)
             {
                 foreach (var item in Swimmers)
                 {
                     if (item.Name == lsbRegistrantsAssign.SelectedItem.ToString())
                     {
-                        ReturnClubFromLsb(lsbClubs, Clubs).AddSwimmer(item);
+                        ReturnObjectClubFrom(lsbClubs, Clubs).AddSwimmer(item);
                         break;
                     }
                 }
@@ -143,14 +142,15 @@ namespace SwimMeetManager
                 {
                     if (item.Name == lsbRegistrantsAssign.SelectedItem.ToString())
                     {
-                        ReturnClubFromLsb(lsbClubs, Clubs).AddCoach(item);
+                        ReturnObjectClubFrom(lsbClubs, Clubs).AddCoach(item);
                         break;
                     }
                 }
             }
+            lblClubInfo.Text = ReturnObjectClubFrom(lsbClubs, Clubs).ToString();
         }
 
-        private Club ReturnClubFromLsb(ListBox lsb,List<Club> clubs)
+        private Club ReturnObjectClubFrom(ListBox lsb,List<Club> clubs)
         {
             Club aClub=null;
             foreach (var item in clubs)
@@ -163,7 +163,49 @@ namespace SwimMeetManager
 
         private void rbtnSwimmersShow_CheckedChanged(object sender, EventArgs e)
         {
-            
+            if (rbtnSwimmersShow.Checked)
+            {
+                lsbRegistrantsShow.Items.Clear();
+                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Swimmers)
+                {
+                    lsbRegistrantsShow.Items.Add(item.Name);
+                }
+            }
+            else
+            {
+                lsbRegistrantsShow.Items.Clear();
+                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Coaches)
+                {
+                    lsbRegistrantsShow.Items.Add(item.Name);
+                }
+            }
+        }
+
+        private void lsbRegistrantsShow_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (rbtnSwimmersShow.Checked)
+            {
+                foreach (var item in Swimmers)
+                {
+                    if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
+                    {
+                        lblRegistrantInfo.Text=item.ToString();
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (var item in Coaches)
+                {
+                    if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
+                    {
+                        lblRegistrantInfo.Text = item.ToString();
+                        break;
+                    }
+                }
+            }
+
         }
     }
 }

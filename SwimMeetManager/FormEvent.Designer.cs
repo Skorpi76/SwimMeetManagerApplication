@@ -149,6 +149,7 @@
             this.btnAssignSwimmer.TabIndex = 10;
             this.btnAssignSwimmer.Text = "Assign Swimmer";
             this.btnAssignSwimmer.UseVisualStyleBackColor = true;
+            this.btnAssignSwimmer.Click += new System.EventHandler(this.btnAssignSwimmer_Click);
             // 
             // FormEvent
             // 

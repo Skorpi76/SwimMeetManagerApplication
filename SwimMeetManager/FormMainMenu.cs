@@ -50,12 +50,13 @@ namespace SwimMeetManager
         {
             //Swimmers 
             Swimmers = new List<Swimmer>();
-            Swimmers.Add(new Swimmer("Bob Smith", new DateTime(1970, 1, 1),
-                                                   new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567));
-            Swimmers.Add(new Swimmer("Ann Smith", new DateTime(1980, 2, 5),
-                                              new Adress("40 bloor St", "Toronto", "ON", "M2M 2B2"), 4164166415));
+            Swimmer swimmer1;
+            Swimmer swimmer2;
+            Swimmer swimmer3;
+            CreateSwimmers(out swimmer1, out swimmer2, out swimmer3);
+            Swimmers.AddRange(new[] {swimmer1,swimmer2,swimmer3 });
 
-            // Coaches 
+            // Coaches
             Coaches = new List<Coach>();
             Coaches.Add(new Coach("John Wisemiler", new DateTime(1950, 1, 1),
                                                     new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567));
@@ -86,14 +87,14 @@ namespace SwimMeetManager
             CreateEvents(out _50free1, out _100fly, out _200breast, out _400free, out _1500free, out _1500free2);
             Events.AddRange(new[] { _50free1, _100fly, _200breast, _400free, _1500free, _1500free2 });
             AddEventsToSwimMeets(meet1, meet2, _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
-
-            //AddSwimmersToEvents(swimmer1, swimmer2, swimmer3, meet1, meet2,
-            //                    _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
+            AddSwimmersToEvents(swimmer1, swimmer2, swimmer3, meet1, meet2,
+                                _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
         }
         private void gtnGoToSwimMeets_Click(object sender, EventArgs e)
         {
             FormSwimMeet formSwimMeet = new FormSwimMeet();
             formSwimMeet.SwimMeets = SwimMeets;
+            formSwimMeet.Events = Events;
             formSwimMeet.ShowDialog(this);
         }
 
@@ -101,6 +102,7 @@ namespace SwimMeetManager
         {
             FormEvent formEvents = new FormEvent();
             formEvents.Events = Events;
+            formEvents.Swimmers = Swimmers;
             formEvents.ShowDialog(this);
         }
 
@@ -123,11 +125,21 @@ namespace SwimMeetManager
             meet2.AddEvent(_400free);
             meet2.AddEvent(_1500free);
         }
-
+        private static void CreateSwimmers(out Swimmer swimmer1, out Swimmer swimmer2, out Swimmer swimmer3)
+        {
+            swimmer1 = new Swimmer("Bob Smith", new DateTime(1970, 1, 1),
+                                                    new Adress("35 Elm St", "Toronto", "ON", "M2M 2M2"), 4161234567);
+            swimmer2 = new Swimmer();
+            swimmer2.Address = new Adress("1 King St", "Toronto", "ON", "M2M 3M3");
+            swimmer2.Name = "John Lee";
+            swimmer2.PhoneNumber = 4162222222;
+            swimmer2.DOB = new DateTime(1950, 12, 1);
+            swimmer3 = new Swimmer("Ann Smith", new DateTime(1975, 1, 1),
+                                                    new Adress("5 Queen St", "Toronto", "ON", "M2M 4M4"), 4163333333);
+        }
 
         private static void AddSwimmersToEvents(Registrant swimmer1, Registrant swimmer2, Registrant swimmer3, SwimMeet meet1, SwimMeet meet2, Event _50free1, Event _100fly, Event _200breast, Event _400free, Event _1500free, Event _1500free2)
         {
-            //Add swimmers to event
             _50free1.AddSwimmer(swimmer1);
             _50free1.AddSwimmer(swimmer2);
             _50free1.AddSwimmer(swimmer3);

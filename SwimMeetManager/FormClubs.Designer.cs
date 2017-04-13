@@ -321,6 +321,7 @@
             this.rbtnSwimmersShow.Text = "Swimmers";
             this.rbtnSwimmersShow.UseVisualStyleBackColor = true;
             this.rbtnSwimmersShow.CheckedChanged += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
+            this.btnAssignRegistrant.Click += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
             // 
             // panel2
             // 
@@ -338,6 +339,7 @@
             this.lsbRegistrantsShow.Name = "lsbRegistrantsShow";
             this.lsbRegistrantsShow.Size = new System.Drawing.Size(160, 134);
             this.lsbRegistrantsShow.TabIndex = 29;
+            this.lsbRegistrantsShow.SelectedIndexChanged += new System.EventHandler(this.lsbRegistrantsShow_SelectedIndexChanged);
             // 
             // label5
             // 

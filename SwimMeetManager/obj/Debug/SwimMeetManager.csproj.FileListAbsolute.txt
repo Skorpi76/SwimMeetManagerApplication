@@ -25,3 +25,5 @@ C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SweemMeetLibrary.dll
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\bin\Debug\SweemMeetLibrary.pdb
 M:\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormEvent.resources
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormEvent.resources
+C:\Users\Skorpi\Documents\GitHub\SwimMeetManagerApplication\SwimMeetManager\obj\Debug\SwimMeetManager.FormSwimMeet.resources

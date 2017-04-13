@@ -42,7 +42,7 @@ namespace SwimMeetManager
         private void btnGoToCoaches_Click(object sender, EventArgs e)
         {
             FormCoaches formCoaches = new FormCoaches();
-            
+            formCoaches.Coaches = this.Coaches;
             formCoaches.ShowDialog(this);
         }
 

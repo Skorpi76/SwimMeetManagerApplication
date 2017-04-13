@@ -51,10 +51,18 @@
             this.btnSubmitAddSwimmer = new System.Windows.Forms.Button();
             this.lsbAllSwimmers = new System.Windows.Forms.ListBox();
             this.lblAllSwimmers = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.lblAboutStudent = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txtSaveClubs = new System.Windows.Forms.TextBox();
+            this.btnSaveSwimmers = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnLoadSwimmers = new System.Windows.Forms.Button();
+            this.txtLoadClubs = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gBoxDOB.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // lblName
@@ -257,6 +265,7 @@
             this.lsbAllSwimmers.Name = "lsbAllSwimmers";
             this.lsbAllSwimmers.Size = new System.Drawing.Size(151, 260);
             this.lsbAllSwimmers.TabIndex = 16;
+            this.lsbAllSwimmers.SelectedIndexChanged += new System.EventHandler(this.lsbAllSwimmers_SelectedIndexChanged);
             // 
             // lblAllSwimmers
             // 
@@ -267,31 +276,105 @@
             this.lblAllSwimmers.TabIndex = 17;
             this.lblAllSwimmers.Text = "All Swimmers:";
             // 
-            // label1
+            // lblAboutStudent
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(554, 98);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 18;
-            this.label1.Text = "label1";
+            this.lblAboutStudent.AutoSize = true;
+            this.lblAboutStudent.Location = new System.Drawing.Point(6, 28);
+            this.lblAboutStudent.Name = "lblAboutStudent";
+            this.lblAboutStudent.Size = new System.Drawing.Size(0, 17);
+            this.lblAboutStudent.TabIndex = 18;
             // 
-            // label2
+            // groupBox2
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(557, 138);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 17);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "label2";
+            this.groupBox2.Controls.Add(this.lblAboutStudent);
+            this.groupBox2.Location = new System.Drawing.Point(499, 43);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(234, 269);
+            this.groupBox2.TabIndex = 19;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "About Swimmer: ";
+            // 
+            // txtSaveClubs
+            // 
+            this.txtSaveClubs.Location = new System.Drawing.Point(419, 561);
+            this.txtSaveClubs.Margin = new System.Windows.Forms.Padding(4);
+            this.txtSaveClubs.Name = "txtSaveClubs";
+            this.txtSaveClubs.Size = new System.Drawing.Size(245, 22);
+            this.txtSaveClubs.TabIndex = 44;
+            this.txtSaveClubs.Text = "SaveFiles/Swimmers.txt";
+            // 
+            // btnSaveSwimmers
+            // 
+            this.btnSaveSwimmers.Location = new System.Drawing.Point(674, 532);
+            this.btnSaveSwimmers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSaveSwimmers.Name = "btnSaveSwimmers";
+            this.btnSaveSwimmers.Size = new System.Drawing.Size(107, 55);
+            this.btnSaveSwimmers.TabIndex = 43;
+            this.btnSaveSwimmers.Text = "Save";
+            this.btnSaveSwimmers.UseVisualStyleBackColor = true;
+            this.btnSaveSwimmers.Click += new System.EventHandler(this.btnSaveSwimmers_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(415, 530);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(111, 17);
+            this.label7.TabIndex = 42;
+            this.label7.Text = "Save Swimmers:";
+            // 
+            // btnLoadSwimmers
+            // 
+            this.btnLoadSwimmers.Location = new System.Drawing.Point(274, 532);
+            this.btnLoadSwimmers.Margin = new System.Windows.Forms.Padding(4);
+            this.btnLoadSwimmers.Name = "btnLoadSwimmers";
+            this.btnLoadSwimmers.Size = new System.Drawing.Size(107, 55);
+            this.btnLoadSwimmers.TabIndex = 41;
+            this.btnLoadSwimmers.Text = "Load";
+            this.btnLoadSwimmers.UseVisualStyleBackColor = true;
+            this.btnLoadSwimmers.Click += new System.EventHandler(this.btnLoadSwimmers_Click);
+            // 
+            // txtLoadClubs
+            // 
+            this.txtLoadClubs.Location = new System.Drawing.Point(19, 561);
+            this.txtLoadClubs.Margin = new System.Windows.Forms.Padding(4);
+            this.txtLoadClubs.Name = "txtLoadClubs";
+            this.txtLoadClubs.Size = new System.Drawing.Size(245, 22);
+            this.txtLoadClubs.TabIndex = 40;
+            this.txtLoadClubs.Text = "LoadFiles/Swimmers.txt";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(15, 530);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(111, 17);
+            this.label6.TabIndex = 39;
+            this.label6.Text = "Load Swimmers:";
+            // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(324, 327);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 17);
+            this.lblError.TabIndex = 45;
             // 
             // FormSwimmers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1086, 615);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblError);
+            this.Controls.Add(this.txtSaveClubs);
+            this.Controls.Add(this.btnSaveSwimmers);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.btnLoadSwimmers);
+            this.Controls.Add(this.txtLoadClubs);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.lblAllSwimmers);
             this.Controls.Add(this.lsbAllSwimmers);
             this.Controls.Add(this.groupBox1);
@@ -302,6 +385,8 @@
             this.groupBox1.PerformLayout();
             this.gBoxDOB.ResumeLayout(false);
             this.gBoxDOB.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -331,7 +416,14 @@
         private System.Windows.Forms.Label lblMonth;
         private System.Windows.Forms.TextBox txtYear;
         private System.Windows.Forms.TextBox txtMonth;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAboutStudent;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TextBox txtSaveClubs;
+        private System.Windows.Forms.Button btnSaveSwimmers;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnLoadSwimmers;
+        private System.Windows.Forms.TextBox txtLoadClubs;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblError;
     }
 }

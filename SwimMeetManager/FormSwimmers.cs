@@ -26,6 +26,7 @@ namespace SwimMeetManager
             int month = Convert.ToInt32(txtMonth.Text);
             long phoneNumber = Convert.ToInt64(txtPhoneNumber.Text);
             Swimmer aSwimmer = new Swimmer(txtName.Text, new DateTime(year, month, day), new Adress(txtStreet.Text, txtCity.Text,  txtProvince.Text, txtPostalCode.Text), phoneNumber);
+            Swimmers.Add(aSwimmer);
             formMain.Swimmers = Swimmers;
             lsbAllSwimmers.Items.Add(aSwimmer);
             //  label1.Text = aSwimmer.ToString();
@@ -34,7 +35,7 @@ namespace SwimMeetManager
 
         private void FormSwimmers_Load(object sender, EventArgs e)
         {
-           // MainForm = new formMainMenu();
+         
         }
     }
 }

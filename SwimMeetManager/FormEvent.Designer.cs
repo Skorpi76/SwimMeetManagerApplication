@@ -39,6 +39,14 @@
             this.label5 = new System.Windows.Forms.Label();
             this.lsbSwimmers = new System.Windows.Forms.ListBox();
             this.btnAssignSwimmer = new System.Windows.Forms.Button();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.llbEventInfo = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtMinutes = new System.Windows.Forms.TextBox();
+            this.txtSeconds = new System.Windows.Forms.TextBox();
+            this.txtMiliSeconds = new System.Windows.Forms.TextBox();
+            this.btnnAddTime = new System.Windows.Forms.Button();
+            this.lblErrorAddTime = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +131,7 @@
             this.lsbEvents.Name = "lsbEvents";
             this.lsbEvents.Size = new System.Drawing.Size(120, 225);
             this.lsbEvents.TabIndex = 7;
+            this.lsbEvents.SelectedIndexChanged += new System.EventHandler(this.lsbEvents_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -151,11 +160,84 @@
             this.btnAssignSwimmer.UseVisualStyleBackColor = true;
             this.btnAssignSwimmer.Click += new System.EventHandler(this.btnAssignSwimmer_Click);
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(460, 43);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblInfo.TabIndex = 11;
+            // 
+            // llbEventInfo
+            // 
+            this.llbEventInfo.AutoSize = true;
+            this.llbEventInfo.Location = new System.Drawing.Point(463, 13);
+            this.llbEventInfo.Name = "llbEventInfo";
+            this.llbEventInfo.Size = new System.Drawing.Size(58, 13);
+            this.llbEventInfo.TabIndex = 12;
+            this.llbEventInfo.Text = "Event info:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(466, 164);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(81, 13);
+            this.label6.TabIndex = 13;
+            this.label6.Text = "Swimmer\'s time:";
+            // 
+            // txtMinutes
+            // 
+            this.txtMinutes.Location = new System.Drawing.Point(466, 184);
+            this.txtMinutes.Name = "txtMinutes";
+            this.txtMinutes.Size = new System.Drawing.Size(28, 20);
+            this.txtMinutes.TabIndex = 14;
+            // 
+            // txtSeconds
+            // 
+            this.txtSeconds.Location = new System.Drawing.Point(500, 184);
+            this.txtSeconds.Name = "txtSeconds";
+            this.txtSeconds.Size = new System.Drawing.Size(28, 20);
+            this.txtSeconds.TabIndex = 15;
+            // 
+            // txtMiliSeconds
+            // 
+            this.txtMiliSeconds.Location = new System.Drawing.Point(534, 184);
+            this.txtMiliSeconds.Name = "txtMiliSeconds";
+            this.txtMiliSeconds.Size = new System.Drawing.Size(28, 20);
+            this.txtMiliSeconds.TabIndex = 16;
+            // 
+            // btnnAddTime
+            // 
+            this.btnnAddTime.Location = new System.Drawing.Point(466, 245);
+            this.btnnAddTime.Name = "btnnAddTime";
+            this.btnnAddTime.Size = new System.Drawing.Size(96, 23);
+            this.btnnAddTime.TabIndex = 17;
+            this.btnnAddTime.Text = "Add Time";
+            this.btnnAddTime.UseVisualStyleBackColor = true;
+            this.btnnAddTime.Click += new System.EventHandler(this.btnnAddTime_Click);
+            // 
+            // lblErrorAddTime
+            // 
+            this.lblErrorAddTime.AutoSize = true;
+            this.lblErrorAddTime.Location = new System.Drawing.Point(466, 216);
+            this.lblErrorAddTime.Name = "lblErrorAddTime";
+            this.lblErrorAddTime.Size = new System.Drawing.Size(0, 13);
+            this.lblErrorAddTime.TabIndex = 18;
+            // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(456, 286);
+            this.ClientSize = new System.Drawing.Size(622, 285);
+            this.Controls.Add(this.lblErrorAddTime);
+            this.Controls.Add(this.btnnAddTime);
+            this.Controls.Add(this.txtMiliSeconds);
+            this.Controls.Add(this.txtSeconds);
+            this.Controls.Add(this.txtMinutes);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.llbEventInfo);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAssignSwimmer);
             this.Controls.Add(this.lsbSwimmers);
             this.Controls.Add(this.label5);
@@ -188,5 +270,13 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lsbSwimmers;
         private System.Windows.Forms.Button btnAssignSwimmer;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label llbEventInfo;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox txtMinutes;
+        private System.Windows.Forms.TextBox txtSeconds;
+        private System.Windows.Forms.TextBox txtMiliSeconds;
+        private System.Windows.Forms.Button btnnAddTime;
+        private System.Windows.Forms.Label lblErrorAddTime;
     }
 }

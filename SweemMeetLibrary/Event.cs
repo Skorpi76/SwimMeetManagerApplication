@@ -59,7 +59,7 @@ namespace SwimMeetLibrary
                 }
                 else
                 {
-                    info += string.Format("\n\t\tNot seeded/no swim");
+                    info += string.Format("\t\tNot seeded/no swim");
                 }
                 i++;
             }
@@ -68,22 +68,22 @@ namespace SwimMeetLibrary
 
         public void AddSwimmer(Registrant swimmer)
         {
-            if (NoOfSwimers == 0 || Swimmers[NoOfSwimers - 1] != swimmer)
+            int trigger = 1;
+            foreach (Registrant aSwimmer in Swimmers)
             {
-                if (swimmer.ItsEvent == null || swimmer.ItsEvent == this)
-                {
-                    Swimmers.Add(swimmer);
-                    NoOfSwimers++;
-                    if (swimmer.ItsClub == null)
-                    {
-                        swimmer.ItsEvent = this;
-                    }
-                }
+                if (aSwimmer == swimmer)
+                    trigger = 0; ;
+            }
+            if (trigger == 1)
+            {
+
+                Swimmers.Add(swimmer);
+                swimmer.ItsEvent = this;
+
             }
             else
             {
-
-                throw new Exception(string.Format("Swimmer {0}, {1} already entered", swimmer.Name, swimmer.ID));
+                throw new Exception("Swimmer " + swimmer.Name + ", " + swimmer.ID +" is already entered");
             }
         }
 
@@ -104,7 +104,7 @@ namespace SwimMeetLibrary
             }
             catch
             {
-                throw new Exception(string.Format("Swimmer has not entered event"));
+                throw new Exception(string.Format("Seed meets before entering time"));
             }
 
             Swimmer aswimmer = registrant as Swimmer;

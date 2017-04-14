@@ -143,15 +143,6 @@ namespace SwimMeetManager
             _50free1.AddSwimmer(swimmer1);
             _50free1.AddSwimmer(swimmer2);
             _50free1.AddSwimmer(swimmer3);
-            try
-            {
-                _50free1.AddSwimmer(swimmer3);
-            }
-            catch (Exception ex)
-            {
-
-                Console.WriteLine(ex.Message);
-            }
 
             _100fly.AddSwimmer(swimmer1);
             _100fly.AddSwimmer(swimmer2);

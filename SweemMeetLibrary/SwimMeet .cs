@@ -38,7 +38,7 @@ namespace SwimMeetLibrary
         {
             string info;
             info = string.Format("Sweem meet name: {2} \nFrom-to:{0} to {1} \nPool type: {3} \nNo lanes: {4}",
-                StartDate, EndDate, Name, Course, NoOfLanes);
+                StartDate.ToShortDateString(), EndDate.ToShortDateString(), Name, Course, NoOfLanes);
 
             info += "\t\nEvents: ";
 

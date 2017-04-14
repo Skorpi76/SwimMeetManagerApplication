@@ -207,5 +207,20 @@ namespace SwimMeetManager
             }
 
         }
+
+
+        private void txtLoadClubs_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult dr = openFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+                txtLoadClubs.Text = openFileDialog1.FileName;
+        }
+
+        private void txtSaveClubs_DoubleClick(object sender, EventArgs e)
+        {
+            DialogResult dr = saveFileDialog1.ShowDialog();
+            if (dr == DialogResult.OK)
+                txtSaveClubs.Text = saveFileDialog1.FileName;
+        }
     }
 }

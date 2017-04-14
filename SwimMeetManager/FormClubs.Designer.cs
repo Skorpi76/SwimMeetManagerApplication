@@ -66,6 +66,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.btnSaveClubs = new System.Windows.Forms.Button();
             this.txtSaveClubs = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -287,7 +289,7 @@
             this.btnAssignRegistrant.TabIndex = 24;
             this.btnAssignRegistrant.Text = "Assign Registrant";
             this.btnAssignRegistrant.UseVisualStyleBackColor = true;
-            this.btnAssignRegistrant.Click += new System.EventHandler(this.btnAssignRegistrant_Click);
+            this.btnAssignRegistrant.Click += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
             // 
             // panel1
             // 
@@ -321,7 +323,6 @@
             this.rbtnSwimmersShow.Text = "Swimmers";
             this.rbtnSwimmersShow.UseVisualStyleBackColor = true;
             this.rbtnSwimmersShow.CheckedChanged += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
-            this.btnAssignRegistrant.Click += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
             // 
             // panel2
             // 
@@ -374,6 +375,7 @@
             this.txtLoadClubs.Size = new System.Drawing.Size(185, 20);
             this.txtLoadClubs.TabIndex = 33;
             this.txtLoadClubs.Text = "LoadFiles/Clubs.txt";
+            this.txtLoadClubs.DoubleClick += new System.EventHandler(this.txtLoadClubs_DoubleClick);
             // 
             // btnLoadClubs
             // 
@@ -411,6 +413,11 @@
             this.txtSaveClubs.Size = new System.Drawing.Size(185, 20);
             this.txtSaveClubs.TabIndex = 38;
             this.txtSaveClubs.Text = "SaveFiles/ClubsOut.txt";
+            this.txtSaveClubs.DoubleClick += new System.EventHandler(this.txtSaveClubs_DoubleClick);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormClubs
             // 
@@ -503,5 +510,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnSaveClubs;
         private System.Windows.Forms.TextBox txtSaveClubs;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }

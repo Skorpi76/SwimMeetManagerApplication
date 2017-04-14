@@ -15,6 +15,7 @@ namespace SwimMeetManager
     {
         public List<SwimMeet> SwimMeets { set; get; }
         public List<Event> Events { set; get; }
+        FormMainMenu formMain = new FormMainMenu();
         public FormSwimMeet()
         {
             InitializeComponent();
@@ -24,6 +25,14 @@ namespace SwimMeetManager
         {
             datepickerStart.MinDate=DateTime.Today;
             datepickerEnd.MinDate = DateTime.Today;
+            foreach (var item in SwimMeets)
+            {
+                lsbSwimMeets.Items.Add(item.Name);
+            }
+            foreach (var item in Events)
+            {
+                lstbEvents.Items.Add(item.DistanceValue.ToString()+item.StrokeValue.ToString());
+            }
         }
 
         private void btnAddSwimMeet_Click(object sender, EventArgs e)
@@ -47,15 +56,40 @@ namespace SwimMeetManager
                         courseValue = SwimMeet.PoolCourse.SCM;
                         break;
                 }
-                SwimMeet aSwimMeet = new SwimMeet(txtName.Text, datepickerStart.Value, datepickerEnd.Value, courseValue, noOfLanes);
+                SwimMeet aSwimMeet = new SwimMeet(txtName.Text, datepickerStart.Value.Date, datepickerEnd.Value.Date, courseValue, noOfLanes);
+                SwimMeets.Add(aSwimMeet);
+                formMain.SwimMeets = SwimMeets;
+                lsbSwimMeets.Items.Add(aSwimMeet.Name);
                 txtName.Clear();
                 txtNumberOfLanes.Clear();
+                lblError.Text = "";
             }
             else if(datepickerStart.Value > datepickerEnd.Value)
                 lblError.Text = "End date should be later than start date";
             else
                 lblError.Text = "Number of lanes should be integer";
+        }
 
+        private void lsbSwimMeets_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ShowInfo();
+        }
+
+        private void btnSeed_Click(object sender, EventArgs e)
+        {
+            SwimMeets[lsbSwimMeets.SelectedIndex].Seed();
+            ShowInfo();
+        }
+
+        private void btnAssignEvent_Click(object sender, EventArgs e)
+        {
+            SwimMeets[lsbSwimMeets.SelectedIndex].AddEvent(Events[lstbEvents.SelectedIndex]);
+            ShowInfo();
+        }
+
+        private void ShowInfo()
+        {
+            lblInfo.Text = SwimMeets[lsbSwimMeets.SelectedIndex].ToString(); 
         }
     }
 }

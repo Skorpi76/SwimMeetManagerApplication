@@ -92,20 +92,36 @@ namespace SwimMeetManager
 
         private void btnAssignSwimmer_Click(object sender, EventArgs e)
         {
-            foreach (var itemS in Swimmers)
+            Events[lsbEvents.SelectedIndex].AddSwimmer(Swimmers[lsbSwimmers.SelectedIndex]);
+            lblInfo.Text = Events[lsbEvents.SelectedIndex].ToString();
+        }
+
+        private void btnOK_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void lsbEvents_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblInfo.Text= Events[lsbEvents.SelectedIndex].ToString();
+        }
+
+        private void btnnAddTime_Click(object sender, EventArgs e)
+        {
+            try
             {
-                if (lsbSwimmers.SelectedItem.ToString() == itemS.Name)
-                {
-                    foreach (var itemE in Events)
-                    {
-                        if ((itemE.StrokeValue.ToString() + " " + itemE.StrokeValue.ToString()) == lsbEvents.SelectedItem.ToString())
-                        {
-                            itemE.AddSwimmer(itemS);
-                            break;
-                        }
-                    }
-                }
+                Events[lsbEvents.SelectedIndex].EnterSwimmersTime(Swimmers[lsbSwimmers.SelectedIndex], txtMinutes.Text + ":" +
+                    txtSeconds.Text + "." + txtMiliSeconds.Text);
+                txtMiliSeconds.Clear();
+                txtSeconds.Clear();
+                txtMinutes.Clear();
+                lblErrorAddTime.Text="";
             }
+            catch (Exception ex)
+            {
+                lblErrorAddTime.Text = ex.Message;
+            }
+            lblInfo.Text = Events[lsbEvents.SelectedIndex].ToString();
         }
     }
 }

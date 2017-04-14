@@ -41,6 +41,16 @@
             this.txtNumberOfLanes = new System.Windows.Forms.TextBox();
             this.btnAddSwimMeet = new System.Windows.Forms.Button();
             this.lblError = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lsbSwimMeets = new System.Windows.Forms.ListBox();
+            this.btnSeed = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
+            this.lblEvents = new System.Windows.Forms.Label();
+            this.lstbEvents = new System.Windows.Forms.ListBox();
+            this.btnAssignEvent = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -157,11 +167,100 @@
             this.lblError.Size = new System.Drawing.Size(0, 13);
             this.lblError.TabIndex = 12;
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(195, 13);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(67, 13);
+            this.label7.TabIndex = 13;
+            this.label7.Text = "Swim Meets:";
+            // 
+            // lsbSwimMeets
+            // 
+            this.lsbSwimMeets.FormattingEnabled = true;
+            this.lsbSwimMeets.Location = new System.Drawing.Point(198, 46);
+            this.lsbSwimMeets.Name = "lsbSwimMeets";
+            this.lsbSwimMeets.Size = new System.Drawing.Size(127, 212);
+            this.lsbSwimMeets.TabIndex = 14;
+            this.lsbSwimMeets.SelectedIndexChanged += new System.EventHandler(this.lsbSwimMeets_SelectedIndexChanged);
+            // 
+            // btnSeed
+            // 
+            this.btnSeed.Location = new System.Drawing.Point(198, 273);
+            this.btnSeed.Name = "btnSeed";
+            this.btnSeed.Size = new System.Drawing.Size(127, 23);
+            this.btnSeed.TabIndex = 15;
+            this.btnSeed.Text = "Seed";
+            this.btnSeed.UseVisualStyleBackColor = true;
+            this.btnSeed.Click += new System.EventHandler(this.btnSeed_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(514, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(82, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Swim Meet info:";
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(4, 5);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(0, 13);
+            this.lblInfo.TabIndex = 17;
+            // 
+            // lblEvents
+            // 
+            this.lblEvents.AutoSize = true;
+            this.lblEvents.Location = new System.Drawing.Point(359, 13);
+            this.lblEvents.Name = "lblEvents";
+            this.lblEvents.Size = new System.Drawing.Size(40, 13);
+            this.lblEvents.TabIndex = 18;
+            this.lblEvents.Text = "Events";
+            // 
+            // lstbEvents
+            // 
+            this.lstbEvents.FormattingEnabled = true;
+            this.lstbEvents.Location = new System.Drawing.Point(362, 46);
+            this.lstbEvents.Name = "lstbEvents";
+            this.lstbEvents.Size = new System.Drawing.Size(120, 212);
+            this.lstbEvents.TabIndex = 19;
+            // 
+            // btnAssignEvent
+            // 
+            this.btnAssignEvent.Location = new System.Drawing.Point(362, 273);
+            this.btnAssignEvent.Name = "btnAssignEvent";
+            this.btnAssignEvent.Size = new System.Drawing.Size(120, 23);
+            this.btnAssignEvent.TabIndex = 20;
+            this.btnAssignEvent.Text = "Assign Event";
+            this.btnAssignEvent.UseVisualStyleBackColor = true;
+            this.btnAssignEvent.Click += new System.EventHandler(this.btnAssignEvent_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.AutoScroll = true;
+            this.panel1.Controls.Add(this.lblInfo);
+            this.panel1.Location = new System.Drawing.Point(506, 46);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(229, 263);
+            this.panel1.TabIndex = 21;
+            // 
             // FormSwimMeet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 394);
+            this.ClientSize = new System.Drawing.Size(738, 311);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnAssignEvent);
+            this.Controls.Add(this.lstbEvents);
+            this.Controls.Add(this.lblEvents);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.btnSeed);
+            this.Controls.Add(this.lsbSwimMeets);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.lblError);
             this.Controls.Add(this.btnAddSwimMeet);
             this.Controls.Add(this.txtNumberOfLanes);
@@ -178,6 +277,8 @@
             this.Name = "FormSwimMeet";
             this.Text = "FormSwimMeet";
             this.Load += new System.EventHandler(this.FormSwimMeet_Load);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -198,5 +299,14 @@
         private System.Windows.Forms.TextBox txtNumberOfLanes;
         private System.Windows.Forms.Button btnAddSwimMeet;
         private System.Windows.Forms.Label lblError;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.ListBox lsbSwimMeets;
+        private System.Windows.Forms.Button btnSeed;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblInfo;
+        private System.Windows.Forms.Label lblEvents;
+        private System.Windows.Forms.ListBox lstbEvents;
+        private System.Windows.Forms.Button btnAssignEvent;
+        private System.Windows.Forms.Panel panel1;
     }
 }

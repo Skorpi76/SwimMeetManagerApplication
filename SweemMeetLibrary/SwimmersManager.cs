@@ -178,21 +178,22 @@ namespace SwimMeetLibrary
             {
                 outFile = new FileStream(fileName, FileMode.Create, FileAccess.Write);
                 writer = new StreamWriter(outFile);
-                for (int i = 0; i < Number; i++)
+                foreach (var item in Swimmers)
                 {
                     string clubId;
-                    if (Swimmers[i].ItsClub == null)
+                    if (item.ItsClub == null)
                     {
                         clubId = "";
                     }
                     else
                     {
-                        clubId = Swimmers[i].ItsClub.ID.ToString();
+                        clubId = item.ItsClub.ID.ToString();
                     }
-                    writer.WriteLine(Swimmers[i].ID + delimeter + Swimmers[i].Name + delimeter +
-                        Swimmers[i].DOB + delimeter + Swimmers[i].Address.Street + delimeter +
-                        Swimmers[i].Address.City + delimeter + Swimmers[i].Address.Province + delimeter +
-                        Swimmers[i].Address.Zip + delimeter + Swimmers[i].PhoneNumber + delimeter + clubId);
+                    writer.WriteLine(item.ID + delimeter + item.Name + delimeter +
+                        item.DOB + delimeter + item.Address.Street + delimeter +
+                        item.Address.City + delimeter + item.Address.Province + delimeter +
+                        item.Address.Zip + delimeter + item.PhoneNumber + delimeter + clubId);
+
 
                 }
 

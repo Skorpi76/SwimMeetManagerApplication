@@ -289,7 +289,7 @@
             this.btnAssignRegistrant.TabIndex = 24;
             this.btnAssignRegistrant.Text = "Assign Registrant";
             this.btnAssignRegistrant.UseVisualStyleBackColor = true;
-            this.btnAssignRegistrant.Click += new System.EventHandler(this.rbtnSwimmersShow_CheckedChanged);
+            this.btnAssignRegistrant.Click += new System.EventHandler(this.btnAssignRegistrant_Click);
             // 
             // panel1
             // 

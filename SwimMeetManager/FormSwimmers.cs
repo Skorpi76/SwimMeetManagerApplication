@@ -120,7 +120,7 @@ namespace SwimMeetManager
             }
             catch (Exception ex)
             {              
-               lblError.Text = ex.ToString();
+               lblError.Text = ex.Message.ToString();
             }        
             foreach (var item in swmMngr.Swimmers)
             {
@@ -142,8 +142,7 @@ namespace SwimMeetManager
                 Registrant aswimmer = new Registrant(item.Name, item.DOB, item.Address, item.PhoneNumber);
                 swmMngr.Swimmers.Add(aswimmer);
                 lblError.Text += aswimmer.Name;
-            }
-            //lblError.Text = swmMngr.Swimmers.Count.ToString();
+            }          
             swmMngr.Save(txtSaveSwimmers.Text, "|");
          
         }

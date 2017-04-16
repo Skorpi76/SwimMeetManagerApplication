@@ -47,10 +47,10 @@
             this.btnGoToSwimmers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(105)))), ((int)(((byte)(92)))));
             this.btnGoToSwimmers.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGoToSwimmers.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.btnGoToSwimmers.Location = new System.Drawing.Point(60, 53);
+            this.btnGoToSwimmers.Location = new System.Drawing.Point(70, 61);
             this.btnGoToSwimmers.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToSwimmers.Name = "btnGoToSwimmers";
-            this.btnGoToSwimmers.Size = new System.Drawing.Size(230, 35);
+            this.btnGoToSwimmers.Size = new System.Drawing.Size(268, 40);
             this.btnGoToSwimmers.TabIndex = 0;
             this.btnGoToSwimmers.Text = "Swimmers";
             this.btnGoToSwimmers.UseVisualStyleBackColor = false;
@@ -63,10 +63,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToCoaches.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(187)))), ((int)(((byte)(121)))));
             this.btnGoToCoaches.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGoToCoaches.Location = new System.Drawing.Point(60, 92);
+            this.btnGoToCoaches.Location = new System.Drawing.Point(70, 106);
             this.btnGoToCoaches.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToCoaches.Name = "btnGoToCoaches";
-            this.btnGoToCoaches.Size = new System.Drawing.Size(230, 35);
+            this.btnGoToCoaches.Size = new System.Drawing.Size(268, 40);
             this.btnGoToCoaches.TabIndex = 1;
             this.btnGoToCoaches.Text = "Coaches";
             this.btnGoToCoaches.UseVisualStyleBackColor = false;
@@ -79,10 +79,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToClubs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(227)))), ((int)(((byte)(151)))));
             this.btnGoToClubs.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGoToClubs.Location = new System.Drawing.Point(60, 131);
+            this.btnGoToClubs.Location = new System.Drawing.Point(70, 151);
             this.btnGoToClubs.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToClubs.Name = "btnGoToClubs";
-            this.btnGoToClubs.Size = new System.Drawing.Size(230, 35);
+            this.btnGoToClubs.Size = new System.Drawing.Size(268, 40);
             this.btnGoToClubs.TabIndex = 2;
             this.btnGoToClubs.Text = "Clubs";
             this.btnGoToClubs.UseVisualStyleBackColor = false;
@@ -95,10 +95,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(205)))), ((int)(((byte)(193)))));
             this.btnGoToEvents.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnGoToEvents.Location = new System.Drawing.Point(60, 170);
+            this.btnGoToEvents.Location = new System.Drawing.Point(70, 196);
             this.btnGoToEvents.Margin = new System.Windows.Forms.Padding(2);
             this.btnGoToEvents.Name = "btnGoToEvents";
-            this.btnGoToEvents.Size = new System.Drawing.Size(230, 35);
+            this.btnGoToEvents.Size = new System.Drawing.Size(268, 40);
             this.btnGoToEvents.TabIndex = 3;
             this.btnGoToEvents.Text = "Events";
             this.btnGoToEvents.UseVisualStyleBackColor = false;
@@ -111,10 +111,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gtnGoToSwimMeets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(120)))), ((int)(((byte)(106)))));
             this.gtnGoToSwimMeets.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.gtnGoToSwimMeets.Location = new System.Drawing.Point(60, 209);
+            this.gtnGoToSwimMeets.Location = new System.Drawing.Point(70, 241);
             this.gtnGoToSwimMeets.Margin = new System.Windows.Forms.Padding(2);
             this.gtnGoToSwimMeets.Name = "gtnGoToSwimMeets";
-            this.gtnGoToSwimMeets.Size = new System.Drawing.Size(230, 35);
+            this.gtnGoToSwimMeets.Size = new System.Drawing.Size(268, 40);
             this.gtnGoToSwimMeets.TabIndex = 4;
             this.gtnGoToSwimMeets.Text = "Swim Meets";
             this.gtnGoToSwimMeets.UseVisualStyleBackColor = false;
@@ -127,9 +127,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(77)))));
             this.btnQuit.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnQuit.Location = new System.Drawing.Point(60, 249);
+            this.btnQuit.Location = new System.Drawing.Point(70, 287);
             this.btnQuit.Name = "btnQuit";
-            this.btnQuit.Size = new System.Drawing.Size(230, 35);
+            this.btnQuit.Size = new System.Drawing.Size(268, 40);
             this.btnQuit.TabIndex = 5;
             this.btnQuit.Text = "Quit";
             this.btnQuit.UseVisualStyleBackColor = false;
@@ -138,9 +138,9 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(133, 321);
+            this.lblName.Location = new System.Drawing.Point(12, 372);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(203, 13);
+            this.lblName.Size = new System.Drawing.Size(232, 15);
             this.lblName.TabIndex = 6;
             this.lblName.Text = "By Eskender Memetov | Vadym Harkusha";
             // 
@@ -148,7 +148,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(94, 9);
+            this.label1.Location = new System.Drawing.Point(115, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(162, 23);
             this.label1.TabIndex = 7;
@@ -156,11 +156,11 @@
             // 
             // FormMainMenu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(348, 343);
+            this.ClientSize = new System.Drawing.Size(406, 396);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.btnQuit);
@@ -169,6 +169,8 @@
             this.Controls.Add(this.btnGoToClubs);
             this.Controls.Add(this.btnGoToCoaches);
             this.Controls.Add(this.btnGoToSwimmers);
+            this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormMainMenu";

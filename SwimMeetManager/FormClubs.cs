@@ -130,21 +130,25 @@ namespace SwimMeetManager
 
         private void DisplayRegistrants()
         {
-            lsbRegistrantsShow.Items.Clear();
-            if (rbtnSwimmersShow.Checked)
+            try
             {
-                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Swimmers)
+                lsbRegistrantsShow.Items.Clear();
+                if (rbtnSwimmersShow.Checked)
                 {
-                    lsbRegistrantsShow.Items.Add(item.Name);
+                    foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Swimmers)
+                    {
+                        lsbRegistrantsShow.Items.Add(item.Name);
+                    }
+                }
+                else
+                {
+                    foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Coaches)
+                    {
+                        lsbRegistrantsShow.Items.Add(item.Name);
+                    }
                 }
             }
-            else
-            {
-                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Coaches)
-                {
-                    lsbRegistrantsShow.Items.Add(item.Name);
-                }
-            }
+            catch { }
         }
 
         private void btnAssignRegistrant_Click(object sender, EventArgs e)
@@ -193,47 +197,55 @@ namespace SwimMeetManager
 
         private void rbtnSwimmersShow_CheckedChanged(object sender, EventArgs e)
         {
-            lsbRegistrantsShow.Items.Clear();
-            if (rbtnSwimmersShow.Checked)
+            try
             {
-                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Swimmers)
+                lsbRegistrantsShow.Items.Clear();
+                if (rbtnSwimmersShow.Checked)
                 {
-                    lsbRegistrantsShow.Items.Add(item.Name);
+                    foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Swimmers)
+                    {
+                        lsbRegistrantsShow.Items.Add(item.Name);
+                    }
+                }
+                else
+                {
+                    foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Coaches)
+                    {
+                        lsbRegistrantsShow.Items.Add(item.Name);
+                    }
                 }
             }
-            else
-            {
-                foreach (var item in ReturnObjectClubFrom(lsbClubs, Clubs).Coaches)
-                {
-                    lsbRegistrantsShow.Items.Add(item.Name);
-                }
-            }
+            catch { }
         }
 
         private void lsbRegistrantsShow_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (rbtnSwimmersShow.Checked)
+            try
             {
-                foreach (var item in Swimmers)
+                if (rbtnSwimmersShow.Checked)
                 {
-                    if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
+                    foreach (var item in Swimmers)
                     {
-                        lblRegistrantInfo.Text=item.ToString();
-                        break;
+                        if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
+                        {
+                            lblRegistrantInfo.Text = item.ToString();
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var item in Coaches)
+                    {
+                        if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
+                        {
+                            lblRegistrantInfo.Text = item.ToString();
+                            break;
+                        }
                     }
                 }
             }
-            else
-            {
-                foreach (var item in Coaches)
-                {
-                    if (item.Name == lsbRegistrantsShow.SelectedItem.ToString())
-                    {
-                        lblRegistrantInfo.Text = item.ToString();
-                        break;
-                    }
-                }
-            }
+            catch { }
 
         }
 

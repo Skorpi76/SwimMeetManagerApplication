@@ -59,12 +59,12 @@
             this.btnLoadSwimmers = new System.Windows.Forms.Button();
             this.txtLoadSwimmers = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblError = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblError = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.gBoxDOB.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -380,15 +380,6 @@
             this.label6.TabIndex = 39;
             this.label6.Text = "Load Swimmers:";
             // 
-            // lblError
-            // 
-            this.lblError.AutoSize = true;
-            this.lblError.Location = new System.Drawing.Point(705, 43);
-            this.lblError.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblError.Name = "lblError";
-            this.lblError.Size = new System.Drawing.Size(0, 15);
-            this.lblError.TabIndex = 45;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -396,7 +387,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 581);
+            this.label1.Location = new System.Drawing.Point(7, 524);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(232, 15);
             this.label1.TabIndex = 46;
@@ -404,7 +395,7 @@
             // 
             // btnClose
             // 
-            this.btnClose.Location = new System.Drawing.Point(796, 569);
+            this.btnClose.Location = new System.Drawing.Point(590, 513);
             this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(87, 26);
@@ -425,16 +416,25 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "All Swimmers";
             // 
+            // lblError
+            // 
+            this.lblError.AutoSize = true;
+            this.lblError.Location = new System.Drawing.Point(258, 381);
+            this.lblError.Name = "lblError";
+            this.lblError.Size = new System.Drawing.Size(0, 15);
+            this.lblError.TabIndex = 49;
+            // 
             // FormSwimmers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(950, 605);
+            this.ClientSize = new System.Drawing.Size(700, 546);
+            this.Controls.Add(this.lblError);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.lblError);
             this.Controls.Add(this.txtSaveSwimmers);
             this.Controls.Add(this.btnSaveSwimmers);
             this.Controls.Add(this.label7);
@@ -444,6 +444,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FormSwimmers";
@@ -492,11 +493,11 @@
         private System.Windows.Forms.Button btnLoadSwimmers;
         private System.Windows.Forms.TextBox txtLoadSwimmers;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label lblError;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label lblError;
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormEvent));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lsbDistance = new System.Windows.Forms.ListBox();
@@ -249,6 +250,7 @@
             this.Controls.Add(this.lsbDistance);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormEvent";
             this.Text = "FormEvent";
             this.Load += new System.EventHandler(this.FormEvent_Load);

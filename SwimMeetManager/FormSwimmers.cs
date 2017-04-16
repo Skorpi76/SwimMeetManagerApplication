@@ -161,5 +161,10 @@ namespace SwimMeetManager
             if (dr == DialogResult.OK)
                 txtSaveSwimmers.Text = saveFileDialog1.FileName;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

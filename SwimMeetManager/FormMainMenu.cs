@@ -185,6 +185,9 @@ namespace SwimMeetManager
             _1500free2 = new Event(Event.Distance._1500, Event.Stroke.Freestyle);
         }
 
-
+        private void btnQuit_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

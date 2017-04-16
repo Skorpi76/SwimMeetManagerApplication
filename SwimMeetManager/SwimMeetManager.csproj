@@ -83,6 +83,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormCoaches.resx">
+      <DependentUpon>FormCoaches.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormEvent.resx">
       <DependentUpon>FormEvent.cs</DependentUpon>
     </EmbeddedResource>
@@ -106,6 +109,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -125,6 +129,9 @@
       <Project>{f1d9f4e5-4a7a-47d2-a44b-f1fd55cfcfa8}</Project>
       <Name>SwimMeetLibrary</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\51A39D.png.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

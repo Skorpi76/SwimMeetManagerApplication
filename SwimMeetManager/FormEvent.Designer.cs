@@ -35,9 +35,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lsbStroke = new System.Windows.Forms.ListBox();
             this.btnAddEvent = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
             this.lsbEvents = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.lsbSwimmers = new System.Windows.Forms.ListBox();
             this.btnAssignSwimmer = new System.Windows.Forms.Button();
             this.lblInfo = new System.Windows.Forms.Label();
@@ -49,6 +47,13 @@
             this.btnnAddTime = new System.Windows.Forms.Button();
             this.lblErrorAddTime = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -71,6 +76,8 @@
             // 
             // lsbDistance
             // 
+            this.lsbDistance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(157)))));
+            this.lsbDistance.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsbDistance.FormattingEnabled = true;
             this.lsbDistance.ItemHeight = 15;
             this.lsbDistance.Items.AddRange(new object[] {
@@ -82,7 +89,7 @@
             "1500 m"});
             this.lsbDistance.Location = new System.Drawing.Point(14, 68);
             this.lsbDistance.Name = "lsbDistance";
-            this.lsbDistance.Size = new System.Drawing.Size(160, 94);
+            this.lsbDistance.Size = new System.Drawing.Size(160, 92);
             this.lsbDistance.TabIndex = 2;
             // 
             // label3
@@ -96,6 +103,8 @@
             // 
             // lsbStroke
             // 
+            this.lsbStroke.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(157)))));
+            this.lsbStroke.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsbStroke.FormattingEnabled = true;
             this.lsbStroke.ItemHeight = 15;
             this.lsbStroke.Items.AddRange(new object[] {
@@ -106,64 +115,54 @@
             "Individual medley"});
             this.lsbStroke.Location = new System.Drawing.Point(14, 190);
             this.lsbStroke.Name = "lsbStroke";
-            this.lsbStroke.Size = new System.Drawing.Size(160, 79);
+            this.lsbStroke.Size = new System.Drawing.Size(160, 77);
             this.lsbStroke.TabIndex = 4;
             // 
             // btnAddEvent
             // 
+            this.btnAddEvent.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(120)))), ((int)(((byte)(106)))));
+            this.btnAddEvent.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddEvent.Location = new System.Drawing.Point(14, 283);
             this.btnAddEvent.Name = "btnAddEvent";
             this.btnAddEvent.Size = new System.Drawing.Size(161, 27);
             this.btnAddEvent.TabIndex = 5;
             this.btnAddEvent.Text = "Add Event";
-            this.btnAddEvent.UseVisualStyleBackColor = true;
+            this.btnAddEvent.UseVisualStyleBackColor = false;
             this.btnAddEvent.Click += new System.EventHandler(this.btnAddEvent_Click);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(196, 15);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(47, 15);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Events:";
             // 
             // lsbEvents
             // 
+            this.lsbEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(181)))), ((int)(((byte)(177)))));
+            this.lsbEvents.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsbEvents.FormattingEnabled = true;
             this.lsbEvents.ItemHeight = 15;
-            this.lsbEvents.Location = new System.Drawing.Point(199, 50);
+            this.lsbEvents.Location = new System.Drawing.Point(17, 19);
             this.lsbEvents.Name = "lsbEvents";
-            this.lsbEvents.Size = new System.Drawing.Size(139, 259);
+            this.lsbEvents.Size = new System.Drawing.Size(124, 227);
             this.lsbEvents.TabIndex = 7;
             this.lsbEvents.SelectedIndexChanged += new System.EventHandler(this.lsbEvents_SelectedIndexChanged);
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(365, 15);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(101, 15);
-            this.label5.TabIndex = 8;
-            this.label5.Text = "Assign Swimmer:";
-            // 
             // lsbSwimmers
             // 
+            this.lsbSwimmers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(133)))), ((int)(((byte)(181)))), ((int)(((byte)(177)))));
+            this.lsbSwimmers.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lsbSwimmers.FormattingEnabled = true;
             this.lsbSwimmers.ItemHeight = 15;
-            this.lsbSwimmers.Location = new System.Drawing.Point(369, 50);
+            this.lsbSwimmers.Location = new System.Drawing.Point(6, 19);
             this.lsbSwimmers.Name = "lsbSwimmers";
-            this.lsbSwimmers.Size = new System.Drawing.Size(139, 214);
+            this.lsbSwimmers.Size = new System.Drawing.Size(139, 227);
             this.lsbSwimmers.TabIndex = 9;
             // 
             // btnAssignSwimmer
             // 
+            this.btnAssignSwimmer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(120)))), ((int)(((byte)(106)))));
+            this.btnAssignSwimmer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAssignSwimmer.Location = new System.Drawing.Point(369, 282);
             this.btnAssignSwimmer.Name = "btnAssignSwimmer";
             this.btnAssignSwimmer.Size = new System.Drawing.Size(140, 27);
             this.btnAssignSwimmer.TabIndex = 10;
             this.btnAssignSwimmer.Text = "Assign Swimmer";
-            this.btnAssignSwimmer.UseVisualStyleBackColor = true;
+            this.btnAssignSwimmer.UseVisualStyleBackColor = false;
             this.btnAssignSwimmer.Click += new System.EventHandler(this.btnAssignSwimmer_Click);
             // 
             // lblInfo
@@ -215,18 +214,20 @@
             // 
             // btnnAddTime
             // 
+            this.btnnAddTime.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(120)))), ((int)(((byte)(106)))));
+            this.btnnAddTime.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnnAddTime.Location = new System.Drawing.Point(544, 283);
             this.btnnAddTime.Name = "btnnAddTime";
             this.btnnAddTime.Size = new System.Drawing.Size(112, 27);
             this.btnnAddTime.TabIndex = 17;
             this.btnnAddTime.Text = "Add Time";
-            this.btnnAddTime.UseVisualStyleBackColor = true;
+            this.btnnAddTime.UseVisualStyleBackColor = false;
             this.btnnAddTime.Click += new System.EventHandler(this.btnnAddTime_Click);
             // 
             // lblErrorAddTime
             // 
             this.lblErrorAddTime.AutoSize = true;
-            this.lblErrorAddTime.Location = new System.Drawing.Point(544, 249);
+            this.lblErrorAddTime.Location = new System.Drawing.Point(4, 5);
             this.lblErrorAddTime.Name = "lblErrorAddTime";
             this.lblErrorAddTime.Size = new System.Drawing.Size(0, 15);
             this.lblErrorAddTime.TabIndex = 18;
@@ -234,20 +235,64 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 318);
+            this.label7.Location = new System.Drawing.Point(11, 329);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(232, 15);
+            this.label7.Size = new System.Drawing.Size(378, 15);
             this.label7.TabIndex = 47;
-            this.label7.Text = "By Eskender Memetov | Vadym Harkusha";
+            this.label7.Text = "By Eskender Memetov 300805013 and Vadym Harkusha 300909484";
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(77)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnClose.Location = new System.Drawing.Point(631, 323);
+            this.btnClose.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(87, 26);
+            this.btnClose.TabIndex = 48;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lsbEvents);
+            this.groupBox1.Location = new System.Drawing.Point(192, 15);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(159, 252);
+            this.groupBox1.TabIndex = 49;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Events : ";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.lsbSwimmers);
+            this.groupBox2.Location = new System.Drawing.Point(357, 15);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(152, 252);
+            this.groupBox2.TabIndex = 50;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Assign Swimmer : ";
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblErrorAddTime);
+            this.panel1.Location = new System.Drawing.Point(515, 241);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(203, 35);
+            this.panel1.TabIndex = 51;
             // 
             // FormEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(81)))), ((int)(((byte)(163)))), ((int)(((byte)(157)))));
-            this.ClientSize = new System.Drawing.Size(726, 342);
+            this.ClientSize = new System.Drawing.Size(726, 355);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label7);
-            this.Controls.Add(this.lblErrorAddTime);
             this.Controls.Add(this.btnnAddTime);
             this.Controls.Add(this.txtMiliSeconds);
             this.Controls.Add(this.txtSeconds);
@@ -256,10 +301,6 @@
             this.Controls.Add(this.llbEventInfo);
             this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.btnAssignSwimmer);
-            this.Controls.Add(this.lsbSwimmers);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.lsbEvents);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddEvent);
             this.Controls.Add(this.lsbStroke);
             this.Controls.Add(this.label3);
@@ -272,6 +313,10 @@
             this.Name = "FormEvent";
             this.Text = "FormEvent";
             this.Load += new System.EventHandler(this.FormEvent_Load);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -285,9 +330,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ListBox lsbStroke;
         private System.Windows.Forms.Button btnAddEvent;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ListBox lsbEvents;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox lsbSwimmers;
         private System.Windows.Forms.Button btnAssignSwimmer;
         private System.Windows.Forms.Label lblInfo;
@@ -299,5 +342,9 @@
         private System.Windows.Forms.Button btnnAddTime;
         private System.Windows.Forms.Label lblErrorAddTime;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Panel panel1;
     }
 }

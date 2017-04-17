@@ -27,12 +27,12 @@ namespace SwimMeetManager
 
         private void btnAddClub_Click(object sender, EventArgs e)
         {
-            long phone=0;
+            long phone = 0;
 
             if (Int64.TryParse(txtClubPhone.Text, out phone))
             {
                 Club aClub = new Club(txtClubName.Text, new Adress(txtClubAddress.Text, txtClubCity.Text, txtClubProvince.Text, txtClubZip.Text), phone);
-                lblAddClubError.Text = "Club "+ txtClubName.Text + " was successfully added";
+                lblAddClubError.Text = "Club " + txtClubName.Text + " was successfully added";
                 txtClubName.Text = "";
                 txtClubAddress.Text = "";
                 txtClubCity.Text = "";
@@ -62,23 +62,30 @@ namespace SwimMeetManager
 
         public void ClubsName(ListBox lsb)
         {
-            
+
         }
 
         private void lsbClubs_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
-                lblClubInfo.Text = ReturnObjectClubFrom(lsbClubs, Clubs).ToString();
+                //lblClubInfo.Text = ReturnObjectClubFrom(lsbClubs, Clubs).ToString();
+                lblClubInfo.Text = GetClubInfo(ReturnObjectClubFrom(lsbClubs, Clubs));
             }
             catch
             { }
             DisplayRegistrants();
         }
 
+
+        private string GetClubInfo(Club aClub)
+        {
+            return string.Format("\nName: {1} \nAdress: {2} \nPhone number: {3} \nReg number: {0}", aClub.ID, aClub.Name, aClub.Address.ToString(),
+                                                                                                        Club.ConvertPhoneNumber(aClub.PhoneNumber));
+        }
+
         private void btnLoadClubs_Click(object sender, EventArgs e)
         {
-            //ClubsManager clbMngr = new ClubsManager();
             try
             {
                 clbMngr.Load(txtLoadClubs.Text, ",");
@@ -97,7 +104,6 @@ namespace SwimMeetManager
 
         private void btnSaveClubs_Click(object sender, EventArgs e)
         {
-            //ClubsManager clbMngr = new ClubsManager();
             try
             {
                 clbMngr.Clubs = Clubs;
@@ -175,11 +181,11 @@ namespace SwimMeetManager
                     }
                 }
             }
-            lblClubInfo.Text = ReturnObjectClubFrom(lsbClubs, Clubs).ToString();
+            lblClubInfo.Text = GetClubInfo(ReturnObjectClubFrom(lsbClubs, Clubs));
             DisplayRegistrants();
         }
 
-        private Club ReturnObjectClubFrom(ListBox lsb,List<Club> clubs)
+        private Club ReturnObjectClubFrom(ListBox lsb, List<Club> clubs)
         {
             Club aClub = null;
             try
@@ -189,7 +195,7 @@ namespace SwimMeetManager
                     if (item.Name == lsb.SelectedItem.ToString())
                         return item;
                 }
-                
+
             }
             catch { }
             return aClub;
@@ -263,5 +269,12 @@ namespace SwimMeetManager
             if (dr == DialogResult.OK)
                 txtSaveClubs.Text = saveFileDialog1.FileName;
         }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+
     }
 }

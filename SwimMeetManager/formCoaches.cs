@@ -15,43 +15,98 @@ namespace SwimMeetManager
     {
         private FormMainMenu formMain = new FormMainMenu();
         public List<Coach> Coaches { set; get; }
+        public List<Swimmer> Swimmers { set; get; }
+
+        // ============================
+
         public FormCoaches()
         {
             InitializeComponent();
 
         }
 
+        // ============================
+
         private void lsbAllCoaches_SelectedIndexChanged(object sender, EventArgs e)
         {
             foreach (var coach in Coaches)
             {
-                if (coach.Name == lsbAllCoaches.SelectedItem.ToString())
+                try
                 {
-                    lblAboutCoach.Text = CoachGetInfo(coach);
-                    break;
+                    if (coach.Name == lsbAllCoaches.SelectedItem.ToString())
+                    {
+                        lblAboutCoach.Text = CoachGetInfo(coach);
+                        break;
+                    }
+                }
+                catch
+                {
+
                 }
             }
+
+            DisplayRegistrants();
         }
+
+        // ============================
+
+        private void DisplayRegistrants()
+        {
+            try
+            {
+                lsbRegistrantsShow.Items.Clear();
+                foreach (var item in ReturnObjectCoachForm(lsbAllCoaches, Coaches).Swimmers)
+                {
+                    lsbRegistrantsShow.Items.Add(item.Name);
+                }
+            }
+            catch { }
+        }
+
+        // ============================
+
+        private Coach ReturnObjectCoachForm(ListBox lsb, List<Coach> coaches)
+        {
+            Coach aCoach = null;
+            try
+            {
+                foreach (var item in coaches)
+                {
+                    if (item.Name == lsb.SelectedItem.ToString())
+                        return item;
+                }
+
+            }
+            catch { }
+            return aCoach;
+        }
+
+        // ============================
 
         private void btnSubmitAddCoach_Click(object sender, EventArgs e)
         {
-            int year;
-            int day;
-            int month;
+             
             long phoneNumber;
-            ValidateNumericalFields(out year, out month, out day, out phoneNumber);
-            if (!ValidateNumericalFields(out year, out month, out day, out phoneNumber))
+            try
             {
+                phoneNumber = Convert.ToInt64(txtPhoneNumber.Text);
+            }
+            catch
+            {
+                MessageBox.Show("Error: PhoneNumber must contain integer numbers only");
                 return;
-            }          
-             Coach aCoach = new Coach(txtName.Text, new DateTime(year, month, day), new Adress(txtStreet.Text, 
+            }
+            Coach aCoach = new Coach(txtName.Text, new DateTime(datepickerDOB.Value.Year, datepickerDOB.Value.Month, datepickerDOB.Value.Day), new Adress(txtStreet.Text, 
                                                        txtCity.Text, txtProvince.Text, txtPostalCode.Text), phoneNumber);
             aCoach.Credentials = txtCredentials.Text;
             ResetTxtValues();
             Coaches.Add(aCoach);
             formMain.Coaches = this.Coaches;
             lsbAllCoaches.Items.Add(aCoach.Name);
+            MessageBox.Show("A coach was created successfully");
         }
+
+        // ============================
 
         private void FormCoaches_Load(object sender, EventArgs e)
         {
@@ -59,9 +114,13 @@ namespace SwimMeetManager
             {
                 lsbAllCoaches.Items.Add(coach.Name);
             }
+            foreach (var item in Swimmers)
+            {
+                lsbRegistrantsAssign.Items.Add(item.Name);
+            }
         }
 
-
+        // ============================
         /// <summary>
         /// Resets all field back to empty values for Add Coach 
         /// </summary>
@@ -71,14 +130,13 @@ namespace SwimMeetManager
             txtStreet.Text = "";
             txtCity.Text = "";
             txtProvince.Text = "";
-            txtPostalCode.Text = "";
-            txtYear.Text = "";
-            txtDay.Text = "";
-            txtMonth.Text = "";
+            txtPostalCode.Text = "";          
             txtPhoneNumber.Text = "";
             txtCredentials.Text = "";
             lblError.Text = "";
         }
+
+        // ============================
 
         private string CoachGetInfo(Coach aCoach)
         {
@@ -88,49 +146,30 @@ namespace SwimMeetManager
             info += string.Format("\nCredentials: {0}", aCoach.Credentials);
             return info; 
         }
-        private bool ValidateNumericalFields(out int year, out int month, out int day, out long phoneNumber)
+
+        // ============================
+
+        private void btnAssignRegistrant_Click(object sender, EventArgs e)
         {
-            year = 0;
-            month = 0;
-            day = 0;
-            phoneNumber = 0;
             try
             {
-                year = Convert.ToInt32(txtYear.Text);
+                Coaches[lsbAllCoaches.SelectedIndex].AddSwimmer(Swimmers[lsbRegistrantsAssign.SelectedIndex]);
+                //Swimmers[lsbRegistrantsAssign.SelectedIndex].ItsCoach = Coaches[lsbAllCoaches.SelectedIndex];
+                DisplayRegistrants();
+                MessageBox.Show("A swimmer has been assigned successfully");
             }
-            catch
+            catch (Exception ex)
             {
-                lblError.Text = "Error: Year must be an integer";               
-                return false;
+                MessageBox.Show(ex.Message); 
             }
-            try
-            {
-                day = Convert.ToInt32(txtDay.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: Day must be an integer";
-                return false;
-            }
-            try
-            {
-                month = Convert.ToInt32(txtMonth.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: Month must be an integer";
-                return false;
-            }
-            try
-            {
-                phoneNumber = Convert.ToInt64(txtPhoneNumber.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: PhoneNumber must contain integer numbers only";
-                return false;
-            }
-            return true;
+
+        }
+
+        // ============================
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

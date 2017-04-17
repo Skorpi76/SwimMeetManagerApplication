@@ -23,3 +23,8 @@ M:\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\bin\Debug\SweemMeetLibrary
 M:\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
 M:\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
 M:\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi76\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi76\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\bin\Debug\SweemMeetLibrary.pdb
+C:\Users\Skorpi76\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SwimMeetLibrary.csprojResolveAssemblyReference.cache
+C:\Users\Skorpi76\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.dll
+C:\Users\Skorpi76\Documents\GitHub\SwimMeetManagerApplication\SweemMeetLibrary\obj\Debug\SweemMeetLibrary.pdb

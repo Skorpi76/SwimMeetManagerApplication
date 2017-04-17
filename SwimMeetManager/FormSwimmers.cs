@@ -24,51 +24,23 @@ namespace SwimMeetManager
 
         private void btnSubmitAddSwimmer_Click(object sender, EventArgs e)
         {
-            int year = 0;
-            int day = 0;
-            int month = 0;
-            long phoneNumber;
-            try
-            {
-                year = Convert.ToInt32(txtYear.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: Year must be an integer";
-                return;
-            }
-            try
-            {
-                day = Convert.ToInt32(txtDay.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: Day must be an integer";
-                return;
-            }
-            try
-            {
-                month = Convert.ToInt32(txtMonth.Text);
-            }
-            catch
-            {
-                lblError.Text = "Error: Month must be an integer";
-                return;
-            }
+          
+            long phoneNumber;          
             try
             {
                 phoneNumber = Convert.ToInt64(txtPhoneNumber.Text);
             }
             catch
             {
-                lblError.Text = "Error: PhoneNumber must contain integer numbers only";
+                MessageBox.Show("Error: PhoneNumber must contain integer numbers only");
                 return;
             }
-            Swimmer aSwimmer = new Swimmer(txtName.Text, new DateTime(year, month, day), new Adress(txtStreet.Text, txtCity.Text, txtProvince.Text, txtPostalCode.Text), phoneNumber);
+            Swimmer aSwimmer = new Swimmer(txtName.Text, new DateTime(datepickerDOB.Value.Year, datepickerDOB.Value.Month, datepickerDOB.Value.Day), new Adress(txtStreet.Text, txtCity.Text, txtProvince.Text, txtPostalCode.Text), phoneNumber);
             ResetTxtValues();
             Swimmers.Add(aSwimmer);
             formMain.Swimmers = Swimmers;
             lsbAllSwimmers.Items.Add(aSwimmer.Name);
+            MessageBox.Show("A swimmer was created successfully");
 
         }
 
@@ -91,44 +63,48 @@ namespace SwimMeetManager
             txtStreet.Text = "";
             txtCity.Text = "";
             txtProvince.Text = "";
-            txtPostalCode.Text = "";
-            txtYear.Text = "";
-            txtDay.Text = "";
-            txtMonth.Text = "";
+            txtPostalCode.Text = "";          
             txtPhoneNumber.Text = "";
         }
 
         private void lsbAllSwimmers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            foreach (var swimer in Swimmers)
+            try
             {
-                if (swimer.Name == lsbAllSwimmers.SelectedItem.ToString())
+                foreach (var swimer in Swimmers)
                 {
-                    lblAboutStudent.Text = swimer.ToString();
-                    break;
+                    if (swimer.Name == lsbAllSwimmers.SelectedItem.ToString())
+                    {
+                        lblAboutStudent.Text = swimer.ToString();
+                        break;
+                    }
                 }
             }
+            catch { }
         }
 
         private void btnLoadSwimmers_Click(object sender, EventArgs e)
         {
-            clbMngr = new ClubsManager();
-            swmMngr = new SwimmersManager(clbMngr);
-            try
-            {
-                swmMngr.Load(txtLoadSwimmers.Text, ",");                         
-            }
-            catch (Exception ex)
-            {              
-               lblError.Text = ex.Message.ToString();
-            }        
-            foreach (var item in swmMngr.Swimmers)
-            {
-                Swimmer aswimmer = new Swimmer(item.Name, item.DOB, item.Address, item.PhoneNumber);
-                Swimmers.Add(aswimmer);
-                lsbAllSwimmers.Items.Add(aswimmer.Name);
-            }
+        
+                clbMngr = new ClubsManager();
+                swmMngr = new SwimmersManager(clbMngr);
+                try
+                {
+                    swmMngr.Load(txtLoadSwimmers.Text, ",");
+                }
+                catch
+                { }
+                foreach (var item in swmMngr.Swimmers)
+                {
+                    Swimmer aswimmer = new Swimmer(item.Name, item.DOB, item.Address, item.PhoneNumber);
+                    Swimmers.Add(aswimmer);
+                    lsbAllSwimmers.Items.Add(aswimmer.Name);
+                }
          
+               
+           
+            
+
         }
 
         private void btnSaveSwimmers_Click(object sender, EventArgs e)
@@ -136,15 +112,15 @@ namespace SwimMeetManager
             clbMngr = new ClubsManager();
             swmMngr = new SwimmersManager(clbMngr);
             swmMngr.Swimmers.Clear();
-           List<Registrant> registrants = new List<Registrant>();
+            List<Registrant> registrants = new List<Registrant>();
             foreach (var item in Swimmers)
             {
                 Registrant aswimmer = new Registrant(item.Name, item.DOB, item.Address, item.PhoneNumber);
                 swmMngr.Swimmers.Add(aswimmer);
-                lblError.Text += aswimmer.Name;
-            }          
-            swmMngr.Save(txtSaveSwimmers.Text, "|");
-         
+            }
+            swmMngr.Save(txtSaveSwimmers.Text, ",");
+     
+
         }
 
         private void txtLoadSwimmers_DoubleClick(object sender, EventArgs e)
@@ -165,5 +141,7 @@ namespace SwimMeetManager
         {
             Close();
         }
+
+      
     }
 }

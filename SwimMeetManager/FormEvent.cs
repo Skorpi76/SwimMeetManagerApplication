@@ -14,7 +14,7 @@ namespace SwimMeetManager
     public partial class FormEvent : Form
     {
         FormMainMenu formMain = new FormMainMenu();
-        public List<Event> Events { set; get; }
+        public List<Event> SwimEvents { set; get; }
         public List<Swimmer> Swimmers { set; get; }
         public FormEvent()
         {
@@ -73,14 +73,14 @@ namespace SwimMeetManager
             }
 
             Event aEvent = new Event(distanceValue,strokeValue);
-            Events.Add(aEvent);
-            formMain.Events = Events;
+            SwimEvents.Add(aEvent);
+            formMain.SwimEvents = SwimEvents;
             lsbEvents.Items.Add(aEvent.DistanceValue.ToString() + " " + aEvent.StrokeValue.ToString());
         }
 
         private void FormEvent_Load(object sender, EventArgs e)
         {
-            foreach (var item in Events)
+            foreach (var item in SwimEvents)
             {
                 lsbEvents.Items.Add(item.DistanceValue.ToString()+" "+item.StrokeValue.ToString());
             }
@@ -92,8 +92,8 @@ namespace SwimMeetManager
 
         private void btnAssignSwimmer_Click(object sender, EventArgs e)
         {
-            Events[lsbEvents.SelectedIndex].AddSwimmer(Swimmers[lsbSwimmers.SelectedIndex]);
-            lblInfo.Text = Events[lsbEvents.SelectedIndex].ToString();
+            SwimEvents[lsbEvents.SelectedIndex].AddSwimmer(Swimmers[lsbSwimmers.SelectedIndex]);
+            lblInfo.Text = SwimEvents[lsbEvents.SelectedIndex].ToString();
         }
 
         private void btnOK_Click(object sender, EventArgs e)
@@ -103,14 +103,19 @@ namespace SwimMeetManager
 
         private void lsbEvents_SelectedIndexChanged(object sender, EventArgs e)
         {
-            lblInfo.Text= Events[lsbEvents.SelectedIndex].ToString();
+            try
+            {
+                lblInfo.Text = SwimEvents[lsbEvents.SelectedIndex].ToString();
+            }
+            catch
+            { }
         }
 
         private void btnnAddTime_Click(object sender, EventArgs e)
         {
             try
             {
-                Events[lsbEvents.SelectedIndex].EnterSwimmersTime(Swimmers[lsbSwimmers.SelectedIndex], txtMinutes.Text + ":" +
+                SwimEvents[lsbEvents.SelectedIndex].EnterSwimmersTime(Swimmers[lsbSwimmers.SelectedIndex], txtMinutes.Text + ":" +
                     txtSeconds.Text + "." + txtMiliSeconds.Text);
                 txtMiliSeconds.Clear();
                 txtSeconds.Clear();
@@ -121,7 +126,12 @@ namespace SwimMeetManager
             {
                 lblErrorAddTime.Text = ex.Message;
             }
-            lblInfo.Text = Events[lsbEvents.SelectedIndex].ToString();
+            lblInfo.Text = SwimEvents[lsbEvents.SelectedIndex].ToString();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

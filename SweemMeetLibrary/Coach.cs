@@ -24,24 +24,26 @@ namespace SwimMeetLibrary
 
      
 
-        public void AddSwimmer(Swimmer swimmer)
+        public void AddSwimmer(Swimmer aSwimmer)
         {
 
-
-            if (ItsClub == null)
+            if (ItsClub == aSwimmer.ItsClub && !Swimmers.Contains(aSwimmer))
             {
-                throw new Exception("Coach is not assigned to a club");
-
+                if (aSwimmer.ItsCoach != this)
+                    aSwimmer.ItsCoach = this;
+                if (!Swimmers.Contains(aSwimmer))
+                    Swimmers.Add(aSwimmer);
             }
-            if (swimmer.ItsClub == this.ItsClub)
-            {
-                Swimmers.Add(swimmer);
-                swimmer.ItsCoach = this;
-            }
-            else
+            else if (ItsClub != aSwimmer.ItsClub && ItsClub != null)
             {
                 throw new Exception("Coach and swimmer are not in the same club");
             }
+            else if (ItsClub == null)
+            {
+                throw new Exception("Coach is not assigned to a club");
+            }
+
+
 
 
         }

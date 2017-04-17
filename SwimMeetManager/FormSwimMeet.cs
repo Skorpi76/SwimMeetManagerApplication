@@ -14,7 +14,7 @@ namespace SwimMeetManager
     public partial class FormSwimMeet : Form
     {
         public List<SwimMeet> SwimMeets { set; get; }
-        public List<Event> Events { set; get; }
+        public List<Event> SwimEvents { set; get; }
         FormMainMenu formMain = new FormMainMenu();
         public FormSwimMeet()
         {
@@ -29,7 +29,7 @@ namespace SwimMeetManager
             {
                 lsbSwimMeets.Items.Add(item.Name);
             }
-            foreach (var item in Events)
+            foreach (var item in SwimEvents)
             {
                 lstbEvents.Items.Add(item.DistanceValue.ToString()+item.StrokeValue.ToString());
             }
@@ -83,13 +83,22 @@ namespace SwimMeetManager
 
         private void btnAssignEvent_Click(object sender, EventArgs e)
         {
-            SwimMeets[lsbSwimMeets.SelectedIndex].AddEvent(Events[lstbEvents.SelectedIndex]);
+            SwimMeets[lsbSwimMeets.SelectedIndex].AddEvent(SwimEvents[lstbEvents.SelectedIndex]);
             ShowInfo();
         }
 
         private void ShowInfo()
         {
-            lblInfo.Text = SwimMeets[lsbSwimMeets.SelectedIndex].ToString(); 
+            try
+            {
+                lblInfo.Text = SwimMeets[lsbSwimMeets.SelectedIndex].ToString();
+            }
+            catch { }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

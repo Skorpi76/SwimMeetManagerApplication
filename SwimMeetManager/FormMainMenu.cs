@@ -14,7 +14,7 @@ namespace SwimMeetManager
     public partial class FormMainMenu : Form
     {
         public List<Club> Clubs { set; get; }
-        public List<Event> Events { set; get; }
+        public List<Event> SwimEvents { set; get; }
         public List<Swimmer> Swimmers { set; get; }
         public List<Coach> Coaches { set; get; }
         public List<SwimMeet> SwimMeets { set; get; }
@@ -33,9 +33,9 @@ namespace SwimMeetManager
         private void btnGoToClubs_Click(object sender, EventArgs e)
         {
             FormClubs formClubs = new FormClubs();
-            formClubs.Swimmers = Swimmers;
-            formClubs.Clubs = Clubs;
-            formClubs.Coaches = Coaches;
+            formClubs.Swimmers = this.Swimmers;
+            formClubs.Clubs = this.Clubs;
+            formClubs.Coaches = this.Coaches;
             formClubs.ShowDialog(this);
         }
 
@@ -43,6 +43,7 @@ namespace SwimMeetManager
         {
             FormCoaches formCoaches = new FormCoaches();
             formCoaches.Coaches = this.Coaches;
+            formCoaches.Swimmers = this.Swimmers;
             formCoaches.ShowDialog(this);
         }
 
@@ -54,7 +55,7 @@ namespace SwimMeetManager
             Swimmer swimmer2;
             Swimmer swimmer3;
             CreateSwimmers(out swimmer1, out swimmer2, out swimmer3);
-            Swimmers.AddRange(new[] {swimmer1,swimmer2,swimmer3 });
+            Swimmers.AddRange(new[] { swimmer1, swimmer2, swimmer3 });
 
             // Coaches
             Coaches = new List<Coach>();
@@ -64,7 +65,7 @@ namespace SwimMeetManager
                                                     new Adress("5 Queen St", "Boston", "ON", "234567"), 3123123333));
             //Clubs
             Clubs = new List<Club>();
-            Club aClub = new Club("Canada Fitness", new Adress("21 Younge St","Toronto","ON","M6J 9O6"),6478304065);
+            Club aClub = new Club("Canada Fitness", new Adress("21 Younge St", "Toronto", "ON", "M6J 9O6"), 6478304065);
             Club bClub = new Club("CCAC", new Adress("35 River St", "Toronto", "ON", "M2M 5M5"), 4165555555);
             Club cClub = new Club();
             cClub.PhoneNumber = 4164444444;
@@ -77,7 +78,7 @@ namespace SwimMeetManager
             CreateSwimMeets(out meet1, out meet2);
             SwimMeets.AddRange(new[] { meet1, meet2 });
             //Events
-            Events = new List<Event>();
+            SwimEvents = new List<Event>();
             Event _50free1;
             Event _100fly;
             Event _200breast;
@@ -85,25 +86,10 @@ namespace SwimMeetManager
             Event _1500free;
             Event _1500free2;
             CreateEvents(out _50free1, out _100fly, out _200breast, out _400free, out _1500free, out _1500free2);
-            Events.AddRange(new[] { _50free1, _100fly, _200breast, _400free, _1500free, _1500free2 });
+            SwimEvents.AddRange(new[] { _50free1, _100fly, _200breast, _400free, _1500free, _1500free2 });
             AddEventsToSwimMeets(meet1, meet2, _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
             AddSwimmersToEvents(swimmer1, swimmer2, swimmer3, meet1, meet2,
                                 _50free1, _100fly, _200breast, _400free, _1500free, _1500free2);
-        }
-        private void gtnGoToSwimMeets_Click(object sender, EventArgs e)
-        {
-            FormSwimMeet formSwimMeet = new FormSwimMeet();
-            formSwimMeet.SwimMeets = SwimMeets;
-            formSwimMeet.Events = Events;
-            formSwimMeet.ShowDialog(this);
-        }
-
-        private void btnGoToEvents_Click(object sender, EventArgs e)
-        {
-            FormEvent formEvents = new FormEvent();
-            formEvents.Events = Events;
-            formEvents.Swimmers = Swimmers;
-            formEvents.ShowDialog(this);
         }
 
         private static void CreateSwimMeets(out SwimMeet meet1, out SwimMeet meet2)
@@ -161,17 +147,6 @@ namespace SwimMeetManager
             _1500free2.AddSwimmer(swimmer3);
         }
 
-
-
-
-
-
-
-
-
-
-
-
         private static void CreateEvents(out Event _50free1, out Event _100fly, out Event _200breast, out Event _400free, out Event _1500free, out Event _1500free2)
         {
             _50free1 = new Event();
@@ -183,6 +158,21 @@ namespace SwimMeetManager
             _400free = new Event(Event.Distance._400, Event.Stroke.Freestyle);
             _1500free = new Event(Event.Distance._1500, Event.Stroke.Freestyle);
             _1500free2 = new Event(Event.Distance._1500, Event.Stroke.Freestyle);
+        }
+
+        private void btnGoToEvents_Click(object sender, EventArgs e)
+        {
+            FormEvent formEvents = new FormEvent();
+            formEvents.SwimEvents = SwimEvents;
+            formEvents.Swimmers = Swimmers;
+            formEvents.ShowDialog(this);
+        }
+        private void gtnGoToSwimMeets_Click(object sender, EventArgs e)
+        {
+            FormSwimMeet formSwimMeet = new FormSwimMeet();
+            formSwimMeet.SwimMeets = SwimMeets;
+            formSwimMeet.SwimEvents = SwimEvents;
+            formSwimMeet.ShowDialog(this);
         }
 
         private void btnQuit_Click(object sender, EventArgs e)

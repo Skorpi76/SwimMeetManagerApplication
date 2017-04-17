@@ -45,6 +45,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToSwimmers.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(105)))), ((int)(((byte)(92)))));
+            this.btnGoToSwimmers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToSwimmers.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGoToSwimmers.ForeColor = System.Drawing.SystemColors.ControlText;
             this.btnGoToSwimmers.Location = new System.Drawing.Point(70, 61);
@@ -62,6 +63,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToCoaches.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(187)))), ((int)(((byte)(121)))));
+            this.btnGoToCoaches.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToCoaches.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGoToCoaches.Location = new System.Drawing.Point(70, 106);
             this.btnGoToCoaches.Margin = new System.Windows.Forms.Padding(2);
@@ -78,6 +80,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToClubs.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(211)))), ((int)(((byte)(227)))), ((int)(((byte)(151)))));
+            this.btnGoToClubs.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToClubs.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGoToClubs.Location = new System.Drawing.Point(70, 151);
             this.btnGoToClubs.Margin = new System.Windows.Forms.Padding(2);
@@ -94,6 +97,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnGoToEvents.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(205)))), ((int)(((byte)(193)))));
+            this.btnGoToEvents.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGoToEvents.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnGoToEvents.Location = new System.Drawing.Point(70, 196);
             this.btnGoToEvents.Margin = new System.Windows.Forms.Padding(2);
@@ -110,6 +114,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gtnGoToSwimMeets.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(120)))), ((int)(((byte)(106)))));
+            this.gtnGoToSwimMeets.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gtnGoToSwimMeets.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.gtnGoToSwimMeets.Location = new System.Drawing.Point(70, 241);
             this.gtnGoToSwimMeets.Margin = new System.Windows.Forms.Padding(2);
@@ -126,6 +131,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnQuit.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(99)))), ((int)(((byte)(77)))));
+            this.btnQuit.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnQuit.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.btnQuit.Location = new System.Drawing.Point(70, 287);
             this.btnQuit.Name = "btnQuit";
@@ -140,17 +146,17 @@
             this.lblName.AutoSize = true;
             this.lblName.Location = new System.Drawing.Point(12, 372);
             this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(232, 15);
+            this.lblName.Size = new System.Drawing.Size(378, 15);
             this.lblName.TabIndex = 6;
-            this.lblName.Text = "By Eskender Memetov | Vadym Harkusha";
+            this.lblName.Text = "By Eskender Memetov 300805013 and Vadym Harkusha 300909484";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial Narrow", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(115, 9);
+            this.label1.Font = new System.Drawing.Font("Arial Narrow", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1.Location = new System.Drawing.Point(98, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(162, 23);
+            this.label1.Size = new System.Drawing.Size(204, 29);
             this.label1.TabIndex = 7;
             this.label1.Text = "Swim meet manager";
             // 

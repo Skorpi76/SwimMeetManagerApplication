@@ -24,32 +24,24 @@ namespace SwimMeetLibrary
         }
 
         public Coach ItsCoach
-        {
-            get
+        {            
+                get => itsCoach;
+           
+                set
             {
-                return itsCoach;
-            }
-            set
-            {
-
-                if (value.ItsClub == null)
-                {
-                    throw new Exception(string.Format("Coach is not assigned to the club"));
-
-                }
-                if (value.ItsClub != ItsClub && value.ItsClub != null)
-                {
-                    throw new Exception("Coach and swimmer are not in the same club");
-
-                }
                 if (ItsClub == value.ItsClub && !value.Swimmers.Contains(this))
                 {
-
                     itsCoach = value;
-                    value.AddSwimmer(this);
+                    itsCoach.AddSwimmer(this);
                 }
-
-
+                else if (value.ItsClub != ItsClub && value.ItsClub != null)
+                {
+                    throw new Exception("Coach and swimmer are not in the same club");
+                }
+                else
+                {
+                    throw new Exception("Coach is not assigned to the club");
+                }
             }
         }
 
